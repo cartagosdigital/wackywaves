@@ -802,27 +802,41 @@ textarea.form-input{resize:vertical;min-height:110px}
 // ── HERO SLIDER ──
 const slides = document.querySelectorAll('.hero-slide');
 const bars = document.querySelectorAll('.hero-bar');
-let current = 0, timer = null, pauseTimer = null, touchStartX = 0;
+let current = 0, timer = null, slowdownTimeout = null, slowdownRaf = null, touchStartX = 0;
 
-const SLIDE_DURATION = 9000;  // total slide time (ms)
-const VIDEO_PLAY_DURATION = 6000;  // play for 6s, then freeze on last frame
+const SLIDE_DURATION = 9000;
+const NORMAL_DURATION = 6000;   // velocidade normal durante 6s
+const SLOWDOWN_DURATION = 3000; // desacelera nos últimos 3s
 
-function startVideoPause(vid) {
-  if (pauseTimer) clearTimeout(pauseTimer);
-  pauseTimer = setTimeout(() => { if (vid) vid.pause(); }, VIDEO_PLAY_DURATION);
+function startSlowdown(vid) {
+  slowdownTimeout = setTimeout(() => {
+    const t0 = performance.now();
+    function step(now) {
+      const t = Math.min((now - t0) / SLOWDOWN_DURATION, 1);
+      // linear: de 1.0 até 0.08 (quase parado)
+      vid.playbackRate = 1.0 - 0.92 * t;
+      if (t < 1) slowdownRaf = requestAnimationFrame(step);
+    }
+    slowdownRaf = requestAnimationFrame(step);
+  }, NORMAL_DURATION);
+}
+
+function cancelSlowdown() {
+  if (slowdownTimeout) { clearTimeout(slowdownTimeout); slowdownTimeout = null; }
+  if (slowdownRaf) { cancelAnimationFrame(slowdownRaf); slowdownRaf = null; }
 }
 
 function goTo(idx) {
+  cancelSlowdown();
+
   slides[current].classList.remove('active');
   bars[current].classList.remove('active');
   bars[current].querySelector('.hero-bar-fill').style.animation = 'none';
   bars[current].querySelector('.hero-bar-fill').offsetHeight;
   bars[current].querySelector('.hero-bar-fill').style.animation = '';
 
-  // stop old video and clear pending pause
-  if (pauseTimer) { clearTimeout(pauseTimer); pauseTimer = null; }
   const oldVid = slides[current].querySelector('.hero-video');
-  if (oldVid) { oldVid.pause(); oldVid.currentTime = 0; }
+  if (oldVid) { oldVid.pause(); oldVid.currentTime = 0; oldVid.playbackRate = 1.0; }
 
   current = (idx + slides.length) % slides.length;
   slides[current].classList.add('active');
@@ -832,9 +846,8 @@ function goTo(idx) {
   fill.offsetHeight;
   fill.style.animation = 'pfill 9s linear forwards';
 
-  // play new video, then freeze at 6s
   const newVid = slides[current].querySelector('.hero-video');
-  if (newVid) { newVid.play().catch(()=>{}); startVideoPause(newVid); }
+  if (newVid) { newVid.playbackRate = 1.0; newVid.play().catch(()=>{}); startSlowdown(newVid); }
 
   clearInterval(timer);
   timer = setInterval(() => goTo(current + 1), SLIDE_DURATION);
@@ -852,10 +865,10 @@ heroEl.addEventListener('touchend', e => {
   if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
 });
 
-// init — play first video and schedule its pause
+// init
 timer = setInterval(() => goTo(current + 1), SLIDE_DURATION);
 const firstVid = slides[0].querySelector('.hero-video');
-if (firstVid) { firstVid.play().catch(()=>{}); startVideoPause(firstVid); }
+if (firstVid) { firstVid.playbackRate = 1.0; firstVid.play().catch(()=>{}); startSlowdown(firstVid); }
 
 // ── STICKY NAV ──
 const nav = document.getElementById('nav');

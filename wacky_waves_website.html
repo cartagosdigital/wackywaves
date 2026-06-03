@@ -95,184 +95,227 @@ button{border:none;cursor:pointer;font-family:inherit}
 .hero-prev{left:2%}.hero-next{right:2%}
 @keyframes fadein{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── IMPACT ── */
-#impact{padding:5rem 5%;background:var(--white)}
-.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1100px;margin:0 auto;text-align:center}
-.impact-num{font-family:var(--ff-d);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--black);line-height:1;letter-spacing:-.03em}
-.impact-num .accent{color:var(--cyan)}
-.impact-lbl{font-family:var(--ff-d);font-size:.8rem;font-weight:700;color:rgba(0,0,0,.45);margin-top:.5rem;text-transform:uppercase;letter-spacing:.1em}
-@media(max-width:680px){.impact-grid{grid-template-columns:repeat(2,1fr)}}
+/* ── SHARED LAYOUT ── */
+.sec{padding:6rem 8%}
+.sec-inner{max-width:1160px;margin:0 auto}
+.sec-tag{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:1.5rem}
+.sec-tag--white{color:var(--cyan)}
+.sec-h{font-family:var(--ff-d);font-weight:900;letter-spacing:-.03em;line-height:1.05}
+.sec-h--xl{font-size:clamp(2.2rem,4.5vw,4rem)}
+.sec-h--lg{font-size:clamp(1.8rem,3.5vw,3rem)}
+.sec-h--md{font-size:clamp(1.4rem,2.5vw,2.2rem)}
+.sec-body{font-size:1rem;line-height:1.85;color:rgba(0,0,0,.62)}
+.sec-body--white{color:rgba(255,255,255,.6)}
+.hr{height:1px;background:rgba(0,0,0,.08);border:none;margin:0}
+.hr--white{background:rgba(255,255,255,.1)}
+
+/* Image placeholder */
+.img-ph{position:relative;overflow:hidden;background:#E6EAE6}
+.img-ph::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.025) 0 1px,transparent 0 50%) 0/24px 24px}
+.img-ph-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem}
+.img-ph-icon{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center}
+.img-ph-icon svg{width:18px;height:18px;stroke:rgba(0,0,0,.28);fill:none;stroke-width:1.5;stroke-linecap:round}
+.img-ph-label{font-family:var(--ff-d);font-size:.62rem;font-weight:700;color:rgba(0,0,0,.28);letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:0 1.5rem;line-height:1.7}
+
+/* Buttons */
+.btn-fill{font-family:var(--ff-d);font-weight:700;font-size:.88rem;padding:13px 28px;border-radius:3px;background:var(--cyan);color:var(--black);border:none;cursor:pointer;transition:all .2s;display:inline-block;letter-spacing:.01em}
+.btn-fill:hover{background:#00d4ff;transform:translateY(-1px)}
+.btn-border{font-family:var(--ff-d);font-weight:700;font-size:.88rem;padding:12px 28px;border-radius:3px;background:transparent;color:var(--black);border:1.5px solid rgba(0,0,0,.18);cursor:pointer;transition:all .2s;display:inline-block}
+.btn-border:hover{border-color:var(--black)}
+.btn-border--white{color:var(--white);border-color:rgba(255,255,255,.28)}
+.btn-border--white:hover{border-color:var(--white)}
+.link-arr{font-family:var(--ff-d);font-size:.85rem;font-weight:700;color:var(--cyan);display:inline-flex;align-items:center;gap:7px;transition:gap .2s}
+.link-arr:hover{gap:13px}
+.cta-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-top:2.5rem}
+
+/* Badge/tag pill */
+.pill{font-family:var(--ff-d);font-size:.65rem;font-weight:700;padding:4px 12px;border-radius:2px;background:rgba(26,190,255,.08);border:1px solid rgba(26,190,255,.22);color:var(--cyan);letter-spacing:.06em;text-transform:uppercase}
+.pill--dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:rgba(255,255,255,.55)}
+.pills-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+
+/* ── IMPACT STATS ── */
+#impact{background:var(--white);border-top:1px solid rgba(0,0,0,.07);border-bottom:1px solid rgba(0,0,0,.07)}
+.impact-bar{max-width:1160px;margin:0 auto;padding:4.5rem 8%;display:grid;grid-template-columns:repeat(4,1fr)}
+.impact-item{padding:0 2.5rem;border-right:1px solid rgba(0,0,0,.08)}
+.impact-item:first-child{padding-left:0}
+.impact-item:last-child{border-right:none}
+.impact-val{font-family:var(--ff-d);font-weight:900;font-size:clamp(2.4rem,4.5vw,3.8rem);color:var(--black);line-height:1;letter-spacing:-.04em}
+.impact-val .c{color:var(--cyan)}
+.impact-lbl{font-family:var(--ff-d);font-size:.72rem;font-weight:600;color:rgba(0,0,0,.4);margin-top:.6rem;line-height:1.5}
+@media(max-width:700px){.impact-bar{grid-template-columns:repeat(2,1fr);gap:2rem}.impact-item{border-right:none;padding:0}}
 
 /* ── ABOUT ── */
-#sobre{padding:5rem 5%;background:var(--bg-light)}
-.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1100px;margin:0 auto}
-.about-visual{border-radius:24px;background:var(--bg-dark);height:380px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.about-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(26,190,255,.18) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(118,224,147,.14) 0%,transparent 60%)}
-.about-visual-inner{text-align:center;position:relative;z-index:1}
-.about-visual-icon{font-size:6rem}
-.about-visual-tag{font-family:var(--ff-d);font-size:.7rem;font-weight:800;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase;margin-top:1rem}
-.about-text{display:flex;flex-direction:column;gap:1.25rem}
-.about-text h2{font-family:var(--ff-d);font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;letter-spacing:-.02em}
-.about-text p{font-size:.98rem;line-height:1.78;color:rgba(0,0,0,.68)}
-@media(max-width:800px){.about-inner{grid-template-columns:1fr}.about-visual{height:240px}}
+#sobre{background:var(--white)}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:100%;align-items:stretch}
+.sobre-text{padding:6rem 6rem 6rem 8%}
+.sobre-text .sec-h--lg{margin:1rem 0 2rem}
+.sobre-text .sec-body{margin-bottom:1.5rem}
+.sobre-quote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;line-height:1.5;color:var(--black);border-left:3px solid var(--cyan);padding-left:1.75rem;margin:2rem 0}
+.sobre-img{min-height:520px;flex:1}
+@media(max-width:900px){.sobre-grid{grid-template-columns:1fr}.sobre-text{padding:4rem 8%}.sobre-img{min-height:320px}}
 
 /* ── TECHNOLOGY ── */
-#tecnologia{padding:5rem 5%;background:var(--bg-dark)}
-.section-hdr{text-align:center;margin-bottom:3rem}
-.section-hdr h2{font-family:var(--ff-d);font-weight:900;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.1;letter-spacing:-.02em;margin-top:.5rem}
-.section-hdr.light h2{color:var(--white)}
-.section-hdr.light .eyebrow{color:var(--cyan)}
-.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
-.tech-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:2.5rem 2rem;backdrop-filter:blur(12px);transition:border-color .3s,transform .3s}
-.tech-card:hover{border-color:rgba(26,190,255,.3);transform:translateY(-4px)}
-.tech-icon{font-size:2.4rem;margin-bottom:1.25rem}
-.tech-card h3{font-family:var(--ff-d);font-weight:800;font-size:1.1rem;color:var(--white);margin-bottom:.75rem}
-.tech-card p{font-size:.9rem;color:rgba(255,255,255,.58);line-height:1.7}
-.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:3rem;justify-content:center;max-width:1100px;margin-left:auto;margin-right:auto}
-.badge{font-family:var(--ff-d);font-size:.7rem;font-weight:700;padding:5px 14px;border-radius:20px;background:rgba(26,190,255,.1);border:1px solid rgba(26,190,255,.28);color:var(--cyan);letter-spacing:.04em}
-@media(max-width:800px){.tech-grid{grid-template-columns:1fr}}
+#tecnologia{background:var(--bg-dark)}
+.tech-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.tech-header .sec-h--lg{color:var(--white);margin-top:1rem}
+.tech-header p{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.82}
+.tech-list{border-top:1px solid rgba(255,255,255,.1)}
+.tech-row{display:grid;grid-template-columns:80px 1fr 1fr;gap:2rem;align-items:start;padding:2.5rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.tech-num{font-family:var(--ff-d);font-size:2.5rem;font-weight:900;color:rgba(255,255,255,.1);line-height:1}
+.tech-title{font-family:var(--ff-d);font-weight:800;font-size:1.05rem;color:var(--white);margin-bottom:.6rem}
+.tech-body{font-size:.9rem;color:rgba(255,255,255,.52);line-height:1.75}
+.tech-specs{font-size:.82rem;color:rgba(26,190,255,.7);font-family:var(--ff-d);font-weight:600;line-height:1.8}
+@media(max-width:800px){.tech-header{grid-template-columns:1fr}.tech-row{grid-template-columns:50px 1fr}.tech-specs{display:none}}
 
 /* ── PRODUCTS ── */
-#produtos{padding:5rem 5%;background:var(--bg-light)}
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
-.product-card{background:var(--white);border-radius:20px;padding:2.5rem 2rem;border:1.5px solid rgba(0,0,0,.06);transition:all .3s;position:relative}
-.product-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(26,190,255,.1);border-color:rgba(26,190,255,.3)}
-.prod-icon{font-size:3rem;margin-bottom:1.25rem}
-.prod-seg{font-family:var(--ff-d);font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);background:rgba(26,190,255,.1);padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:.75rem}
-.product-card h3{font-family:var(--ff-d);font-weight:800;font-size:1.15rem;margin-bottom:.6rem}
-.product-card p{font-size:.9rem;color:rgba(0,0,0,.6);line-height:1.7;margin-bottom:1rem}
-.product-items{font-size:.83rem;color:rgba(0,0,0,.48);margin-bottom:1.4rem;line-height:1.85}
-.btn-link{font-family:var(--ff-d);font-size:.85rem;font-weight:700;color:var(--cyan);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
-.btn-link:hover{gap:10px}
-@media(max-width:800px){.products-grid{grid-template-columns:1fr}}
+#produtos{background:var(--bg-light)}
+.prod-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;gap:2rem}
+.prod-header .sec-h--lg{margin-top:1rem}
+.prod-header p{font-size:.95rem;color:rgba(0,0,0,.55);max-width:340px;line-height:1.75;flex-shrink:0}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.08)}
+.prod-card{background:var(--white);padding:0 0 2rem}
+.prod-img{aspect-ratio:4/3;width:100%}
+.prod-body{padding:1.75rem 2rem 0}
+.prod-cat{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem;display:block}
+.prod-title{font-family:var(--ff-d);font-weight:900;font-size:1.1rem;line-height:1.2;margin-bottom:.75rem}
+.prod-desc{font-size:.88rem;color:rgba(0,0,0,.58);line-height:1.75;margin-bottom:1.25rem}
+.prod-items{font-size:.8rem;color:rgba(0,0,0,.4);line-height:2;margin-bottom:1.5rem;font-family:var(--ff-d);font-weight:500}
+@media(max-width:800px){.prod-grid{grid-template-columns:1fr}.prod-header{flex-direction:column;align-items:flex-start}}
 
 /* ── SEGMENT SECTIONS ── */
 .seg-section{background:var(--white)}
-.seg-hero{position:relative;height:58vh;min-height:380px;overflow:hidden;background:var(--bg-dark);display:flex;align-items:center}
+.seg-hero{position:relative;height:58vh;min-height:380px;overflow:hidden;background:var(--bg-dark);display:flex;align-items:flex-end}
 .seg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .seg-blob{position:absolute;inset:0;overflow:hidden}
 .seg-blob::before{content:'';position:absolute;width:45vw;height:45vw;border-radius:50%;filter:blur(80px);opacity:.22;animation:blobmove 10s ease-in-out infinite}
 #segmento-construcao .seg-blob::before{background:radial-gradient(var(--green),transparent 70%);top:-15%;right:10%}
 #segmento-desporto .seg-blob::before{background:radial-gradient(var(--cyan),transparent 70%);bottom:-15%;left:15%;animation-delay:-2s}
 #segmento-outros .seg-blob::before{background:radial-gradient(var(--green2),transparent 70%);top:10%;right:5%;animation-delay:-4s}
-.seg-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,26,12,.8) 0%,rgba(7,26,12,.48) 50%,rgba(7,26,12,.85) 100%);z-index:1}
-.seg-hero-txt{position:relative;z-index:2;padding:0 8%;max-width:900px}
-.seg-hero-txt h2{font-family:var(--ff-d);font-weight:900;font-size:clamp(1.8rem,4vw,3.5rem);color:var(--white);line-height:1.1;letter-spacing:-.02em;margin-top:.75rem}
-.seg-body{padding:4rem 8% 5rem;max-width:1200px;margin:0 auto}
-.seg-two{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.seg-body h3{font-family:var(--ff-d);font-weight:800;font-size:1.35rem;margin-bottom:1rem}
-.seg-body p{font-size:.95rem;line-height:1.78;color:rgba(0,0,0,.65)}
-.spec-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1rem}
-.spec-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.92rem;line-height:1.55;color:rgba(0,0,0,.68)}
-.spec-item .si{color:var(--cyan);font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
-.metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.metric-box{background:var(--bg-light);border-radius:16px;padding:1.5rem;text-align:center}
-.metric-big{font-family:var(--ff-d);font-weight:900;font-size:2rem;color:var(--black);letter-spacing:-.02em;line-height:1}
-.metric-big .accent{color:var(--cyan)}
-.metric-desc{font-size:.75rem;color:rgba(0,0,0,.45);margin-top:.35rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
-.seg-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem}
-.seg-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
-.step-box{background:var(--bg-light);border-radius:16px;padding:1.75rem 1.5rem}
-.step-num{font-family:var(--ff-d);font-size:.65rem;font-weight:800;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem}
-.step-box h4{font-family:var(--ff-d);font-weight:800;font-size:.98rem;margin-bottom:.5rem}
-.step-box p{font-size:.87rem;color:rgba(0,0,0,.58);line-height:1.65}
-.seg-quote{background:var(--bg-dark);border-left:3px solid var(--cyan);padding:1.75rem 2rem;border-radius:0 14px 14px 0;margin:2.25rem 0}
-.seg-quote p{font-family:var(--ff-d);font-style:italic;font-size:1.05rem;color:rgba(255,255,255,.82);line-height:1.7}
-.seg-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem}
-.btn-dark{font-family:var(--ff-d);font-weight:700;font-size:.88rem;padding:12px 24px;border-radius:28px;background:var(--bg-dark);color:var(--white);border:1.5px solid rgba(255,255,255,.15);cursor:pointer;transition:all .2s;display:inline-block}
-.btn-dark:hover{border-color:var(--cyan);color:var(--cyan)}
-.seg-products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem}
-.seg-prod-item{background:var(--bg-light);border-radius:14px;padding:1.5rem;text-align:center}
-.seg-prod-icon{font-size:2.5rem;margin-bottom:.75rem}
-.seg-prod-item h4{font-family:var(--ff-d);font-weight:800;font-size:.95rem;margin-bottom:.4rem}
-.seg-prod-item p{font-size:.83rem;color:rgba(0,0,0,.55);line-height:1.6}
-.bullets-list{display:flex;flex-direction:column;gap:.85rem;margin-top:1rem}
-.bullet-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.92rem;line-height:1.55;color:rgba(0,0,0,.68)}
-.bullet-star{color:var(--cyan);font-size:1rem;flex-shrink:0}
-@media(max-width:800px){.seg-two{grid-template-columns:1fr}.seg-steps{grid-template-columns:1fr}.seg-products-grid{grid-template-columns:1fr}}
+.seg-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,12,.92) 0%,rgba(7,26,12,.4) 60%,rgba(7,26,12,.15) 100%);z-index:1}
+.seg-hero-txt{position:relative;z-index:2;padding:3rem 8%;width:100%}
+.seg-hero-txt h2{font-family:var(--ff-d);font-weight:900;font-size:clamp(1.8rem,4vw,3.5rem);color:var(--white);line-height:1.1;letter-spacing:-.02em;max-width:700px;margin-top:.75rem}
+.seg-layout{display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+.seg-layout--3{grid-template-columns:1fr 1fr 1fr}
+.seg-col{padding:4rem 5%}
+.seg-col:first-child{padding-left:8%;border-right:1px solid rgba(0,0,0,.08)}
+.seg-col:last-child{padding-right:8%}
+.seg-col h3{font-family:var(--ff-d);font-weight:800;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.35);margin-bottom:2rem}
+.seg-col h3.white{color:rgba(255,255,255,.35)}
+.seg-spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.seg-spec-row:last-of-type{border-bottom:none}
+.seg-spec-label{font-size:.9rem;color:rgba(0,0,0,.65)}
+.seg-spec-val{font-family:var(--ff-d);font-weight:800;font-size:.9rem;color:var(--black)}
+.seg-spec-val .c{color:var(--cyan)}
+.seg-metric-big{font-family:var(--ff-d);font-weight:900;font-size:3.5rem;color:var(--black);letter-spacing:-.04em;line-height:1}
+.seg-metric-big .c{color:var(--cyan)}
+.seg-metric-lbl{font-family:var(--ff-d);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(0,0,0,.4);margin-top:.4rem}
+.seg-metrics{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:.5rem}
+.seg-step-num{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:.6rem;display:block}
+.seg-step-title{font-family:var(--ff-d);font-weight:800;font-size:.95rem;margin-bottom:.4rem}
+.seg-step-body{font-size:.88rem;color:rgba(0,0,0,.55);line-height:1.72}
+.seg-steps-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.07)}
+.seg-steps-list .step-item{padding:1.5rem 0;border-bottom:1px solid rgba(0,0,0,.07)}
+.seg-quote-block{background:var(--bg-dark);padding:4rem 8%}
+.seg-quote-block blockquote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.6rem);font-weight:700;color:var(--white);line-height:1.5;max-width:720px;border-left:3px solid var(--cyan);padding-left:2rem}
+.seg-img-full{width:100%;aspect-ratio:21/9;min-height:320px}
+.seg-products-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.08);margin:0}
+.seg-prod-card{background:var(--white);padding:2.5rem 2rem}
+.seg-prod-tag{font-family:var(--ff-d);font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:.6rem;display:block}
+.seg-prod-title{font-family:var(--ff-d);font-weight:800;font-size:.98rem;margin-bottom:.4rem}
+.seg-prod-body{font-size:.85rem;color:rgba(0,0,0,.55);line-height:1.7}
+.seg-ctas{padding:3rem 8%;display:flex;gap:1rem;flex-wrap:wrap;border-top:1px solid rgba(0,0,0,.07)}
+@media(max-width:800px){.seg-layout,.seg-layout--3{grid-template-columns:1fr}.seg-col{padding:3rem 8%!important}.seg-col:first-child{border-right:none;border-bottom:1px solid rgba(0,0,0,.08)}.seg-products-row{grid-template-columns:1fr}}
 
-/* ── VISION ── */
-#visao{padding:5.5rem 5%;background:var(--bg-dark);position:relative;overflow:hidden}
-#visao::before{content:'';position:absolute;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(var(--cyan),transparent 70%);opacity:.05;top:-20%;left:-10%}
-.visao-inner{max-width:860px;margin:0 auto;position:relative;z-index:1}
-.visao-block{margin-bottom:3rem}
-.visao-lbl{font-family:var(--ff-d);font-size:.65rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem;display:block}
-.visao-quote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:700;color:var(--white);line-height:1.45;letter-spacing:-.01em;border-left:3px solid var(--cyan);padding-left:2rem;margin-top:.75rem}
-.missao-txt{font-size:1rem;color:rgba(255,255,255,.68);line-height:1.82;margin-top:.75rem}
+/* ── VISION & MISSION ── */
+#visao{background:var(--bg-dark)}
+.visao-inner{max-width:860px;margin:0 auto}
+.visao-block{padding:4rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.visao-block:last-child{border-bottom:none}
+.visao-lbl{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:1.5rem}
+.visao-quote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1.2rem,2.5vw,1.85rem);font-weight:700;color:var(--white);line-height:1.45;letter-spacing:-.01em}
+.missao-txt{font-size:1rem;color:rgba(255,255,255,.6);line-height:1.85}
 
 /* ── VALUES ── */
-#valores{padding:5rem 5%;background:var(--bg-light)}
-.valores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;max-width:1100px;margin:0 auto}
-.valor-card{background:var(--white);border-radius:16px;padding:1.75rem 1.5rem;border:1.5px solid rgba(0,0,0,.05);transition:all .3s}
-.valor-card:hover{transform:translateY(-4px);border-color:rgba(26,190,255,.25);box-shadow:0 12px 32px rgba(26,190,255,.08)}
-.valor-icon{font-size:2rem;margin-bottom:.75rem}
-.valor-card h3{font-family:var(--ff-d);font-weight:800;font-size:.92rem;margin-bottom:.4rem}
-.valor-card p{font-size:.82rem;color:rgba(0,0,0,.55);line-height:1.65}
-@media(max-width:900px){.valores-grid{grid-template-columns:repeat(2,1fr)}}
+#valores{background:var(--bg-light)}
+.valores-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem}
+.valores-header .sec-h--lg{margin-top:1rem}
+.valores-header p{font-size:.95rem;color:rgba(0,0,0,.55);line-height:1.82}
+.valores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.08)}
+.valor-item{background:var(--bg-light);padding:2.5rem 2rem}
+.valor-num{font-family:var(--ff-d);font-size:1.8rem;font-weight:900;color:rgba(0,0,0,.07);line-height:1;margin-bottom:1.25rem}
+.valor-title{font-family:var(--ff-d);font-weight:800;font-size:.92rem;margin-bottom:.5rem;color:var(--black)}
+.valor-body{font-size:.83rem;color:rgba(0,0,0,.52);line-height:1.7}
+@media(max-width:900px){.valores-header{grid-template-columns:1fr}.valores-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.valores-grid{grid-template-columns:1fr}}
 
 /* ── CERTIFICATIONS ── */
-#certificacoes{padding:4.5rem 5%;background:var(--white)}
-.certs-inner{max-width:860px;margin:0 auto}
-.certs-table{width:100%;border-collapse:collapse;margin-top:2rem}
-.certs-table th{font-family:var(--ff-d);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.38);padding:.75rem 1rem;text-align:left;border-bottom:1px solid rgba(0,0,0,.07)}
-.certs-table td{padding:.95rem 1rem;border-bottom:1px solid rgba(0,0,0,.05);font-size:.92rem}
+#certificacoes{background:var(--white)}
+.certs-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.certs-layout .sec-h--md{margin:1rem 0 .75rem}
+.certs-layout p{font-size:.95rem;color:rgba(0,0,0,.58);line-height:1.8;margin-bottom:2rem}
+.certs-table{width:100%;border-collapse:collapse}
+.certs-table th{font-family:var(--ff-d);font-size:.65rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(0,0,0,.35);padding:.75rem 0;text-align:left;border-bottom:2px solid rgba(0,0,0,.1)}
+.certs-table td{padding:.9rem 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:.9rem;color:rgba(0,0,0,.72)}
 .certs-table tr:last-child td{border-bottom:none}
-.certs-table tr:hover td{background:var(--bg-light)}
-.cert-ok{color:#22c55e;font-weight:700;font-size:.85rem}
+.cert-ok{color:#16a34a;font-family:var(--ff-d);font-weight:700;font-size:.8rem;letter-spacing:.04em}
+@media(max-width:800px){.certs-layout{grid-template-columns:1fr;gap:3rem}}
 
 /* ── SOCIAL RESP ── */
-#responsabilidade{padding:5rem 5%;background:var(--bg-dark)}
-.resp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:1100px;margin:0 auto 2.5rem}
-.resp-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2rem 1.5rem}
-.resp-icon{font-size:2rem;margin-bottom:.85rem}
-.resp-card h3{font-family:var(--ff-d);font-weight:800;font-size:.92rem;color:var(--white);margin-bottom:.4rem}
-.resp-card p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.65}
-.resp-quote{text-align:center;font-family:var(--ff-d);font-style:italic;font-size:1.15rem;color:rgba(255,255,255,.75);padding:2rem 5%;border-top:1px solid rgba(255,255,255,.08);max-width:700px;margin:0 auto}
-@media(max-width:900px){.resp-grid{grid-template-columns:repeat(2,1fr)}}
+#responsabilidade{background:var(--bg-dark)}
+.resp-layout{display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start}
+.resp-layout .sec-h--lg{color:var(--white);margin:1rem 0 1.5rem}
+.resp-layout > div:first-child p{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.82}
+.resp-items{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.1)}
+.resp-item{padding:2rem 2rem 2rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.resp-item:nth-child(odd){border-right:1px solid rgba(255,255,255,.08);padding-right:2rem}
+.resp-item:nth-child(even){padding-left:2rem}
+.resp-item-num{font-family:var(--ff-d);font-size:1.6rem;font-weight:900;color:rgba(255,255,255,.07);line-height:1;margin-bottom:1rem}
+.resp-item-title{font-family:var(--ff-d);font-weight:800;font-size:.9rem;color:var(--white);margin-bottom:.4rem}
+.resp-item-body{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.72}
+.resp-quote-strip{border-top:1px solid rgba(255,255,255,.08);margin-top:0;padding:3rem 0 0}
+.resp-quote-strip blockquote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1rem,1.8vw,1.3rem);color:rgba(255,255,255,.7);line-height:1.65}
+@media(max-width:900px){.resp-layout{grid-template-columns:1fr;gap:3rem}.resp-items{grid-template-columns:1fr}.resp-item:nth-child(odd){border-right:none;padding-right:0}.resp-item:nth-child(even){padding-left:0}}
 
 /* ── CONTACT ── */
-#contacto{padding:5.5rem 5%;background:var(--bg-dark);position:relative;overflow:hidden}
-#contacto::before{content:'';position:absolute;width:70vw;height:70vw;border-radius:50%;background:radial-gradient(var(--cyan),transparent 65%);opacity:.06;top:-30%;right:-20%}
-.contact-inner{max-width:680px;margin:0 auto;position:relative;z-index:1;text-align:center}
-.contact-inner h2{font-family:var(--ff-d);font-weight:900;font-size:clamp(1.8rem,3.8vw,3rem);color:var(--white);line-height:1.1;letter-spacing:-.02em;margin:.75rem 0}
-.contact-sub{font-size:1rem;color:rgba(255,255,255,.55);margin-bottom:2.5rem}
-.contact-form{display:flex;flex-direction:column;gap:1rem;text-align:left}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+#contacto{background:var(--bg-dark)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.contact-left .sec-h--lg{color:var(--white);margin:1rem 0 1.5rem}
+.contact-left p{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.82;margin-bottom:2rem}
+.contact-detail{display:flex;flex-direction:column;gap:.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
+.contact-detail span{font-size:.85rem;color:rgba(255,255,255,.4)}
+.contact-detail a{color:var(--cyan)}
+.contact-form{display:flex;flex-direction:column;gap:.875rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.875rem}
 .form-group{display:flex;flex-direction:column;gap:.35rem}
-.form-label{font-family:var(--ff-d);font-size:.75rem;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.05em}
-.form-input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:10px;padding:12px 16px;font-family:var(--ff-b);font-size:.92rem;color:var(--white);outline:none;transition:border-color .2s;width:100%}
-.form-input::placeholder{color:rgba(255,255,255,.28)}
-.form-input:focus{border-color:var(--cyan)}
+.form-label{font-family:var(--ff-d);font-size:.68rem;font-weight:800;color:rgba(255,255,255,.38);letter-spacing:.1em;text-transform:uppercase}
+.form-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:11px 14px;font-family:var(--ff-b);font-size:.9rem;color:var(--white);outline:none;transition:border-color .2s;width:100%}
+.form-input::placeholder{color:rgba(255,255,255,.22)}
+.form-input:focus{border-color:rgba(26,190,255,.5);background:rgba(255,255,255,.07)}
 select.form-input{cursor:pointer}
 select.form-input option{background:var(--bg-dark)}
-textarea.form-input{resize:vertical;min-height:110px}
-.form-submit{margin-top:.5rem;text-align:center}
-.btn-submit{font-family:var(--ff-d);font-weight:800;font-size:1rem;padding:14px 44px;border-radius:32px;background:var(--cyan);color:var(--black);border:none;cursor:pointer;transition:all .2s}
-.btn-submit:hover{background:#00d4ff;transform:translateY(-2px);box-shadow:0 8px 32px rgba(26,190,255,.35)}
-.contact-meta{display:flex;justify-content:center;gap:2rem;margin-top:2.5rem;flex-wrap:wrap}
-.contact-meta span{font-size:.85rem;color:rgba(255,255,255,.4)}
-.contact-meta a{color:var(--cyan)}
-@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+textarea.form-input{resize:vertical;min-height:100px}
+.btn-submit{font-family:var(--ff-d);font-weight:800;font-size:.9rem;padding:13px 36px;border-radius:3px;background:var(--cyan);color:var(--black);border:none;cursor:pointer;transition:all .2s;width:100%;letter-spacing:.02em}
+.btn-submit:hover{background:#00d4ff}
+@media(max-width:800px){.contact-layout{grid-template-columns:1fr;gap:3.5rem}.form-row{grid-template-columns:1fr}}
 
 /* ── FOOTER ── */
-#footer{padding:3.5rem 5%;background:var(--black);border-top:1px solid rgba(255,255,255,.06)}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+#footer{padding:4rem 8%;background:var(--black);border-top:1px solid rgba(255,255,255,.07)}
+.footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem}
 .footer-brand{display:flex;flex-direction:column;gap:.75rem}
-.footer-tagline{font-size:.87rem;color:rgba(255,255,255,.38);line-height:1.68;max-width:270px;margin-top:.25rem}
-.footer-socials{display:flex;gap:.6rem;margin-top:.25rem}
-.soc{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:rgba(255,255,255,.45);transition:all .2s;text-decoration:none}
-.soc:hover{background:rgba(26,190,255,.14);border-color:var(--cyan);color:var(--cyan)}
-.footer-col h4{font-family:var(--ff-d);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
-.footer-col a{display:block;font-size:.87rem;color:rgba(255,255,255,.5);margin-bottom:.5rem;transition:color .2s}
+.footer-tagline{font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.72;max-width:260px;margin-top:.25rem}
+.footer-socials{display:flex;gap:.5rem;margin-top:.25rem}
+.soc{width:34px;height:34px;border-radius:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;font-size:.82rem;color:rgba(255,255,255,.4);transition:all .2s;text-decoration:none}
+.soc:hover{background:rgba(26,190,255,.12);border-color:rgba(26,190,255,.4);color:var(--cyan)}
+.footer-col h4{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.25rem}
+.footer-col a{display:block;font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:.5rem;transition:color .2s}
 .footer-col a:hover{color:var(--white)}
-.footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.footer-legal{font-size:.75rem;color:rgba(255,255,255,.28);line-height:1.7;max-width:580px}
-.footer-copy{font-size:.75rem;color:rgba(255,255,255,.28);white-space:nowrap}
-@media(max-width:680px){.footer-inner{grid-template-columns:1fr;gap:2rem}.footer-bottom{flex-direction:column}}
+.footer-bottom{max-width:1160px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.footer-legal{font-size:.72rem;color:rgba(255,255,255,.24);line-height:1.75;max-width:560px}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.24);white-space:nowrap}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr;gap:2.5rem}.footer-bottom{flex-direction:column}}
 
-/* ── REVEAL ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
 </style>
@@ -381,112 +424,156 @@ textarea.form-input{resize:vertical;min-height:110px}
   <button class="hero-arrow hero-next" id="heroNext">&#8250;</button>
 </section>
 
+
 <!-- ══ IMPACT STATS ══ -->
 <section id="impact">
-  <div class="impact-grid">
-    <div class="reveal">
-      <div class="impact-num"><span class="accent counter" data-target="80" data-prefix="&gt;" data-suffix="%">&gt;0%</span></div>
-      <div class="impact-lbl" data-pt="Bio-based content verificável" data-en="Verifiable bio-based content">Bio-based content verificável</div>
+  <div class="impact-bar">
+    <div class="impact-item reveal">
+      <div class="impact-val"><span class="c">&gt;</span><span class="counter" data-target="80" data-suffix="%">0%</span></div>
+      <div class="impact-lbl" data-pt="Bio-based content verificável (EN 16785)" data-en="Verifiable bio-based content (EN 16785)">Bio-based content verificável (EN 16785)</div>
     </div>
-    <div class="reveal rd1">
-      <div class="impact-num"><span class="accent">-</span><span class="counter" data-target="40" data-suffix="%">0%</span></div>
+    <div class="impact-item reveal rd1">
+      <div class="impact-val"><span class="c">−</span><span class="counter" data-target="40" data-suffix="%">0%</span></div>
       <div class="impact-lbl" data-pt="CO₂ vs. equivalentes convencionais" data-en="CO₂ vs. conventional equivalents">CO₂ vs. equivalentes convencionais</div>
     </div>
-    <div class="reveal rd2">
-      <div class="impact-num"><span class="counter" data-target="90" data-suffix=" dias">0 dias</span></div>
-      <div class="impact-lbl" data-pt="Compostável industrialmente" data-en="Industrially compostable">Compostável industrialmente</div>
+    <div class="impact-item reveal rd2">
+      <div class="impact-val"><span class="counter" data-target="90" data-suffix="">0</span><span style="font-size:.45em;font-weight:700;opacity:.45;margin-left:4px">dias</span></div>
+      <div class="impact-lbl" data-pt="Compostável industrialmente (EN 13432)" data-en="Industrially compostable (EN 13432)">Compostável industrialmente (EN 13432)</div>
     </div>
-    <div class="reveal rd3">
-      <div class="impact-num"><span class="counter" data-target="3" data-suffix="">0</span></div>
-      <div class="impact-lbl" data-pt="Linhas de produto · 3 mercados" data-en="Product lines · 3 markets">Linhas de produto · 3 mercados</div>
+    <div class="impact-item reveal rd3">
+      <div class="impact-val"><span class="counter" data-target="3" data-suffix="">0</span></div>
+      <div class="impact-lbl" data-pt="Linhas de produto em mercados distintos" data-en="Product lines in distinct markets">Linhas de produto em mercados distintos</div>
     </div>
   </div>
 </section>
 
 <!-- ══ ABOUT ══ -->
-<section id="sobre">
-  <div class="about-inner">
-    <div class="about-visual reveal">
-      <div class="about-visual-inner">
-        <div class="about-visual-icon">🏄</div>
-        <div class="about-visual-tag" data-pt="Origem · Oceano Atlântico · Portugal" data-en="Origin · Atlantic Ocean · Portugal">Origem · Oceano Atlântico · Portugal</div>
+<section id="sobre" style="padding:0">
+  <div class="sobre-grid">
+    <div class="sobre-text reveal">
+      <span class="sec-tag" data-pt="A Nossa Origem" data-en="Our Origin">A Nossa Origem</span>
+      <h2 class="sec-h sec-h--lg" data-pt="Tudo começou no oceano." data-en="It all started in the ocean.">Tudo começou no oceano.</h2>
+      <p class="sec-body" data-pt="O ponto de partida foi o surf e um desafio concreto: desenvolver uma prancha completamente livre de materiais tóxicos e não biodegradáveis, sem comprometer desempenho nem durabilidade." data-en="The starting point was surfing and a concrete challenge: develop a board completely free of toxic and non-biodegradable materials, without compromising performance or durability.">O ponto de partida foi o surf e um desafio concreto: desenvolver uma prancha completamente livre de materiais tóxicos e não biodegradáveis, sem comprometer desempenho nem durabilidade.</p>
+      <blockquote class="sobre-quote" data-pt="Essa prancha bio tornou-se a prova de conceito de uma tecnologia mais ampla — e que hoje alimenta três linhas de produto em mercados distintos." data-en="That bio board became the proof of concept for a broader technology — which today powers three product lines across distinct markets.">Essa prancha bio tornou-se a prova de conceito de uma tecnologia mais ampla — e que hoje alimenta três linhas de produto em mercados distintos.</blockquote>
+      <div class="cta-row">
+        <a href="#produtos" class="btn-fill" data-pt="Ver as Linhas de Produto" data-en="See Product Lines">Ver as Linhas de Produto</a>
+        <a href="#contacto" class="btn-border" data-pt="Falar Connosco" data-en="Talk to Us">Falar Connosco</a>
       </div>
     </div>
-    <div class="about-text">
-      <span class="eyebrow" data-pt="A Nossa Origem" data-en="Our Origin">A Nossa Origem</span>
-      <h2 class="reveal" data-pt="Tudo começou no oceano." data-en="It all started in the ocean.">Tudo começou no oceano.</h2>
-      <p class="reveal rd1" data-pt="O ponto de partida foi o surf e um desafio concreto: desenvolver uma prancha de surf completamente livre de materiais tóxicos e não biodegradáveis, sem comprometer desempenho nem durabilidade." data-en="The starting point was surfing and a concrete challenge: develop a surfboard completely free of toxic and non-biodegradable materials, without compromising performance or durability.">O ponto de partida foi o surf e um desafio concreto: desenvolver uma prancha de surf completamente livre de materiais tóxicos e não biodegradáveis, sem comprometer desempenho nem durabilidade.</p>
-      <p class="reveal rd2" data-pt="Essa prancha bio tornou-se a prova de conceito de uma tecnologia mais ampla, assente em três inovações que desenvolvemos internamente — e que hoje alimentam três linhas de produto em mercados distintos." data-en="That bio board became the proof of concept for a broader technology, based on three innovations we developed internally — which today power three product lines across distinct markets.">Essa prancha bio tornou-se a prova de conceito de uma tecnologia mais ampla, assente em três inovações que desenvolvemos internamente — e que hoje alimentam três linhas de produto em mercados distintos.</p>
+    <div class="sobre-img img-ph reveal rd1">
+      <div class="img-ph-inner">
+        <div class="img-ph-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <span class="img-ph-label" data-pt="Fotografia — Laboratório ou Equipa" data-en="Photography — Lab or Team">Fotografia<br>Laboratório ou Equipa</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══ TECHNOLOGY ══ -->
-<section id="tecnologia">
-  <div style="max-width:1100px;margin:0 auto">
-    <div class="section-hdr light">
-      <span class="eyebrow" data-pt="A Nossa Tecnologia" data-en="Our Technology">A Nossa Tecnologia</span>
-      <h2 data-pt="Três dimensões de sustentabilidade real" data-en="Three dimensions of real sustainability">Três dimensões de sustentabilidade real</h2>
+<section id="tecnologia" class="sec">
+  <div class="sec-inner">
+    <div class="tech-header">
+      <div class="reveal">
+        <span class="sec-tag" data-pt="Inovação Proprietária" data-en="Proprietary Innovation">Inovação Proprietária</span>
+        <h2 class="sec-h sec-h--lg" style="color:var(--white)" data-pt="Três dimensões de sustentabilidade real" data-en="Three dimensions of real sustainability">Três dimensões de sustentabilidade real</h2>
+      </div>
+      <p class="reveal rd1" style="color:rgba(255,255,255,.52);font-size:.95rem;line-height:1.82" data-pt="A nossa tecnologia não é um compromisso entre desempenho e sustentabilidade. É a prova de que ambos coexistem — com dados, normas e certificações que o comprovam." data-en="Our technology is not a compromise between performance and sustainability. It's proof that both coexist — with data, standards and certifications to prove it.">A nossa tecnologia não é um compromisso entre desempenho e sustentabilidade. É a prova de que ambos coexistem — com dados, normas e certificações que o comprovam.</p>
     </div>
-    <div class="tech-grid">
-      <div class="tech-card reveal">
-        <div class="tech-icon">🌿</div>
-        <h3 data-pt="Origem Bio e Renovável" data-en="Bio and Renewable Origin">Origem Bio e Renovável</h3>
-        <p data-pt="Matérias-primas de recursos renováveis ou resíduos industriais/agrícolas valorizados. Zero dependência de derivados petroquímicos. EN 16785 · Bio-based &gt;80%" data-en="Raw materials from renewable resources or valorized industrial/agricultural waste. Zero dependence on petrochemical derivatives. EN 16785 · Bio-based >80%">Matérias-primas de recursos renováveis ou resíduos industriais/agrícolas valorizados. Zero dependência de derivados petroquímicos. EN 16785 · Bio-based &gt;80%</p>
+    <div class="tech-list">
+      <div class="tech-row reveal">
+        <div class="tech-num">01</div>
+        <div>
+          <div class="tech-title" data-pt="Origem Bio e Renovável" data-en="Bio and Renewable Origin">Origem Bio e Renovável</div>
+          <div class="tech-body" data-pt="Matérias-primas de recursos renováveis ou resíduos industriais e agrícolas valorizados. Zero dependência de derivados petroquímicos. Tecnologia proprietária — segredo de negócio em processo de registo de patente." data-en="Raw materials from renewable resources or valorized industrial and agricultural waste. Zero dependence on petrochemical derivatives. Proprietary technology — trade secret in patent registration process.">Matérias-primas de recursos renováveis ou resíduos industriais e agrícolas valorizados. Zero dependência de derivados petroquímicos. Tecnologia proprietária — segredo de negócio em processo de registo de patente.</div>
+        </div>
+        <div class="tech-specs" data-pt="EN 16785&#10;Bio-based &gt;80%&#10;Rastreável da origem" data-en="EN 16785&#10;Bio-based >80%&#10;Origin traceable">EN 16785<br>Bio-based &gt;80%<br>Rastreável da origem</div>
       </div>
-      <div class="tech-card reveal rd1">
-        <div class="tech-icon">⚗️</div>
-        <h3 data-pt="Processo de Baixo Impacto" data-en="Low-Impact Process">Processo de Baixo Impacto</h3>
-        <p data-pt="Sem solventes, sem VOC, sem formaldeído. Cura à temperatura ambiente (&lt;100°C). Resíduos mínimos com reaproveitamento máximo." data-en="No solvents, no VOC, no formaldehyde. Room-temperature curing (&lt;100°C). Minimal waste with maximum reuse.">Sem solventes, sem VOC, sem formaldeído. Cura à temperatura ambiente (&lt;100°C). Resíduos mínimos com reaproveitamento máximo.</p>
+      <div class="tech-row reveal rd1">
+        <div class="tech-num">02</div>
+        <div>
+          <div class="tech-title" data-pt="Processo de Baixo Impacto" data-en="Low-Impact Process">Processo de Baixo Impacto</div>
+          <div class="tech-body" data-pt="Formulação sem solventes, sem VOC, sem formaldeído. Cura à temperatura ambiente, inferior a 100 °C. Resíduos mínimos com reaproveitamento máximo em ciclo fechado." data-en="Formulation without solvents, VOC-free, formaldehyde-free. Room-temperature curing, below 100 °C. Minimal waste with maximum reuse in closed loop.">Formulação sem solventes, sem VOC, sem formaldeído. Cura à temperatura ambiente, inferior a 100 °C. Resíduos mínimos com reaproveitamento máximo em ciclo fechado.</div>
+        </div>
+        <div class="tech-specs" data-pt="Livre VOC&#10;Sem formaldeído&#10;Isento de solventes" data-en="VOC-Free&#10;Formaldehyde-Free&#10;Solvent-Free">Livre VOC<br>Sem formaldeído<br>Isento de solventes</div>
       </div>
-      <div class="tech-card reveal rd2">
-        <div class="tech-icon">♻️</div>
-        <h3 data-pt="Fim de Vida Circular" data-en="Circular End of Life">Fim de Vida Circular</h3>
-        <p data-pt="Compostável industrialmente (90 dias), 100% reciclável ou biodegradável. Retorno ao ciclo natural do carbono. EN 13432." data-en="Industrially compostable (90 days), 100% recyclable or biodegradable. Return to the natural carbon cycle. EN 13432.">Compostável industrialmente (90 dias), 100% reciclável ou biodegradável. Retorno ao ciclo natural do carbono. EN 13432.</p>
+      <div class="tech-row reveal rd2">
+        <div class="tech-num">03</div>
+        <div>
+          <div class="tech-title" data-pt="Fim de Vida Circular" data-en="Circular End of Life">Fim de Vida Circular</div>
+          <div class="tech-body" data-pt="Compostável industrialmente em 90 dias, 100% reciclável ou biodegradável conforme aplicação. Retorno ao ciclo natural do carbono, sem resíduo permanente." data-en="Industrially compostable in 90 days, 100% recyclable or biodegradable per application. Return to the natural carbon cycle, with no permanent residue.">Compostável industrialmente em 90 dias, 100% reciclável ou biodegradável conforme aplicação. Retorno ao ciclo natural do carbono, sem resíduo permanente.</div>
+        </div>
+        <div class="tech-specs" data-pt="EN 13432&#10;90 dias compostável&#10;EU Taxonomy" data-en="EN 13432&#10;90 days compostable&#10;EU Taxonomy">EN 13432<br>90 dias compostável<br>EU Taxonomy</div>
       </div>
     </div>
-    <div class="badges reveal" style="margin-top:3rem">
-      <span class="badge">EN 16785</span><span class="badge">EN 13432</span>
-      <span class="badge" data-pt="Livre VOC" data-en="VOC-Free">Livre VOC</span>
-      <span class="badge" data-pt="Sem Formaldeído" data-en="Formaldehyde-Free">Sem Formaldeído</span>
-      <span class="badge" data-pt="Isento de Solventes" data-en="Solvent-Free">Isento de Solventes</span>
-      <span class="badge">EU Taxonomy</span>
-      <span class="badge" data-pt="Economia Circular" data-en="Circular Economy">Economia Circular</span>
+    <div class="pills-row reveal" style="margin-top:3rem">
+      <span class="pill pill--dark">EN 16785</span>
+      <span class="pill pill--dark">EN 13432</span>
+      <span class="pill pill--dark" data-pt="Livre VOC" data-en="VOC-Free">Livre VOC</span>
+      <span class="pill pill--dark" data-pt="Sem Formaldeído" data-en="Formaldehyde-Free">Sem Formaldeído</span>
+      <span class="pill pill--dark" data-pt="Isento de Solventes" data-en="Solvent-Free">Isento de Solventes</span>
+      <span class="pill pill--dark">EU Taxonomy</span>
+      <span class="pill pill--dark" data-pt="Economia Circular" data-en="Circular Economy">Economia Circular</span>
     </div>
   </div>
 </section>
 
 <!-- ══ PRODUCTS ══ -->
-<section id="produtos">
-  <div style="max-width:1100px;margin:0 auto">
-    <div class="section-hdr" style="text-align:center;margin-bottom:3rem">
-      <span class="eyebrow" data-pt="As Nossas Linhas" data-en="Our Lines">As Nossas Linhas</span>
-      <h2 style="font-family:var(--ff-d);font-weight:900;font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:-.02em;margin-top:.5rem" data-pt="Uma base tecnológica, três mercados em crescimento" data-en="One technology base, three growing markets">Uma base tecnológica, três mercados em crescimento</h2>
+<section id="produtos" class="sec">
+  <div class="sec-inner">
+    <div class="prod-header">
+      <div class="reveal">
+        <span class="sec-tag" data-pt="As Nossas Linhas" data-en="Our Lines">As Nossas Linhas</span>
+        <h2 class="sec-h sec-h--lg" data-pt="Uma base tecnológica,<br>três mercados em crescimento" data-en="One technology base,<br>three growing markets">Uma base tecnológica,<br>três mercados em crescimento</h2>
+      </div>
+      <p class="reveal rd1" data-pt="A mesma inovação de materiais aplicada a contextos radicalmente diferentes — com a mesma exigência de desempenho, rastreabilidade e impacto ambiental positivo." data-en="The same materials innovation applied to radically different contexts — with the same demand for performance, traceability and positive environmental impact.">A mesma inovação de materiais aplicada a contextos radicalmente diferentes — com a mesma exigência de desempenho, rastreabilidade e impacto ambiental positivo.</p>
     </div>
-    <div class="products-grid">
-      <div class="product-card reveal">
-        <div class="prod-icon">🏄</div>
-        <span class="prod-seg" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</span>
-        <h3 data-pt="Linha 1 — Desportos Aquáticos" data-en="Line 1 — Aquatic Sports">Linha 1 — Desportos Aquáticos</h3>
-        <p data-pt="Desempenho sem compromisso. Espuma bio expandida + fibras naturais + verniz bio equivalente ao epóxi." data-en="Performance without compromise. Expanded bio foam + natural fibers + bio finish equivalent to epoxy.">Desempenho sem compromisso. Espuma bio expandida + fibras naturais + verniz bio equivalente ao epóxi.</p>
-        <div class="product-items" data-pt="Pranchas de Surf bio · Bodyboard bio · SUP bio" data-en="Bio Surfboards · Bio Bodyboard · Bio SUP">Pranchas de Surf bio · Bodyboard bio · SUP bio</div>
-        <a href="#segmento-desporto" class="btn-link" data-pt="Saber Mais →" data-en="Learn More →">Saber Mais →</a>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-card reveal">
+      <div class="prod-img img-ph">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <span class="img-ph-label" data-pt="Fotografia — Prancha de Surf bio" data-en="Photography — Bio Surfboard">Fotografia<br>Prancha de Surf bio</span>
+        </div>
       </div>
-      <div class="product-card reveal rd1">
-        <div class="prod-icon">🏗️</div>
-        <span class="prod-seg" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</span>
-        <h3 data-pt="Linha 2 — Bio Construção" data-en="Line 2 — Bio Construction">Linha 2 — Bio Construção</h3>
-        <p data-pt="Redução de -40% CO₂ por euro de construção. Isolamento térmico e acústico superior. Alinhado com EU Taxonomy, BREEAM, LEED." data-en="-40% CO₂ reduction per euro of construction. Superior thermal and acoustic insulation. Aligned with EU Taxonomy, BREEAM, LEED.">Redução de -40% CO₂ por euro de construção. Isolamento térmico e acústico superior. Alinhado com EU Taxonomy, BREEAM, LEED.</p>
-        <div class="product-items" data-pt="Painéis bio estruturais · Placas eco · Blocos de isolamento" data-en="Bio structural panels · Eco boards · Insulation blocks">Painéis bio estruturais · Placas eco · Blocos de isolamento</div>
-        <a href="#segmento-construcao" class="btn-link" data-pt="Saber Mais →" data-en="Learn More →">Saber Mais →</a>
+      <div class="prod-body">
+        <span class="prod-cat" data-pt="Linha 1 · Desportos Aquáticos" data-en="Line 1 · Aquatic Sports">Linha 1 · Desportos Aquáticos</span>
+        <h3 class="prod-title" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</h3>
+        <p class="prod-desc" data-pt="Espuma bio expandida, fibras vegetais e verniz bicomponente sem solventes. Desempenho equivalente ao epóxi convencional, zero petroquímico." data-en="Expanded bio foam, plant fibers and solvent-free two-component varnish. Performance equivalent to conventional epoxy, zero petrochemicals.">Espuma bio expandida, fibras vegetais e verniz bicomponente sem solventes. Desempenho equivalente ao epóxi convencional, zero petroquímico.</p>
+        <div class="prod-items" data-pt="Pranchas de Surf · Bodyboard · SUP" data-en="Surfboards · Bodyboard · SUP">Pranchas de Surf · Bodyboard · SUP</div>
+        <a href="#segmento-desporto" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
       </div>
-      <div class="product-card reveal rd2">
-        <div class="prod-icon">👓</div>
-        <span class="prod-seg" data-pt="Moda Circular" data-en="Circular Fashion">Moda Circular</span>
-        <h3 data-pt="Linha 3 — Moda & Acessórios" data-en="Line 3 — Fashion & Accessories">Linha 3 — Fashion & Accessories</h3>
-        <p data-pt="Zero petroquímico, rastreável da origem ao fim de vida. Para marcas que procuram materiais diferenciadores." data-en="Zero petrochemicals, traceable from origin to end-of-life. For brands seeking differentiating materials.">Zero petroquímico, rastreável da origem ao fim de vida. Para marcas que procuram materiais diferenciadores.</p>
-        <div class="product-items" data-pt="Armações de óculos 100% bio · Acessórios de fibra de madeira" data-en="100% bio eyewear frames · Wood fiber accessories">Armações de óculos 100% bio · Acessórios de fibra de madeira</div>
-        <a href="#segmento-outros" class="btn-link" data-pt="Saber Mais →" data-en="Learn More →">Saber Mais →</a>
+    </div>
+    <div class="prod-card reveal rd1">
+      <div class="prod-img img-ph">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <span class="img-ph-label" data-pt="Fotografia — Painel Bio Estrutural" data-en="Photography — Bio Structural Panel">Fotografia<br>Painel Bio Estrutural</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <span class="prod-cat" data-pt="Linha 2 · Bio Construção" data-en="Line 2 · Bio Construction">Linha 2 · Bio Construção</span>
+        <h3 class="prod-title" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</h3>
+        <p class="prod-desc" data-pt="Painéis e blocos bio para construção de baixo carbono. Isolamento térmico e acústico superior. Alinhado com EU Taxonomy, BREEAM e LEED." data-en="Bio panels and blocks for low-carbon construction. Superior thermal and acoustic insulation. Aligned with EU Taxonomy, BREEAM and LEED.">Painéis e blocos bio para construção de baixo carbono. Isolamento térmico e acústico superior. Alinhado com EU Taxonomy, BREEAM e LEED.</p>
+        <div class="prod-items" data-pt="Painéis estruturais · Placas eco · Blocos de isolamento" data-en="Structural panels · Eco boards · Insulation blocks">Painéis estruturais · Placas eco · Blocos de isolamento</div>
+        <a href="#segmento-construcao" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
+      </div>
+    </div>
+    <div class="prod-card reveal rd2">
+      <div class="prod-img img-ph">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <span class="img-ph-label" data-pt="Fotografia — Armações de Óculos bio" data-en="Photography — Bio Eyewear Frames">Fotografia<br>Armações de Óculos bio</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <span class="prod-cat" data-pt="Linha 3 · Moda Circular" data-en="Line 3 · Circular Fashion">Linha 3 · Moda Circular</span>
+        <h3 class="prod-title" data-pt="Moda & Acessórios" data-en="Fashion & Accessories">Moda & Acessórios</h3>
+        <p class="prod-desc" data-pt="Armações 100% bio de fibra de madeira natural. Rastreável da origem ao fim de vida. Zero petroquímico, certificável como bio-based (EN 16785)." data-en="100% bio frames of natural wood fiber. Traceable from origin to end-of-life. Zero petrochemicals, certifiable as bio-based (EN 16785).">Armações 100% bio de fibra de madeira natural. Rastreável da origem ao fim de vida. Zero petroquímico, certificável como bio-based (EN 16785).</p>
+        <div class="prod-items" data-pt="Armações de óculos · Acessórios circulares" data-en="Eyewear frames · Circular accessories">Armações de óculos · Acessórios circulares</div>
+        <a href="#segmento-outros" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
       </div>
     </div>
   </div>
@@ -499,38 +586,40 @@ textarea.form-input{resize:vertical;min-height:110px}
     <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-construcao.mp4" type="video/mp4"></video>
     <div class="seg-overlay"></div>
     <div class="seg-hero-txt">
-      <span class="eyebrow" data-pt="BIO CONSTRUÇÃO" data-en="BIO CONSTRUCTION">BIO CONSTRUÇÃO</span>
+      <span class="sec-tag" data-pt="BIO CONSTRUÇÃO" data-en="BIO CONSTRUCTION">BIO CONSTRUÇÃO</span>
       <h2 data-pt="Construção de baixo carbono. Sem abrir mão da performance." data-en="Low-carbon construction. Without giving up performance.">Construção de baixo carbono. Sem abrir mão da performance.</h2>
     </div>
   </div>
-  <div class="seg-body">
-    <div class="seg-two">
-      <div>
-        <h3 data-pt="Produtos" data-en="Products">Produtos</h3>
-        <div class="spec-list">
-          <div class="spec-item"><span class="si">▸</span><span data-pt="Painéis bio estruturais" data-en="Bio structural panels">Painéis bio estruturais</span></div>
-          <div class="spec-item"><span class="si">▸</span><span data-pt="Placas eco para divisórias" data-en="Eco boards for partitions">Placas eco para divisórias</span></div>
-          <div class="spec-item"><span class="si">▸</span><span data-pt="Blocos de isolamento térmico e acústico" data-en="Thermal and acoustic insulation blocks">Blocos de isolamento térmico e acústico</span></div>
-        </div>
-        <p style="margin-top:1.5rem;font-size:.95rem;line-height:1.78;color:rgba(0,0,0,.65)" data-pt="Os nossos painéis e blocos bio são concebidos para responder às exigências da regulamentação europeia de construção sustentável, com desempenho estrutural e de isolamento comprovado e conteúdo bio verificável acima de 80%." data-en="Our bio panels and blocks are designed to meet the requirements of European sustainable construction regulations, with proven structural and insulation performance and verifiable bio content above 80%.">Os nossos painéis e blocos bio são concebidos para responder às exigências da regulamentação europeia de construção sustentável, com desempenho estrutural e de isolamento comprovado e conteúdo bio verificável acima de 80%.</p>
-        <div class="seg-badges">
-          <span class="badge">EU Taxonomy</span><span class="badge">BREEAM</span><span class="badge">LEED</span><span class="badge">EN 16785</span><span class="badge">EN 13432</span>
-        </div>
-      </div>
-      <div>
-        <h3 data-pt="Métricas de Impacto" data-en="Impact Metrics">Métricas de Impacto</h3>
-        <div class="metrics-grid">
-          <div class="metric-box"><div class="metric-big"><span class="accent">-40</span>%</div><div class="metric-desc" data-pt="CO₂ por euro" data-en="CO₂ per euro">CO₂ por euro</div></div>
-          <div class="metric-box"><div class="metric-big"><span class="accent">&gt;80</span>%</div><div class="metric-desc" data-pt="Conteúdo bio verificável" data-en="Verifiable bio content">Conteúdo bio verificável</div></div>
-          <div class="metric-box"><div class="metric-big"><span class="accent">90</span></div><div class="metric-desc" data-pt="Dias compostável" data-en="Days compostable">Dias compostável</div></div>
-          <div class="metric-box"><div class="metric-big" style="font-size:1.3rem">A+</div><div class="metric-desc" data-pt="Isolamento acústico" data-en="Acoustic insulation">Isolamento acústico</div></div>
-        </div>
+  <div class="seg-img-full img-ph">
+    <div class="img-ph-inner">
+      <div class="img-ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <span class="img-ph-label" data-pt="Fotografia — Aplicação em obra ou detalhe do painel" data-en="Photography — Construction site or panel detail">Fotografia — Aplicação em obra ou detalhe do painel</span>
+    </div>
+  </div>
+  <div class="seg-layout">
+    <div class="seg-col">
+      <h3 data-pt="ESPECIFICAÇÕES" data-en="SPECIFICATIONS">ESPECIFICAÇÕES</h3>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Redução de CO₂" data-en="CO₂ reduction">Redução de CO₂</span><span class="seg-spec-val"><span class="c">−40%</span> por euro</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Conteúdo bio verificável" data-en="Verifiable bio content">Conteúdo bio verificável</span><span class="seg-spec-val"><span class="c">&gt;80%</span> EN 16785</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Compostabilidade" data-en="Compostability">Compostabilidade</span><span class="seg-spec-val">90 dias EN 13432</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Isolamento térmico" data-en="Thermal insulation">Isolamento térmico</span><span class="seg-spec-val" data-pt="Superior ao convencional" data-en="Superior to conventional">Superior ao convencional</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Isolamento acústico" data-en="Acoustic insulation">Isolamento acústico</span><span class="seg-spec-val" data-pt="Superior ao convencional" data-en="Superior to conventional">Superior ao convencional</span></div>
+      <div class="pills-row" style="margin-top:2rem">
+        <span class="pill">EU Taxonomy</span><span class="pill">BREEAM</span><span class="pill">LEED</span><span class="pill">EN 16785</span><span class="pill">EN 13432</span>
       </div>
     </div>
-    <div class="seg-ctas">
-      <a href="#contacto" class="btn-primary" data-pt="Pedir Ficha Técnica" data-en="Request Technical Sheet">Pedir Ficha Técnica</a>
-      <a href="#contacto" class="btn-dark" data-pt="Contactar para Projeto" data-en="Contact for Project">Contactar para Projeto</a>
+    <div class="seg-col">
+      <h3 data-pt="PRODUTOS" data-en="PRODUCTS">PRODUTOS</h3>
+      <div class="seg-steps-list">
+        <div class="step-item"><span class="seg-step-title" data-pt="Painéis bio estruturais" data-en="Bio structural panels">Painéis bio estruturais</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Para paredes, coberturas e lajes. Resistência estrutural comprovada com conteúdo bio &gt;80%." data-en="For walls, roofs and slabs. Proven structural resistance with bio content >80%.">Para paredes, coberturas e lajes. Resistência estrutural comprovada com conteúdo bio &gt;80%.</p></div>
+        <div class="step-item"><span class="seg-step-title" data-pt="Placas eco para divisórias" data-en="Eco boards for partitions">Placas eco para divisórias</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Divisórias interiores de baixo peso, alta performance acústica e zero emissões VOC." data-en="Lightweight interior partitions, high acoustic performance and zero VOC emissions.">Divisórias interiores de baixo peso, alta performance acústica e zero emissões VOC.</p></div>
+        <div class="step-item"><span class="seg-step-title" data-pt="Blocos de isolamento térmico e acústico" data-en="Thermal and acoustic insulation blocks">Blocos de isolamento térmico e acústico</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Produzidos a partir de resíduos agrícolas valorizados. Compostáveis industrialmente." data-en="Produced from valorized agricultural waste. Industrially compostable.">Produzidos a partir de resíduos agrícolas valorizados. Compostáveis industrialmente.</p></div>
+      </div>
     </div>
+  </div>
+  <div class="seg-ctas">
+    <a href="#contacto" class="btn-fill" data-pt="Pedir Ficha Técnica" data-en="Request Technical Sheet">Pedir Ficha Técnica</a>
+    <a href="#contacto" class="btn-border" data-pt="Contactar para Projeto" data-en="Contact for Project">Contactar para Projeto</a>
   </div>
 </section>
 
@@ -541,54 +630,50 @@ textarea.form-input{resize:vertical;min-height:110px}
     <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-surf.mp4" type="video/mp4"></video>
     <div class="seg-overlay"></div>
     <div class="seg-hero-txt">
-      <span class="eyebrow" data-pt="DESPORTOS AQUÁTICOS" data-en="AQUATIC SPORTS">DESPORTOS AQUÁTICOS</span>
+      <span class="sec-tag" data-pt="DESPORTOS AQUÁTICOS" data-en="AQUATIC SPORTS">DESPORTOS AQUÁTICOS</span>
       <h2 data-pt="Tecnologia bio. Desempenho sem compromisso." data-en="Bio technology. Performance without compromise.">Tecnologia bio. Desempenho sem compromisso.</h2>
     </div>
   </div>
-  <div class="seg-body">
-    <h3 data-pt="Os Nossos Produtos" data-en="Our Products">Os Nossos Produtos</h3>
-    <div class="seg-products-grid" style="margin-top:1.5rem">
-      <div class="seg-prod-item">
-        <div class="seg-prod-icon">🏄</div>
-        <h4 data-pt="Pranchas de Surf bio" data-en="Bio Surfboards">Pranchas de Surf bio</h4>
-        <p data-pt="Núcleo bio, cobertura vegetal, zero petroquímico." data-en="Bio core, plant-based coating, zero petrochemicals.">Núcleo bio, cobertura vegetal, zero petroquímico.</p>
-      </div>
-      <div class="seg-prod-item">
-        <div class="seg-prod-icon">🤙</div>
-        <h4 data-pt="Bodyboard bio" data-en="Bio Bodyboard">Bodyboard bio</h4>
-        <p data-pt="Leveza, flexibilidade e biodegradabilidade num só produto." data-en="Lightness, flexibility and biodegradability in one product.">Leveza, flexibilidade e biodegradabilidade num só produto.</p>
-      </div>
-      <div class="seg-prod-item">
-        <div class="seg-prod-icon">🧘</div>
-        <h4 data-pt="SUP bio" data-en="Bio SUP">SUP bio</h4>
-        <p data-pt="Stand-Up Paddle de origem 100% renovável." data-en="Stand-Up Paddle of 100% renewable origin.">Stand-Up Paddle de origem 100% renovável.</p>
+  <div class="seg-products-row">
+    <div class="seg-prod-card reveal">
+      <span class="seg-prod-tag" data-pt="Surf" data-en="Surf">Surf</span>
+      <div class="seg-prod-title" data-pt="Pranchas de Surf bio" data-en="Bio Surfboards">Pranchas de Surf bio</div>
+      <p class="seg-prod-body" data-pt="Núcleo bio expandido, cobertura de fibras vegetais com resina bio de alto desempenho." data-en="Expanded bio core, plant fiber coating with high-performance bio resin.">Núcleo bio expandido, cobertura de fibras vegetais com resina bio de alto desempenho.</p>
+    </div>
+    <div class="seg-prod-card reveal rd1">
+      <span class="seg-prod-tag" data-pt="Bodyboard" data-en="Bodyboard">Bodyboard</span>
+      <div class="seg-prod-title" data-pt="Bodyboard bio" data-en="Bio Bodyboard">Bodyboard bio</div>
+      <p class="seg-prod-body" data-pt="Leveza e flexibilidade com biodegradabilidade total. Sem EPS nem petroquímicos." data-en="Lightness and flexibility with full biodegradability. No EPS or petrochemicals.">Leveza e flexibilidade com biodegradabilidade total. Sem EPS nem petroquímicos.</p>
+    </div>
+    <div class="seg-prod-card reveal rd2">
+      <span class="seg-prod-tag" data-pt="Stand-Up Paddle" data-en="Stand-Up Paddle">Stand-Up Paddle</span>
+      <div class="seg-prod-title" data-pt="SUP bio" data-en="Bio SUP">SUP bio</div>
+      <p class="seg-prod-body" data-pt="Stand-Up Paddle de origem 100% renovável. Estabilidade e durabilidade de elite." data-en="Stand-Up Paddle of 100% renewable origin. Elite stability and durability.">Stand-Up Paddle de origem 100% renovável. Estabilidade e durabilidade de elite.</p>
+    </div>
+  </div>
+  <div class="seg-layout">
+    <div class="seg-col">
+      <h3 data-pt="PROCESSO DE FABRICO" data-en="MANUFACTURING PROCESS">PROCESSO DE FABRICO</h3>
+      <div class="seg-steps-list">
+        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 01 · NÚCLEO" data-en="STEP 01 · CORE">PASSO 01 · NÚCLEO</span><span class="seg-step-title" data-pt="Espuma Bio Expandida" data-en="Expanded Bio Foam">Espuma Bio Expandida</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Espuma de origem bio, leve e biodegradável. Performance equivalente ao EPS convencional." data-en="Bio-origin foam, light and biodegradable. Performance equivalent to conventional EPS.">Espuma de origem bio, leve e biodegradável. Performance equivalente ao EPS convencional.</p></div>
+        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 02 · COBERTURA" data-en="STEP 02 · COATING">PASSO 02 · COBERTURA</span><span class="seg-step-title" data-pt="Fibras Vegetais + Resina Bio" data-en="Plant Fibers + Bio Resin">Fibras Vegetais + Resina Bio</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Fibras vegetais impregnadas com resina bio de alto desempenho. Resistência estrutural superior." data-en="Plant fibers impregnated with high-performance bio resin. Superior structural resistance.">Fibras vegetais impregnadas com resina bio de alto desempenho. Resistência estrutural superior.</p></div>
+        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 03 · ACABAMENTO" data-en="STEP 03 · FINISH">PASSO 03 · ACABAMENTO</span><span class="seg-step-title" data-pt="Verniz 100% Natural" data-en="100% Natural Varnish">Verniz 100% Natural</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Verniz bicomponente natural, sem solventes, sem VOC. Durabilidade premium." data-en="Natural two-component varnish, solvent-free, VOC-free. Premium durability.">Verniz bicomponente natural, sem solventes, sem VOC. Durabilidade premium.</p></div>
       </div>
     </div>
-    <h3 style="margin-top:2.5rem" data-pt="Como é Feita" data-en="How It's Made">Como é Feita</h3>
-    <div class="seg-steps">
-      <div class="step-box reveal">
-        <div class="step-num" data-pt="PASSO 1 · NÚCLEO" data-en="STEP 1 · CORE">PASSO 1 · NÚCLEO</div>
-        <h4 data-pt="Espuma Bio Expandida" data-en="Expanded Bio Foam">Espuma Bio Expandida</h4>
-        <p data-pt="Espuma expandida de origem bio, leve e biodegradável. Performance equivalente ao EPS convencional." data-en="Expanded foam of bio origin, light and biodegradable. Performance equivalent to conventional EPS.">Espuma expandida de origem bio, leve e biodegradável. Performance equivalente ao EPS convencional.</p>
-      </div>
-      <div class="step-box reveal rd1">
-        <div class="step-num" data-pt="PASSO 2 · COBERTURA" data-en="STEP 2 · COATING">PASSO 2 · COBERTURA</div>
-        <h4 data-pt="Fibras Vegetais + Resina Bio" data-en="Plant Fibers + Bio Resin">Fibras Vegetais + Resina Bio</h4>
-        <p data-pt="Fibras vegetais impregnadas com resina bio de alto desempenho. Resistência estrutural superior." data-en="Plant fibers impregnated with high-performance bio resin. Superior structural resistance.">Fibras vegetais impregnadas com resina bio de alto desempenho. Resistência estrutural superior.</p>
-      </div>
-      <div class="step-box reveal rd2">
-        <div class="step-num" data-pt="PASSO 3 · ACABAMENTO" data-en="STEP 3 · FINISH">PASSO 3 · ACABAMENTO</div>
-        <h4 data-pt="Verniz 100% Natural" data-en="100% Natural Varnish">Verniz 100% Natural</h4>
-        <p data-pt="Verniz bicomponente 100% natural, sem solventes, sem VOC. Durabilidade e estética premium." data-en="100% natural two-component varnish, solvent-free, VOC-free. Premium durability and aesthetics.">Verniz bicomponente 100% natural, sem solventes, sem VOC. Durabilidade e estética premium.</p>
-      </div>
+    <div class="seg-col">
+      <h3 data-pt="ESPECIFICAÇÕES" data-en="SPECIFICATIONS">ESPECIFICAÇÕES</h3>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Origem das matérias-primas" data-en="Raw material origin">Origem das matérias-primas</span><span class="seg-spec-val" data-pt="100% renovável" data-en="100% renewable">100% renovável</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Solventes / VOC" data-en="Solvents / VOC">Solventes / VOC</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Petroquímicos" data-en="Petrochemicals">Petroquímicos</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Fim de vida" data-en="End of life">Fim de vida</span><span class="seg-spec-val" data-pt="Biodegradável / Compostável" data-en="Biodegradable / Compostable">Biodegradável / Compostável</span></div>
     </div>
-    <div class="seg-quote">
-      <p data-pt="&quot;A primeira prancha bio foi a prova de que era possível. Agora é o nosso ponto de partida.&quot;" data-en="&quot;The first bio board was proof that it was possible. Now it's our starting point.&quot;">"A primeira prancha bio foi a prova de que era possível. Agora é o nosso ponto de partida."</p>
-    </div>
-    <div class="seg-ctas">
-      <a href="#contacto" class="btn-primary" data-pt="Pedir Amostra de Material" data-en="Request Material Sample">Pedir Amostra de Material</a>
-      <a href="#contacto" class="btn-dark" data-pt="Falar com a Equipa" data-en="Talk to the Team">Falar com a Equipa</a>
-    </div>
+  </div>
+  <div class="seg-quote-block">
+    <blockquote data-pt="&ldquo;A primeira prancha bio foi a prova de que era possível. Agora é o nosso ponto de partida.&rdquo;" data-en="&ldquo;The first bio board was proof that it was possible. Now it&rsquo;s our starting point.&rdquo;">"A primeira prancha bio foi a prova de que era possível. Agora é o nosso ponto de partida."</blockquote>
+  </div>
+  <div class="seg-ctas">
+    <a href="#contacto" class="btn-fill" data-pt="Pedir Amostra de Material" data-en="Request Material Sample">Pedir Amostra de Material</a>
+    <a href="#contacto" class="btn-border" data-pt="Falar com a Equipa" data-en="Talk to the Team">Falar com a Equipa</a>
   </div>
 </section>
 
@@ -599,48 +684,44 @@ textarea.form-input{resize:vertical;min-height:110px}
     <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-oculos.mp4" type="video/mp4"></video>
     <div class="seg-overlay"></div>
     <div class="seg-hero-txt">
-      <span class="eyebrow" data-pt="MODA & ACESSÓRIOS CIRCULARES" data-en="FASHION & CIRCULAR ACCESSORIES">MODA & ACESSÓRIOS CIRCULARES</span>
+      <span class="sec-tag" data-pt="MODA & ACESSÓRIOS CIRCULARES" data-en="FASHION & CIRCULAR ACCESSORIES">MODA & ACESSÓRIOS CIRCULARES</span>
       <h2 data-pt="Do interior da floresta à tua cara." data-en="From the heart of the forest to your face.">Do interior da floresta à tua cara.</h2>
     </div>
   </div>
-  <div class="seg-body">
-    <div class="seg-two">
-      <div>
-        <h3 data-pt="Para Quem É" data-en="Who It's For">Para Quem É</h3>
-        <p style="margin-top:.75rem" data-pt="Para marcas de moda, ópticas e acessórios que querem materiais com história, rastreabilidade e zero plástico petroquímico." data-en="For fashion brands, opticians and accessory brands that want materials with story, traceability and zero petrochemical plastic.">Para marcas de moda, ópticas e acessórios que querem materiais com história, rastreabilidade e zero plástico petroquímico.</p>
-        <div class="bullets-list" style="margin-top:1.5rem">
-          <div class="bullet-item"><span class="bullet-star">✦</span><span data-pt="Totalmente rastreável da fibra ao fim de vida" data-en="Fully traceable from fiber to end-of-life">Totalmente rastreável da fibra ao fim de vida</span></div>
-          <div class="bullet-item"><span class="bullet-star">✦</span><span data-pt="Certificável como bio-based (EN 16785)" data-en="Certifiable as bio-based (EN 16785)">Certificável como bio-based (EN 16785)</span></div>
-          <div class="bullet-item"><span class="bullet-star">✦</span><span data-pt="Esteticamente diferenciador — grain natural visível, acabamento matte premium" data-en="Aesthetically differentiating — natural grain visible, premium matte finish">Esteticamente diferenciador — grain natural visível, acabamento matte premium</span></div>
-        </div>
+  <div class="seg-layout">
+    <div class="seg-col">
+      <h3 data-pt="PRODUTOS" data-en="PRODUCTS">PRODUTOS</h3>
+      <div class="seg-steps-list">
+        <div class="step-item"><span class="seg-step-title" data-pt="Armações de óculos 100% bio" data-en="100% bio eyewear frames">Armações de óculos 100% bio</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Fibra de madeira natural, zero petroquímico. Grain natural visível, acabamento matte premium." data-en="Natural wood fiber, zero petrochemicals. Visible natural grain, premium matte finish.">Fibra de madeira natural, zero petroquímico. Grain natural visível, acabamento matte premium.</p></div>
+        <div class="step-item"><span class="seg-step-title" data-pt="Acessórios circulares de origem vegetal" data-en="Circular accessories of plant origin">Acessórios circulares de origem vegetal</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Materiais com história e rastreabilidade. Certificáveis como bio-based (EN 16785)." data-en="Materials with story and traceability. Certifiable as bio-based (EN 16785).">Materiais com história e rastreabilidade. Certificáveis como bio-based (EN 16785).</p></div>
       </div>
-      <div>
-        <h3 data-pt="Produtos" data-en="Products">Produtos</h3>
-        <div class="spec-list" style="margin-top:.75rem">
-          <div class="spec-item"><span class="si">👓</span><span data-pt="Armações de óculos 100% bio (fibra de madeira natural, zero petroquímico)" data-en="100% bio eyewear frames (natural wood fiber, zero petrochemicals)">Armações de óculos 100% bio (fibra de madeira natural, zero petroquímico)</span></div>
-          <div class="spec-item"><span class="si">🌿</span><span data-pt="Acessórios circulares de origem vegetal" data-en="Circular accessories of plant origin">Acessórios circulares de origem vegetal</span></div>
-        </div>
-        <div class="seg-badges" style="margin-top:1.5rem">
-          <span class="badge">EN 16785</span>
-          <span class="badge" data-pt="Zero Plástico" data-en="Zero Plastic">Zero Plástico</span>
-          <span class="badge" data-pt="100% Bio-based" data-en="100% Bio-based">100% Bio-based</span>
-          <span class="badge" data-pt="Rastreável" data-en="Traceable">Rastreável</span>
-        </div>
+      <div class="pills-row" style="margin-top:2rem">
+        <span class="pill">EN 16785</span>
+        <span class="pill" data-pt="Zero Plástico" data-en="Zero Plastic">Zero Plástico</span>
+        <span class="pill" data-pt="100% Bio-based" data-en="100% Bio-based">100% Bio-based</span>
+        <span class="pill" data-pt="Rastreável" data-en="Traceable">Rastreável</span>
       </div>
     </div>
-    <div class="seg-ctas">
-      <a href="#contacto" class="btn-primary" data-pt="Solicitar Catálogo de Materiais" data-en="Request Materials Catalogue">Solicitar Catálogo de Materiais</a>
-      <a href="#contacto" class="btn-dark" data-pt="Parceria B2B" data-en="B2B Partnership">Parceria B2B</a>
+    <div class="seg-col">
+      <h3 data-pt="PARA QUEM É" data-en="WHO IT'S FOR">PARA QUEM É</h3>
+      <p class="sec-body" style="margin-bottom:2rem" data-pt="Para marcas de moda, ópticas e acessórios que querem materiais com história, rastreabilidade total e zero plástico petroquímico." data-en="For fashion brands, opticians and accessory brands that want materials with story, full traceability and zero petrochemical plastic.">Para marcas de moda, ópticas e acessórios que querem materiais com história, rastreabilidade total e zero plástico petroquímico.</p>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Rastreabilidade" data-en="Traceability">Rastreabilidade</span><span class="seg-spec-val" data-pt="Fibra ao fim de vida" data-en="Fiber to end-of-life">Fibra ao fim de vida</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Certificação" data-en="Certification">Certificação</span><span class="seg-spec-val">EN 16785</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Petroquímicos" data-en="Petrochemicals">Petroquímicos</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
     </div>
+  </div>
+  <div class="seg-ctas">
+    <a href="#contacto" class="btn-fill" data-pt="Solicitar Catálogo de Materiais" data-en="Request Materials Catalogue">Solicitar Catálogo de Materiais</a>
+    <a href="#contacto" class="btn-border" data-pt="Parceria B2B" data-en="B2B Partnership">Parceria B2B</a>
   </div>
 </section>
 
 <!-- ══ VISION & MISSION ══ -->
-<section id="visao">
-  <div class="visao-inner">
+<section id="visao" class="sec">
+  <div class="sec-inner visao-inner">
     <div class="visao-block reveal">
       <span class="visao-lbl" data-pt="VISÃO" data-en="VISION">VISÃO</span>
-      <blockquote class="visao-quote" data-pt="&quot;Liderar a transição para um futuro onde natureza e tecnologia coexistem em harmonia — onde cada produto é concebido com inteligência ecológica e propósito regenerativo.&quot;" data-en="&quot;Lead the transition to a future where nature and technology coexist in harmony — where every product is designed with ecological intelligence and regenerative purpose.&quot;">"Liderar a transição para um futuro onde natureza e tecnologia coexistem em harmonia — onde cada produto é concebido com inteligência ecológica e propósito regenerativo."</blockquote>
+      <p class="visao-quote" data-pt="&ldquo;Liderar a transição para um futuro onde natureza e tecnologia coexistem em harmonia — onde cada produto é concebido com inteligência ecológica e propósito regenerativo.&rdquo;" data-en="&ldquo;Lead the transition to a future where nature and technology coexist in harmony — where every product is designed with ecological intelligence and regenerative purpose.&rdquo;">"Liderar a transição para um futuro onde natureza e tecnologia coexistem em harmonia — onde cada produto é concebido com inteligência ecológica e propósito regenerativo."</p>
     </div>
     <div class="visao-block reveal rd1">
       <span class="visao-lbl" data-pt="MISSÃO" data-en="MISSION">MISSÃO</span>
@@ -650,109 +731,125 @@ textarea.form-input{resize:vertical;min-height:110px}
 </section>
 
 <!-- ══ VALUES ══ -->
-<section id="valores">
-  <div style="max-width:1100px;margin:0 auto">
-    <div class="section-hdr" style="text-align:center;margin-bottom:3rem">
-      <span class="eyebrow" data-pt="Os Nossos Valores" data-en="Our Values">Os Nossos Valores</span>
-      <h2 style="font-family:var(--ff-d);font-weight:900;font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:-.02em;margin-top:.5rem" data-pt="O que nos guia" data-en="What guides us">O que nos guia</h2>
+<section id="valores" class="sec">
+  <div class="sec-inner">
+    <div class="valores-header">
+      <div class="reveal">
+        <span class="sec-tag" data-pt="Os Nossos Valores" data-en="Our Values">Os Nossos Valores</span>
+        <h2 class="sec-h sec-h--lg" data-pt="O que nos guia em cada decisão" data-en="What guides every decision we make">O que nos guia em cada decisão</h2>
+      </div>
+      <p class="reveal rd1" data-pt="Não somos uma empresa de greenwashing. Cada valor é operacional — define como trabalhamos, com quem trabalhamos e o que recusamos fazer." data-en="We are not a greenwashing company. Each value is operational — it defines how we work, who we work with and what we refuse to do.">Não somos uma empresa de greenwashing. Cada valor é operacional — define como trabalhamos, com quem trabalhamos e o que recusamos fazer.</p>
     </div>
-    <div class="valores-grid">
-      <div class="valor-card reveal"><div class="valor-icon">♻️</div><h3 data-pt="Sustentabilidade Radical" data-en="Radical Sustainability">Sustentabilidade Radical</h3><p data-pt="Não compromisso com o meio ambiente em nenhuma fase do produto." data-en="No compromise with the environment at any stage of the product.">Não compromisso com o meio ambiente em nenhuma fase do produto.</p></div>
-      <div class="valor-card reveal rd1"><div class="valor-icon">💡</div><h3 data-pt="Inovação com Propósito" data-en="Innovation with Purpose">Inovação com Propósito</h3><p data-pt="Tecnologia a serviço do planeta e das pessoas." data-en="Technology at the service of the planet and people.">Tecnologia a serviço do planeta e das pessoas.</p></div>
-      <div class="valor-card reveal rd2"><div class="valor-icon">🔄</div><h3 data-pt="Circularidade como Princípio" data-en="Circularity as Principle">Circularidade como Princípio</h3><p data-pt="Cada material tem um destino. O fim de vida faz parte do design." data-en="Every material has a destination. End-of-life is part of the design.">Cada material tem um destino. O fim de vida faz parte do design.</p></div>
-      <div class="valor-card reveal rd3"><div class="valor-icon">🌍</div><h3 data-pt="Inclusão e Acessibilidade" data-en="Inclusion and Accessibility">Inclusão e Acessibilidade</h3><p data-pt="Eco-materiais para todos, não apenas para quem pode pagar mais." data-en="Eco-materials for everyone, not just those who can pay more.">Eco-materiais para todos, não apenas para quem pode pagar mais.</p></div>
-      <div class="valor-card reveal"><div class="valor-icon">🤝</div><h3 data-pt="Responsabilidade Social Ativa" data-en="Active Social Responsibility">Responsabilidade Social Ativa</h3><p data-pt="Comprometidos com comunidades e cadeias de valor éticas." data-en="Committed to communities and ethical value chains.">Comprometidos com comunidades e cadeias de valor éticas.</p></div>
-      <div class="valor-card reveal rd1"><div class="valor-icon">🌊</div><h3 data-pt="Respeito pelos Oceanos" data-en="Respect for the Oceans">Respeito pelos Oceanos</h3><p data-pt="O oceano foi a nossa inspiração. A sua preservação é o nosso compromisso." data-en="The ocean was our inspiration. Its preservation is our commitment.">O oceano foi a nossa inspiração. A sua preservação é o nosso compromisso.</p></div>
-      <div class="valor-card reveal rd2"><div class="valor-icon">🌐</div><h3 data-pt="Colaboração Regenerativa" data-en="Regenerative Collaboration">Colaboração Regenerativa</h3><p data-pt="Parcerias que criam valor positivo para todos os envolvidos." data-en="Partnerships that create positive value for all involved.">Parcerias que criam valor positivo para todos os envolvidos.</p></div>
-      <div class="valor-card reveal rd3"><div class="valor-icon">🔍</div><h3 data-pt="Ética e Transparência" data-en="Ethics and Transparency">Ética e Transparência</h3><p data-pt="Dados reais, certificações verificáveis, sem greenwashing." data-en="Real data, verifiable certifications, no greenwashing.">Dados reais, certificações verificáveis, sem greenwashing.</p></div>
-    </div>
+  </div>
+  <div class="valores-grid">
+    <div class="valor-item reveal"><div class="valor-num">01</div><div class="valor-title" data-pt="Sustentabilidade Radical" data-en="Radical Sustainability">Sustentabilidade Radical</div><p class="valor-body" data-pt="Sem compromisso com o meio ambiente em nenhuma fase do ciclo de vida do produto." data-en="No compromise with the environment at any stage of the product lifecycle.">Sem compromisso com o meio ambiente em nenhuma fase do ciclo de vida do produto.</p></div>
+    <div class="valor-item reveal rd1"><div class="valor-num">02</div><div class="valor-title" data-pt="Inovação com Propósito" data-en="Innovation with Purpose">Inovação com Propósito</div><p class="valor-body" data-pt="Tecnologia que serve o planeta e as pessoas — não apenas os indicadores financeiros." data-en="Technology that serves the planet and people — not just financial indicators.">Tecnologia que serve o planeta e as pessoas — não apenas os indicadores financeiros.</p></div>
+    <div class="valor-item reveal rd2"><div class="valor-num">03</div><div class="valor-title" data-pt="Circularidade como Princípio" data-en="Circularity as Principle">Circularidade como Princípio</div><p class="valor-body" data-pt="O fim de vida faz parte do design desde o primeiro dia. Não é um add-on." data-en="End-of-life is part of the design from day one. It's not an add-on.">O fim de vida faz parte do design desde o primeiro dia. Não é um add-on.</p></div>
+    <div class="valor-item reveal rd3"><div class="valor-num">04</div><div class="valor-title" data-pt="Inclusão e Acessibilidade" data-en="Inclusion and Accessibility">Inclusão e Acessibilidade</div><p class="valor-body" data-pt="Eco-materiais para todos — não apenas para quem pode pagar o prémio de sustentabilidade." data-en="Eco-materials for everyone — not just those who can pay the sustainability premium.">Eco-materiais para todos — não apenas para quem pode pagar o prémio de sustentabilidade.</p></div>
+    <div class="valor-item reveal"><div class="valor-num">05</div><div class="valor-title" data-pt="Responsabilidade Social Ativa" data-en="Active Social Responsibility">Responsabilidade Social Ativa</div><p class="valor-body" data-pt="Comprometidos com cadeias de valor éticas e comunidades locais." data-en="Committed to ethical value chains and local communities.">Comprometidos com cadeias de valor éticas e comunidades locais.</p></div>
+    <div class="valor-item reveal rd1"><div class="valor-num">06</div><div class="valor-title" data-pt="Respeito pelos Oceanos" data-en="Respect for the Oceans">Respeito pelos Oceanos</div><p class="valor-body" data-pt="O oceano foi a nossa inspiração. A sua preservação é o nosso compromisso inegociável." data-en="The ocean was our inspiration. Its preservation is our non-negotiable commitment.">O oceano foi a nossa inspiração. A sua preservação é o nosso compromisso inegociável.</p></div>
+    <div class="valor-item reveal rd2"><div class="valor-num">07</div><div class="valor-title" data-pt="Colaboração Regenerativa" data-en="Regenerative Collaboration">Colaboração Regenerativa</div><p class="valor-body" data-pt="Parcerias que criam valor positivo para todos os envolvidos — incluindo o ecossistema." data-en="Partnerships that create positive value for all involved — including the ecosystem.">Parcerias que criam valor positivo para todos os envolvidos — incluindo o ecossistema.</p></div>
+    <div class="valor-item reveal rd3"><div class="valor-num">08</div><div class="valor-title" data-pt="Ética e Transparência" data-en="Ethics and Transparency">Ética e Transparência</div><p class="valor-body" data-pt="Dados reais, certificações verificáveis, linguagem técnica rigorosa. Zero greenwashing." data-en="Real data, verifiable certifications, rigorous technical language. Zero greenwashing.">Dados reais, certificações verificáveis, linguagem técnica rigorosa. Zero greenwashing.</p></div>
   </div>
 </section>
 
 <!-- ══ CERTIFICATIONS ══ -->
-<section id="certificacoes">
-  <div class="certs-inner">
-    <div style="text-align:center;margin-bottom:2rem">
-      <span class="eyebrow" data-pt="Conformidade & Certificações" data-en="Compliance & Certifications">Conformidade & Certificações</span>
-      <h2 style="font-family:var(--ff-d);font-weight:900;font-size:clamp(1.5rem,2.5vw,2.2rem);letter-spacing:-.02em;margin-top:.5rem" data-pt="Alinhamento com as normas europeias" data-en="Alignment with European standards">Alinhamento com as normas europeias</h2>
+<section id="certificacoes" class="sec">
+  <div class="sec-inner">
+    <div class="certs-layout">
+      <div class="reveal">
+        <span class="sec-tag" data-pt="Conformidade" data-en="Compliance">Conformidade</span>
+        <h2 class="sec-h sec-h--md" data-pt="Alinhamento com normas europeias" data-en="Alignment with European standards">Alinhamento com normas europeias</h2>
+        <p class="sec-body" style="margin-top:1rem" data-pt="Todos os nossos materiais são desenvolvidos com alinhamento às normas europeias de bio-based content e compostabilidade, garantindo rastreabilidade e verificabilidade para os nossos clientes B2B." data-en="All our materials are developed in alignment with European standards for bio-based content and compostability, ensuring traceability and verifiability for our B2B customers.">Todos os nossos materiais são desenvolvidos com alinhamento às normas europeias de bio-based content e compostabilidade, garantindo rastreabilidade e verificabilidade para os nossos clientes B2B.</p>
+      </div>
+      <div class="reveal rd1">
+        <table class="certs-table">
+          <thead><tr><th data-pt="Certificação / Norma" data-en="Certification / Standard">Certificação / Norma</th><th data-pt="Estado" data-en="Status">Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Bio-based content (EN 16785), &gt;80%</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
+            <tr><td data-pt="Biodegradável (EN 13432)" data-en="Biodegradable (EN 13432)">Biodegradável (EN 13432)</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
+            <tr><td data-pt="Compostável industrialmente" data-en="Industrially compostable">Compostável industrialmente</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
+            <tr><td data-pt="Livre de VOC" data-en="VOC-Free">Livre de VOC</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
+            <tr><td data-pt="Isento de formaldeído" data-en="Formaldehyde-free">Isento de formaldeído</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
+            <tr><td data-pt="Resíduos valorizados" data-en="Valorized waste">Resíduos valorizados</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
+            <tr><td data-pt="Economia circular (EU Taxonomy)" data-en="Circular economy (EU Taxonomy)">Economia circular (EU Taxonomy)</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <table class="certs-table">
-      <thead><tr><th data-pt="Certificação / Norma" data-en="Certification / Standard">Certificação / Norma</th><th data-pt="Estado" data-en="Status">Estado</th></tr></thead>
-      <tbody>
-        <tr><td data-pt="Bio-based content (EN 16785), &gt;80%" data-en="Bio-based content (EN 16785), &gt;80%">Bio-based content (EN 16785), &gt;80%</td><td><span class="cert-ok" data-pt="✅ Aplicável" data-en="✅ Applicable">✅ Aplicável</span></td></tr>
-        <tr><td data-pt="Biodegradável (EN 13432)" data-en="Biodegradable (EN 13432)">Biodegradável (EN 13432)</td><td><span class="cert-ok" data-pt="✅ Aplicável" data-en="✅ Applicable">✅ Aplicável</span></td></tr>
-        <tr><td data-pt="Compostável industrialmente" data-en="Industrially compostable">Compostável industrialmente</td><td><span class="cert-ok" data-pt="✅ Aplicável" data-en="✅ Applicable">✅ Aplicável</span></td></tr>
-        <tr><td data-pt="Livre de VOC" data-en="VOC-Free">Livre de VOC</td><td><span class="cert-ok" data-pt="✅ Aplicável" data-en="✅ Applicable">✅ Aplicável</span></td></tr>
-        <tr><td data-pt="Isento de formaldeído" data-en="Formaldehyde-free">Isento de formaldeído</td><td><span class="cert-ok" data-pt="✅ Aplicável" data-en="✅ Applicable">✅ Aplicável</span></td></tr>
-        <tr><td data-pt="Resíduos valorizados" data-en="Valorized waste">Resíduos valorizados</td><td><span class="cert-ok" data-pt="✅ Aplicável" data-en="✅ Applicable">✅ Aplicável</span></td></tr>
-        <tr><td data-pt="Economia circular (EU Taxonomy)" data-en="Circular economy (EU Taxonomy)">Economia circular (EU Taxonomy)</td><td><span class="cert-ok" data-pt="✅ Aplicável" data-en="✅ Applicable">✅ Aplicável</span></td></tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
 <!-- ══ SOCIAL RESPONSIBILITY ══ -->
-<section id="responsabilidade">
-  <div style="max-width:1100px;margin:0 auto">
-    <div class="section-hdr light" style="text-align:center;margin-bottom:3rem">
-      <span class="eyebrow" data-pt="Responsabilidade Social" data-en="Social Responsibility">Responsabilidade Social</span>
-      <h2 data-pt="Negócio com propósito" data-en="Business with purpose">Negócio com propósito</h2>
+<section id="responsabilidade" class="sec">
+  <div class="sec-inner">
+    <div class="resp-layout">
+      <div class="reveal">
+        <span class="sec-tag" data-pt="Responsabilidade Social" data-en="Social Responsibility">Responsabilidade Social</span>
+        <h2 class="sec-h sec-h--lg" data-pt="Negócio com propósito" data-en="Business with purpose">Negócio com propósito</h2>
+        <p data-pt="Só há futuro se houver equidade, respeito e compromisso com o bem comum." data-en="There is only a future if there is equity, respect and commitment to the common good." style="color:rgba(255,255,255,.52);font-size:.95rem;line-height:1.82;margin-top:1rem;font-style:italic">"Só há futuro se houver equidade, respeito e compromisso com o bem comum."</p>
+      </div>
+      <div class="reveal rd1">
+        <div class="resp-items">
+          <div class="resp-item"><div class="resp-item-num">01</div><div class="resp-item-title" data-pt="Cadeias de Valor Éticas" data-en="Ethical Value Chains">Cadeias de Valor Éticas</div><p class="resp-item-body" data-pt="Fornecedores selecionados por critérios ambientais e sociais rigorosos, com auditorias regulares." data-en="Suppliers selected by strict environmental and social criteria, with regular audits.">Fornecedores selecionados por critérios ambientais e sociais rigorosos, com auditorias regulares.</p></div>
+          <div class="resp-item"><div class="resp-item-num">02</div><div class="resp-item-title" data-pt="Apoio às Comunidades" data-en="Community Support">Apoio às Comunidades</div><p class="resp-item-body" data-pt="Criação de emprego local e apoio a comunidades de agricultores parceiros no fornecimento de matérias-primas." data-en="Local job creation and support for partner farming communities in raw material supply.">Criação de emprego local e apoio a comunidades de agricultores parceiros no fornecimento de matérias-primas.</p></div>
+          <div class="resp-item"><div class="resp-item-num">03</div><div class="resp-item-title" data-pt="Educação Ambiental" data-en="Environmental Education">Educação Ambiental</div><p class="resp-item-body" data-pt="Programas de sensibilização e parceria com escolas, universidades e comunidades de surf." data-en="Awareness programs and partnerships with schools, universities and surf communities.">Programas de sensibilização e parceria com escolas, universidades e comunidades de surf.</p></div>
+          <div class="resp-item"><div class="resp-item-num">04</div><div class="resp-item-title" data-pt="Reduzir Desigualdades" data-en="Reduce Inequalities">Reduzir Desigualdades</div><p class="resp-item-body" data-pt="Acesso equitativo a soluções sustentáveis, sem premium injustificado para o utilizador final." data-en="Equitable access to sustainable solutions, without unjustified premium for the end user.">Acesso equitativo a soluções sustentáveis, sem premium injustificado para o utilizador final.</p></div>
+        </div>
+      </div>
     </div>
-    <div class="resp-grid">
-      <div class="resp-card reveal"><div class="resp-icon">⛓️</div><h3 data-pt="Cadeias de Valor Éticas" data-en="Ethical Value Chains">Cadeias de Valor Éticas</h3><p data-pt="Fornecedores selecionados por critérios ambientais e sociais rigorosos." data-en="Suppliers selected by strict environmental and social criteria.">Fornecedores selecionados por critérios ambientais e sociais rigorosos.</p></div>
-      <div class="resp-card reveal rd1"><div class="resp-icon">🏘️</div><h3 data-pt="Apoio às Comunidades" data-en="Community Support">Apoio às Comunidades</h3><p data-pt="Criação de emprego local e apoio a comunidades de agricultores parceiros." data-en="Local job creation and support for partner farming communities.">Criação de emprego local e apoio a comunidades de agricultores parceiros.</p></div>
-      <div class="resp-card reveal rd2"><div class="resp-icon">📚</div><h3 data-pt="Educação Ambiental" data-en="Environmental Education">Educação Ambiental</h3><p data-pt="Programas de sensibilização e parceria com escolas e universidades." data-en="Awareness programs and partnerships with schools and universities.">Programas de sensibilização e parceria com escolas e universidades.</p></div>
-      <div class="resp-card reveal rd3"><div class="resp-icon">⚖️</div><h3 data-pt="Reduzir Desigualdades" data-en="Reduce Inequalities">Reduzir Desigualdades</h3><p data-pt="Acesso equitativo a soluções sustentáveis, sem premium injustificado." data-en="Equitable access to sustainable solutions, without unjustified premium.">Acesso equitativo a soluções sustentáveis, sem premium injustificado.</p></div>
-    </div>
-    <p class="resp-quote" data-pt="&quot;Só há futuro se houver equidade, respeito e compromisso com o bem comum.&quot;" data-en="&quot;There is only a future if there is equity, respect and commitment to the common good.&quot;">"Só há futuro se houver equidade, respeito e compromisso com o bem comum."</p>
   </div>
 </section>
 
 <!-- ══ CONTACT ══ -->
-<section id="contacto">
-  <div class="contact-inner">
-    <span class="eyebrow" data-pt="Fale Connosco" data-en="Get in Touch">Fale Connosco</span>
-    <h2 data-pt="Pronto para construir com inteligência ecológica?" data-en="Ready to build with ecological intelligence?">Pronto para construir com inteligência ecológica?</h2>
-    <p class="contact-sub" data-pt="Fala connosco para amostras, parcerias B2B ou projetos personalizados." data-en="Talk to us for samples, B2B partnerships or custom projects.">Fala connosco para amostras, parcerias B2B ou projetos personalizados.</p>
-    <form class="contact-form" id="contactForm" onsubmit="handleForm(event)">
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label" data-pt="Nome" data-en="Name">Nome</label>
-          <input class="form-input" type="text" placeholder="João Silva" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" data-pt="Email" data-en="Email">Email</label>
-          <input class="form-input" type="email" placeholder="joao@empresa.pt" required>
+<section id="contacto" class="sec">
+  <div class="sec-inner">
+    <div class="contact-layout">
+      <div class="reveal">
+        <span class="sec-tag" data-pt="Fale Connosco" data-en="Get in Touch">Fale Connosco</span>
+        <h2 class="sec-h sec-h--lg" style="color:var(--white)" data-pt="Pronto para construir com inteligência ecológica?" data-en="Ready to build with ecological intelligence?">Pronto para construir com inteligência ecológica?</h2>
+        <p data-pt="Contacte-nos para amostras, parcerias B2B, projetos personalizados ou informações técnicas." data-en="Contact us for samples, B2B partnerships, custom projects or technical information.">Contacte-nos para amostras, parcerias B2B, projetos personalizados ou informações técnicas.</p>
+        <div class="contact-detail">
+          <span>🇵🇹 Portugal</span>
+          <span><a href="mailto:info@wackywaves.pt">info@wackywaves.pt</a></span>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label" data-pt="Empresa" data-en="Company">Empresa</label>
-          <input class="form-input" type="text" placeholder="Empresa, Lda.">
-        </div>
-        <div class="form-group">
-          <label class="form-label" data-pt="Segmento" data-en="Segment">Segmento</label>
-          <select class="form-input">
-            <option value="" data-pt="Selecionar..." data-en="Select...">Selecionar...</option>
-            <option value="construcao" data-pt="Construção" data-en="Construction">Construção</option>
-            <option value="desporto" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</option>
-            <option value="moda" data-pt="Moda & Acessórios" data-en="Fashion & Accessories">Moda & Acessórios</option>
-            <option value="design" data-pt="Design & Arquitetura" data-en="Design & Architecture">Design & Arquitetura</option>
-            <option value="outro" data-pt="Outro" data-en="Other">Outro</option>
-          </select>
-        </div>
+      <div class="reveal rd1">
+        <form class="contact-form" id="contactForm" onsubmit="handleForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-pt="Nome" data-en="Name">Nome</label>
+              <input class="form-input" type="text" placeholder="João Silva" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-pt="Email" data-en="Email">Email</label>
+              <input class="form-input" type="email" placeholder="joao@empresa.pt" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-pt="Empresa" data-en="Company">Empresa</label>
+              <input class="form-input" type="text" placeholder="Empresa, Lda.">
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-pt="Segmento" data-en="Segment">Segmento</label>
+              <select class="form-input">
+                <option value="">—</option>
+                <option value="construcao" data-pt="Construção" data-en="Construction">Construção</option>
+                <option value="desporto" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</option>
+                <option value="moda" data-pt="Moda & Acessórios" data-en="Fashion & Accessories">Moda & Acessórios</option>
+                <option value="design" data-pt="Design & Arquitetura" data-en="Design & Architecture">Design & Arquitetura</option>
+                <option value="outro" data-pt="Outro" data-en="Other">Outro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-pt="Mensagem" data-en="Message">Mensagem</label>
+            <textarea class="form-input" placeholder="Descreva o seu projeto ou pedido..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</button>
+        </form>
       </div>
-      <div class="form-group">
-        <label class="form-label" data-pt="Mensagem" data-en="Message">Mensagem</label>
-        <textarea class="form-input" placeholder="Descreva o seu projeto ou pedido..." data-en-placeholder="Describe your project or request..."></textarea>
-      </div>
-      <div class="form-submit">
-        <button type="submit" class="btn-submit" data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</button>
-      </div>
-    </form>
-    <div class="contact-meta">
-      <span>🇵🇹 Portugal</span>
-      <span><a href="mailto:info@wackywaves.pt">info@wackywaves.pt</a></span>
     </div>
   </div>
 </section>
@@ -768,7 +865,7 @@ textarea.form-input{resize:vertical;min-height:110px}
         </svg>
         <div>
           <div style="font-family:var(--ff-d);font-weight:900;font-size:1rem;color:var(--white)">WACKY WAVES</div>
-          <div style="font-family:var(--ff-d);font-size:.58rem;font-weight:700;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase">Sustainable Innovation</div>
+          <div style="font-family:var(--ff-d);font-size:.55rem;font-weight:700;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase">Sustainable Innovation</div>
         </div>
       </a>
       <p class="footer-tagline" data-pt="Startup portuguesa de eco-materiais de nova geração com base tecnológica bio de ciclo fechado." data-en="Portuguese startup of new-generation eco-materials with closed-loop bio technology base.">Startup portuguesa de eco-materiais de nova geração com base tecnológica bio de ciclo fechado.</p>
@@ -787,14 +884,14 @@ textarea.form-input{resize:vertical;min-height:110px}
     </div>
     <div class="footer-col">
       <h4 data-pt="Segmentos" data-en="Segments">Segmentos</h4>
-      <a href="#segmento-construcao" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</a>
       <a href="#segmento-desporto" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</a>
+      <a href="#segmento-construcao" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</a>
       <a href="#segmento-outros" data-pt="Moda Circular" data-en="Circular Fashion">Moda Circular</a>
     </div>
   </div>
   <div class="footer-bottom">
     <p class="footer-legal" data-pt="Toda a formulação e processo de fabrico são propriedade intelectual da empresa, protegidos como segredo de negócio e em processo de registo de patente." data-en="All formulation and manufacturing processes are the intellectual property of the company, protected as trade secrets and in the process of patent registration.">Toda a formulação e processo de fabrico são propriedade intelectual da empresa, protegidos como segredo de negócio e em processo de registo de patente.</p>
-    <span class="footer-copy">© 2025 Wacky Waves · <a href="#" style="color:rgba(255,255,255,.28);transition:color .2s" data-pt="Política de Privacidade" data-en="Privacy Policy">Política de Privacidade</a></span>
+    <span class="footer-copy">© 2025 Wacky Waves · <a href="#" style="color:rgba(255,255,255,.24)" data-pt="Política de Privacidade" data-en="Privacy Policy">Política de Privacidade</a></span>
   </div>
 </footer>
 
@@ -808,31 +905,17 @@ function activateSlide(idx) {
   current = (idx + slides.length) % slides.length;
   slides[current].classList.add('active');
   bars[current].classList.add('active');
-
   const vid = slides[current].querySelector('.hero-video');
   const fill = bars[current].querySelector('.hero-bar-fill');
-  fill.style.width = '0%';
-  fill.style.transition = 'none';
-
+  fill.style.width = '0%'; fill.style.transition = 'none';
   if (vid) {
     vid.playbackRate = 1.0;
-
-    // Barra de progresso sincronizada com a duração real do vídeo
     vid.ontimeupdate = () => {
       if (!isFinite(vid.duration) || vid.duration === 0) return;
       fill.style.width = (vid.currentTime / vid.duration * 100) + '%';
     };
-
-    // Avança slide quando o vídeo termina
     vid.onended = () => goTo(current + 1);
-
-    vid.play().catch(() => {
-      // Fallback CSS se o vídeo não carregar
-      fill.style.animation = 'pfill 9s linear forwards';
-      fallbackTimer = setTimeout(() => goTo(current + 1), 9500);
-    });
-
-    // Segurança: nunca ficar preso num slide
+    vid.play().catch(() => { fill.style.animation = 'pfill 9s linear forwards'; fallbackTimer = setTimeout(() => goTo(current + 1), 9500); });
     fallbackTimer = setTimeout(() => goTo(current + 1), 60000);
   } else {
     fill.style.animation = 'pfill 9s linear forwards';
@@ -842,137 +925,76 @@ function activateSlide(idx) {
 
 function goTo(idx) {
   if (fallbackTimer) { clearTimeout(fallbackTimer); fallbackTimer = null; }
-
-  const prevIdx = current;
-  slides[prevIdx].classList.remove('active');
-  bars[prevIdx].classList.remove('active');
-  const oldFill = bars[prevIdx].querySelector('.hero-bar-fill');
-  oldFill.style.animation = 'none';
-  oldFill.style.width = '0%';
-
-  const oldVid = slides[prevIdx].querySelector('.hero-video');
-  if (oldVid) {
-    oldVid.onended = null;
-    oldVid.ontimeupdate = null;
-    oldVid.pause();
-    oldVid.currentTime = 0;
-  }
-
+  const p = current;
+  slides[p].classList.remove('active'); bars[p].classList.remove('active');
+  const of = bars[p].querySelector('.hero-bar-fill'); of.style.animation = 'none'; of.style.width = '0%';
+  const ov = slides[p].querySelector('.hero-video');
+  if (ov) { ov.onended = null; ov.ontimeupdate = null; ov.pause(); ov.currentTime = 0; }
   activateSlide(idx);
 }
 
 document.getElementById('heroPrev').addEventListener('click', () => goTo(current - 1));
 document.getElementById('heroNext').addEventListener('click', () => goTo(current + 1));
-bars.forEach(b => b.addEventListener('click', () => goTo(+b.dataset.idx)));
-
-// touch/swipe
+document.querySelectorAll('.hero-bar').forEach(b => b.addEventListener('click', () => goTo(+b.dataset.idx)));
 const heroEl = document.getElementById('hero');
-heroEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-heroEl.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
-});
-
-// init — ativa o primeiro slide directamente
+heroEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+heroEl.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - touchStartX; if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1)); });
 activateSlide(0);
 
 // ── STICKY NAV ──
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-}, {passive:true});
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, {passive:true});
 
 // ── HAMBURGER ──
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.body.classList.toggle('nav-open');
-});
-
-// close nav on link click (mobile)
-document.querySelectorAll('.nav-link, .nav-dropdown-item, .nav-cta').forEach(el => {
-  el.addEventListener('click', () => document.body.classList.remove('nav-open'));
-});
-
-// mobile dropdown toggle
+document.getElementById('hamburger').addEventListener('click', () => document.body.classList.toggle('nav-open'));
+document.querySelectorAll('.nav-link, .nav-dropdown-item, .nav-cta').forEach(el => el.addEventListener('click', () => document.body.classList.remove('nav-open')));
 document.querySelectorAll('.nav-dropdown').forEach(dd => {
-  dd.querySelector('.nav-link').addEventListener('click', (e) => {
-    if (window.innerWidth <= 900) {
-      e.preventDefault();
-      dd.classList.toggle('open');
-    }
-  });
+  dd.querySelector('.nav-link').addEventListener('click', e => { if (window.innerWidth <= 900) { e.preventDefault(); dd.classList.toggle('open'); } });
 });
 
 // ── PT/EN TOGGLE ──
 const langBtn = document.getElementById('langBtn');
 let lang = 'pt';
 function applyLang(l) {
-  lang = l;
-  langBtn.textContent = l === 'pt' ? 'EN' : 'PT';
-  document.documentElement.lang = l;
+  lang = l; langBtn.textContent = l === 'pt' ? 'EN' : 'PT'; document.documentElement.lang = l;
   document.querySelectorAll('[data-pt][data-en]').forEach(el => {
     const txt = el.dataset[l];
-    if (txt !== undefined) {
-      // Handle innerHTML vs textContent based on tag
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = txt;
-      } else {
-        el.textContent = txt;
-      }
-    }
-  });
-  // also handle elements with only data-en (textarea placeholder)
-  document.querySelectorAll('[data-en-placeholder]').forEach(el => {
-    if (l === 'en') el.placeholder = el.dataset['enPlaceholder'];
-    else el.placeholder = el.getAttribute('placeholder') || '';
+    if (txt !== undefined) { if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = txt; else el.textContent = txt; }
   });
 }
 langBtn.addEventListener('click', () => applyLang(lang === 'pt' ? 'en' : 'pt'));
 
-// ── COUNTER ANIMATION ──
+// ── COUNTER ──
 function animateCounter(el) {
-  const target = +el.dataset.target;
-  const suffix = el.dataset.suffix || '';
-  const prefix = el.dataset.prefix || '';
-  const dur = 1800;
+  const target = +el.dataset.target, suffix = el.dataset.suffix || '', prefix = el.dataset.prefix || '';
   const start = performance.now();
-  function step(now) {
-    const t = Math.min((now - start) / dur, 1);
-    const ease = 1 - Math.pow(1 - t, 3);
-    const val = Math.round(ease * target);
-    el.textContent = prefix + val + suffix;
-    if (t < 1) requestAnimationFrame(step);
-    else el.textContent = prefix + target + suffix;
-  }
-  requestAnimationFrame(step);
+  (function step(now) {
+    const t = Math.min((now - start) / 1800, 1), ease = 1 - Math.pow(1-t, 3);
+    el.textContent = prefix + Math.round(ease * target) + suffix;
+    if (t < 1) requestAnimationFrame(step); else el.textContent = prefix + target + suffix;
+  })(start);
 }
 
 // ── INTERSECTION OBSERVER ──
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      // counter
-      if (entry.target.classList.contains('counter')) {
-        animateCounter(entry.target);
-        io.unobserve(entry.target);
-      }
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.classList.contains('counter')) { animateCounter(e.target); io.unobserve(e.target); }
     }
   });
 }, {threshold: 0.15});
-
 document.querySelectorAll('.reveal, .counter').forEach(el => io.observe(el));
 
-// ── FORM HANDLER ──
+// ── FORM ──
 function handleForm(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  const orig = btn.textContent;
-  btn.textContent = lang === 'pt' ? '✓ Mensagem Enviada!' : '✓ Message Sent!';
-  btn.style.background = '#22c55e';
+  const btn = e.target.querySelector('.btn-submit'), orig = btn.textContent;
+  btn.textContent = lang === 'pt' ? '\u2713 Mensagem enviada!' : '\u2713 Message sent!';
+  btn.style.background = '#16a34a';
   setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3000);
 }
 </script>
 
 </body>
-
 </html>

@@ -317,27 +317,10 @@ textarea.form-input{resize:vertical;min-height:110px}
 
 <!-- ══ HERO ══ -->
 <section id="hero">
-  <!-- Slide 1 — Bio Build -->
+  <!-- Slide 1 — Aquatic Sport -->
   <div class="hero-slide active" id="slide-0">
     <div class="hero-blob"></div>
     <video class="hero-video" autoplay muted playsinline preload="none">
-      <source src="hero-construcao.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-slide-content">
-      <span class="eyebrow" data-pt="LINHA 2 · BIO CONSTRUÇÃO" data-en="LINE 2 · BIO CONSTRUCTION">LINHA 2 · BIO CONSTRUÇÃO</span>
-      <h2 class="hero-slide-headline" data-pt="Do resíduo agrícola ao painel estrutural." data-en="From agricultural waste to structural panel.">Do resíduo agrícola ao painel estrutural.</h2>
-      <p class="hero-slide-sub" data-pt="Painéis bio com isolamento superior. -40% CO₂ por euro. Alinhado com EU Taxonomy, BREEAM e LEED." data-en="Bio panels with superior insulation. -40% CO₂ per euro. Aligned with EU Taxonomy, BREEAM and LEED.">Painéis bio com isolamento superior. -40% CO₂ por euro. Alinhado com EU Taxonomy, BREEAM e LEED.</p>
-      <div class="hero-ctas">
-        <a href="#segmento-construcao" class="btn-primary" data-pt="Ver Segmento Construção →" data-en="View Construction Segment →">Ver Segmento Construção →</a>
-        <a href="#contacto" class="btn-outline" data-pt="Pedir Amostra" data-en="Request Sample">Pedir Amostra</a>
-      </div>
-    </div>
-  </div>
-  <!-- Slide 2 — Aquatic Sport -->
-  <div class="hero-slide" id="slide-1">
-    <div class="hero-blob"></div>
-    <video class="hero-video" muted loop playsinline preload="none">
       <source src="hero-surf.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -351,10 +334,27 @@ textarea.form-input{resize:vertical;min-height:110px}
       </div>
     </div>
   </div>
+  <!-- Slide 2 — Bio Build -->
+  <div class="hero-slide" id="slide-1">
+    <div class="hero-blob"></div>
+    <video class="hero-video" muted playsinline preload="none">
+      <source src="hero-construcao.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-slide-content">
+      <span class="eyebrow" data-pt="LINHA 2 · BIO CONSTRUÇÃO" data-en="LINE 2 · BIO CONSTRUCTION">LINHA 2 · BIO CONSTRUÇÃO</span>
+      <h2 class="hero-slide-headline" data-pt="Do resíduo agrícola ao painel estrutural." data-en="From agricultural waste to structural panel.">Do resíduo agrícola ao painel estrutural.</h2>
+      <p class="hero-slide-sub" data-pt="Painéis bio com isolamento superior. -40% CO₂ por euro. Alinhado com EU Taxonomy, BREEAM e LEED." data-en="Bio panels with superior insulation. -40% CO₂ per euro. Aligned with EU Taxonomy, BREEAM and LEED.">Painéis bio com isolamento superior. -40% CO₂ por euro. Alinhado com EU Taxonomy, BREEAM e LEED.</p>
+      <div class="hero-ctas">
+        <a href="#segmento-construcao" class="btn-primary" data-pt="Ver Segmento Construção →" data-en="View Construction Segment →">Ver Segmento Construção →</a>
+        <a href="#contacto" class="btn-outline" data-pt="Pedir Amostra" data-en="Request Sample">Pedir Amostra</a>
+      </div>
+    </div>
+  </div>
   <!-- Slide 3 — Circular Fashion -->
   <div class="hero-slide" id="slide-2">
     <div class="hero-blob"></div>
-    <video class="hero-video" muted loop playsinline preload="none">
+    <video class="hero-video" muted playsinline preload="none">
       <source src="hero-oculos.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -802,27 +802,7 @@ textarea.form-input{resize:vertical;min-height:110px}
 // ── HERO SLIDER ──
 const slides = document.querySelectorAll('.hero-slide');
 const bars = document.querySelectorAll('.hero-bar');
-let current = 0, slowdownTimeout = null, slowdownRaf = null, fallbackTimer = null, touchStartX = 0;
-
-function cancelSlowdown() {
-  if (slowdownTimeout) { clearTimeout(slowdownTimeout); slowdownTimeout = null; }
-  if (slowdownRaf)     { cancelAnimationFrame(slowdownRaf); slowdownRaf = null; }
-}
-
-// Desacelera o vídeo nos últimos 3s da sua duração real
-function setupSlowdown(vid) {
-  if (!isFinite(vid.duration)) return;
-  const delay = Math.max(0, (vid.duration - 3) * 1000);
-  slowdownTimeout = setTimeout(() => {
-    const t0 = performance.now();
-    function step(now) {
-      const t = Math.min((now - t0) / 3000, 1);
-      vid.playbackRate = 1.0 - 0.75 * t; // 1.0 → 0.25
-      if (t < 1) slowdownRaf = requestAnimationFrame(step);
-    }
-    slowdownRaf = requestAnimationFrame(step);
-  }, delay);
-}
+let current = 0, fallbackTimer = null, touchStartX = 0;
 
 function activateSlide(idx) {
   current = (idx + slides.length) % slides.length;
@@ -837,21 +817,14 @@ function activateSlide(idx) {
   if (vid) {
     vid.playbackRate = 1.0;
 
-    // Barra de progresso sincronizada com o vídeo real
+    // Barra de progresso sincronizada com a duração real do vídeo
     vid.ontimeupdate = () => {
       if (!isFinite(vid.duration) || vid.duration === 0) return;
       fill.style.width = (vid.currentTime / vid.duration * 100) + '%';
     };
 
-    // Avança slide quando o vídeo acaba
+    // Avança slide quando o vídeo termina
     vid.onended = () => goTo(current + 1);
-
-    const onMeta = () => setupSlowdown(vid);
-    if (isFinite(vid.duration)) {
-      onMeta();
-    } else {
-      vid.addEventListener('loadedmetadata', onMeta, { once: true });
-    }
 
     vid.play().catch(() => {
       // Fallback CSS se o vídeo não carregar
@@ -859,7 +832,7 @@ function activateSlide(idx) {
       fallbackTimer = setTimeout(() => goTo(current + 1), 9500);
     });
 
-    // Segurança: nunca ficar preso num slide (60s)
+    // Segurança: nunca ficar preso num slide
     fallbackTimer = setTimeout(() => goTo(current + 1), 60000);
   } else {
     fill.style.animation = 'pfill 9s linear forwards';
@@ -868,10 +841,8 @@ function activateSlide(idx) {
 }
 
 function goTo(idx) {
-  cancelSlowdown();
   if (fallbackTimer) { clearTimeout(fallbackTimer); fallbackTimer = null; }
 
-  // Limpa slide anterior
   const prevIdx = current;
   slides[prevIdx].classList.remove('active');
   bars[prevIdx].classList.remove('active');
@@ -885,7 +856,6 @@ function goTo(idx) {
     oldVid.ontimeupdate = null;
     oldVid.pause();
     oldVid.currentTime = 0;
-    oldVid.playbackRate = 1.0;
   }
 
   activateSlide(idx);

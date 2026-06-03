@@ -320,7 +320,7 @@ textarea.form-input{resize:vertical;min-height:110px}
   <!-- Slide 1 — Bio Build -->
   <div class="hero-slide active" id="slide-0">
     <div class="hero-blob"></div>
-    <video class="hero-video" autoplay muted loop playsinline preload="none">
+    <video class="hero-video" autoplay muted playsinline preload="none">
       <source src="hero-construcao.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -496,7 +496,7 @@ textarea.form-input{resize:vertical;min-height:110px}
 <section id="segmento-construcao" class="seg-section">
   <div class="seg-hero">
     <div class="seg-blob"></div>
-    <video class="seg-video" autoplay muted loop playsinline preload="none"><source src="hero-construcao.mp4" type="video/mp4"></video>
+    <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-construcao.mp4" type="video/mp4"></video>
     <div class="seg-overlay"></div>
     <div class="seg-hero-txt">
       <span class="eyebrow" data-pt="BIO CONSTRUÇÃO" data-en="BIO CONSTRUCTION">BIO CONSTRUÇÃO</span>
@@ -538,7 +538,7 @@ textarea.form-input{resize:vertical;min-height:110px}
 <section id="segmento-desporto" class="seg-section">
   <div class="seg-hero">
     <div class="seg-blob"></div>
-    <video class="seg-video" autoplay muted loop playsinline preload="none"><source src="hero-surf.mp4" type="video/mp4"></video>
+    <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-surf.mp4" type="video/mp4"></video>
     <div class="seg-overlay"></div>
     <div class="seg-hero-txt">
       <span class="eyebrow" data-pt="DESPORTOS AQUÁTICOS" data-en="AQUATIC SPORTS">DESPORTOS AQUÁTICOS</span>
@@ -596,7 +596,7 @@ textarea.form-input{resize:vertical;min-height:110px}
 <section id="segmento-outros" class="seg-section">
   <div class="seg-hero">
     <div class="seg-blob"></div>
-    <video class="seg-video" autoplay muted loop playsinline preload="none"><source src="hero-oculos.mp4" type="video/mp4"></video>
+    <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-oculos.mp4" type="video/mp4"></video>
     <div class="seg-overlay"></div>
     <div class="seg-hero-txt">
       <span class="eyebrow" data-pt="MODA & ACESSÓRIOS CIRCULARES" data-en="FASHION & CIRCULAR ACCESSORIES">MODA & ACESSÓRIOS CIRCULARES</span>
@@ -802,55 +802,93 @@ textarea.form-input{resize:vertical;min-height:110px}
 // ── HERO SLIDER ──
 const slides = document.querySelectorAll('.hero-slide');
 const bars = document.querySelectorAll('.hero-bar');
-let current = 0, timer = null, slowdownTimeout = null, slowdownRaf = null, touchStartX = 0;
-
-const SLIDE_DURATION = 9000;
-const NORMAL_DURATION = 6000;   // velocidade normal durante 6s
-const SLOWDOWN_DURATION = 3000; // desacelera nos últimos 3s
-
-function startSlowdown(vid) {
-  slowdownTimeout = setTimeout(() => {
-    const t0 = performance.now();
-    function step(now) {
-      const t = Math.min((now - t0) / SLOWDOWN_DURATION, 1);
-      // linear: de 1.0 até 0.08 (quase parado)
-      vid.playbackRate = 1.0 - 0.92 * t;
-      if (t < 1) slowdownRaf = requestAnimationFrame(step);
-    }
-    slowdownRaf = requestAnimationFrame(step);
-  }, NORMAL_DURATION);
-}
+let current = 0, slowdownTimeout = null, slowdownRaf = null, fallbackTimer = null, touchStartX = 0;
 
 function cancelSlowdown() {
   if (slowdownTimeout) { clearTimeout(slowdownTimeout); slowdownTimeout = null; }
-  if (slowdownRaf) { cancelAnimationFrame(slowdownRaf); slowdownRaf = null; }
+  if (slowdownRaf)     { cancelAnimationFrame(slowdownRaf); slowdownRaf = null; }
+}
+
+// Desacelera o vídeo nos últimos 3s da sua duração real
+function setupSlowdown(vid) {
+  if (!isFinite(vid.duration)) return;
+  const delay = Math.max(0, (vid.duration - 3) * 1000);
+  slowdownTimeout = setTimeout(() => {
+    const t0 = performance.now();
+    function step(now) {
+      const t = Math.min((now - t0) / 3000, 1);
+      vid.playbackRate = 1.0 - 0.75 * t; // 1.0 → 0.25
+      if (t < 1) slowdownRaf = requestAnimationFrame(step);
+    }
+    slowdownRaf = requestAnimationFrame(step);
+  }, delay);
+}
+
+function activateSlide(idx) {
+  current = (idx + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  bars[current].classList.add('active');
+
+  const vid = slides[current].querySelector('.hero-video');
+  const fill = bars[current].querySelector('.hero-bar-fill');
+  fill.style.width = '0%';
+  fill.style.transition = 'none';
+
+  if (vid) {
+    vid.playbackRate = 1.0;
+
+    // Barra de progresso sincronizada com o vídeo real
+    vid.ontimeupdate = () => {
+      if (!isFinite(vid.duration) || vid.duration === 0) return;
+      fill.style.width = (vid.currentTime / vid.duration * 100) + '%';
+    };
+
+    // Avança slide quando o vídeo acaba
+    vid.onended = () => goTo(current + 1);
+
+    const onMeta = () => setupSlowdown(vid);
+    if (isFinite(vid.duration)) {
+      onMeta();
+    } else {
+      vid.addEventListener('loadedmetadata', onMeta, { once: true });
+    }
+
+    vid.play().catch(() => {
+      // Fallback CSS se o vídeo não carregar
+      fill.style.animation = 'pfill 9s linear forwards';
+      fallbackTimer = setTimeout(() => goTo(current + 1), 9500);
+    });
+
+    // Segurança: nunca ficar preso num slide (60s)
+    fallbackTimer = setTimeout(() => goTo(current + 1), 60000);
+  } else {
+    fill.style.animation = 'pfill 9s linear forwards';
+    fallbackTimer = setTimeout(() => goTo(current + 1), 9500);
+  }
 }
 
 function goTo(idx) {
   cancelSlowdown();
+  if (fallbackTimer) { clearTimeout(fallbackTimer); fallbackTimer = null; }
 
-  slides[current].classList.remove('active');
-  bars[current].classList.remove('active');
-  bars[current].querySelector('.hero-bar-fill').style.animation = 'none';
-  bars[current].querySelector('.hero-bar-fill').offsetHeight;
-  bars[current].querySelector('.hero-bar-fill').style.animation = '';
+  // Limpa slide anterior
+  const prevIdx = current;
+  slides[prevIdx].classList.remove('active');
+  bars[prevIdx].classList.remove('active');
+  const oldFill = bars[prevIdx].querySelector('.hero-bar-fill');
+  oldFill.style.animation = 'none';
+  oldFill.style.width = '0%';
 
-  const oldVid = slides[current].querySelector('.hero-video');
-  if (oldVid) { oldVid.pause(); oldVid.currentTime = 0; oldVid.playbackRate = 1.0; }
+  const oldVid = slides[prevIdx].querySelector('.hero-video');
+  if (oldVid) {
+    oldVid.onended = null;
+    oldVid.ontimeupdate = null;
+    oldVid.pause();
+    oldVid.currentTime = 0;
+    oldVid.playbackRate = 1.0;
+  }
 
-  current = (idx + slides.length) % slides.length;
-  slides[current].classList.add('active');
-  bars[current].classList.add('active');
-  const fill = bars[current].querySelector('.hero-bar-fill');
-  fill.style.animation = 'none';
-  fill.offsetHeight;
-  fill.style.animation = 'pfill 9s linear forwards';
-
-  const newVid = slides[current].querySelector('.hero-video');
-  if (newVid) { newVid.playbackRate = 1.0; newVid.play().catch(()=>{}); startSlowdown(newVid); }
-
-  clearInterval(timer);
-  timer = setInterval(() => goTo(current + 1), SLIDE_DURATION);
+  activateSlide(idx);
 }
 
 document.getElementById('heroPrev').addEventListener('click', () => goTo(current - 1));
@@ -859,16 +897,14 @@ bars.forEach(b => b.addEventListener('click', () => goTo(+b.dataset.idx)));
 
 // touch/swipe
 const heroEl = document.getElementById('hero');
-heroEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+heroEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
 heroEl.addEventListener('touchend', e => {
   const dx = e.changedTouches[0].clientX - touchStartX;
   if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
 });
 
-// init
-timer = setInterval(() => goTo(current + 1), SLIDE_DURATION);
-const firstVid = slides[0].querySelector('.hero-video');
-if (firstVid) { firstVid.playbackRate = 1.0; firstVid.play().catch(()=>{}); startSlowdown(firstVid); }
+// init — ativa o primeiro slide directamente
+activateSlide(0);
 
 // ── STICKY NAV ──
 const nav = document.getElementById('nav');

@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/wacky_waves_website.html" }
+  ]
+}

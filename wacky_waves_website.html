@@ -1111,7 +1111,7 @@ function showPage(name) {
     const pg = pageMap[name];
     if (!pg) return;
     mainPage.style.display = 'none';
-    pg.style.display = '';
+    pg.style.display = 'block';
     nav.classList.add('inner');
     window.scrollTo(0, 0);
     const vid = pg.querySelector('.seg-video');

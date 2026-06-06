@@ -188,9 +188,9 @@ button{border:none;cursor:pointer;font-family:inherit}
 .seg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .seg-blob{position:absolute;inset:0;overflow:hidden}
 .seg-blob::before{content:'';position:absolute;width:45vw;height:45vw;border-radius:50%;filter:blur(80px);opacity:.22;animation:blobmove 10s ease-in-out infinite}
-#segmento-construcao .seg-blob::before{background:radial-gradient(var(--green),transparent 70%);top:-15%;right:10%}
-#segmento-desporto .seg-blob::before{background:radial-gradient(var(--cyan),transparent 70%);bottom:-15%;left:15%;animation-delay:-2s}
-#segmento-outros .seg-blob::before{background:radial-gradient(var(--green2),transparent 70%);top:10%;right:5%;animation-delay:-4s}
+#page-construcao .seg-blob::before{background:radial-gradient(var(--green),transparent 70%);top:-15%;right:10%}
+#page-desporto .seg-blob::before{background:radial-gradient(var(--cyan),transparent 70%);bottom:-15%;left:15%;animation-delay:-2s}
+#page-moda .seg-blob::before{background:radial-gradient(var(--green2),transparent 70%);top:10%;right:5%;animation-delay:-4s}
 .seg-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,12,.92) 0%,rgba(7,26,12,.4) 60%,rgba(7,26,12,.15) 100%);z-index:1}
 .seg-hero-txt{position:relative;z-index:2;padding:3rem 8%;width:100%}
 .seg-hero-txt h2{font-family:var(--ff-d);font-weight:900;font-size:clamp(1.8rem,4vw,3.5rem);color:var(--white);line-height:1.1;letter-spacing:-.02em;max-width:700px;margin-top:.75rem}
@@ -318,6 +318,24 @@ textarea.form-input{resize:vertical;min-height:100px}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+
+/* ── SUB-PAGES ── */
+.sub-page{display:none}
+#nav.inner{background:rgba(255,255,255,.97)!important;box-shadow:0 2px 24px rgba(0,0,0,.08)!important;backdrop-filter:blur(12px)}
+#nav.inner .nav-link,#nav.inner .nav-logo-name{color:var(--black)!important}
+#nav.inner .nav-hamburger span{background:var(--black)!important}
+#nav.inner .lang-toggle{color:var(--black)!important;background:var(--bg-light)!important;border-color:transparent!important}
+.back-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--ff-d);font-size:.75rem;font-weight:700;color:rgba(255,255,255,.72);background:none;border:none;padding:0;margin-bottom:1.5rem;cursor:pointer;transition:color .2s;letter-spacing:.1em;text-transform:uppercase}
+.back-btn:hover{color:var(--white)}
+.seg-related{background:var(--bg-light)}
+.seg-related-inner{padding:4rem 8%}
+.seg-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.08);margin-top:2rem}
+.seg-related-card{background:var(--white);padding:2.5rem 2rem;display:block;transition:background .2s}
+.seg-related-card:hover{background:var(--bg-light)}
+.seg-related-label{font-family:var(--ff-d);font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:.5rem;display:block}
+.seg-related-title{font-family:var(--ff-d);font-weight:900;font-size:1rem;color:var(--black);margin-bottom:.75rem}
+.seg-related-arrow{font-family:var(--ff-d);font-size:.85rem;font-weight:700;color:var(--cyan)}
+@media(max-width:800px){.seg-related-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -341,9 +359,9 @@ textarea.form-input{resize:vertical;min-height:100px}
     <li class="nav-dropdown">
       <span class="nav-link" data-pt="Segmentos ▾" data-en="Segments ▾">Segmentos ▾</span>
       <div class="nav-dropdown-menu">
-        <a href="#segmento-construcao" class="nav-dropdown-item" data-pt="🏗 Construção" data-en="🏗 Construction">🏗 Construção</a>
-        <a href="#segmento-desporto" class="nav-dropdown-item" data-pt="🏄 Desporto" data-en="🏄 Sport">🏄 Desporto</a>
-        <a href="#segmento-outros" class="nav-dropdown-item" data-pt="👓 Moda & Outros" data-en="👓 Fashion & Others">👓 Moda & Outros</a>
+        <a href="/construcao" data-route="/construcao" class="nav-dropdown-item" data-pt="🏗 Construção" data-en="🏗 Construction">🏗 Construção</a>
+        <a href="/desporto" data-route="/desporto" class="nav-dropdown-item" data-pt="🏄 Desporto" data-en="🏄 Sport">🏄 Desporto</a>
+        <a href="/moda" data-route="/moda" class="nav-dropdown-item" data-pt="👓 Moda & Outros" data-en="👓 Fashion & Others">👓 Moda & Outros</a>
       </div>
     </li>
     <li><a href="#visao" class="nav-link" data-pt="Sustentabilidade" data-en="Sustainability">Sustentabilidade</a></li>
@@ -357,6 +375,8 @@ textarea.form-input{resize:vertical;min-height:100px}
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<div id="main-page">
 
 <!-- ══ HERO ══ -->
 <section id="hero">
@@ -372,7 +392,7 @@ textarea.form-input{resize:vertical;min-height:100px}
       <h2 class="hero-slide-headline" data-pt="A prancha que o oceano aprovaria." data-en="The board the ocean would approve.">A prancha que o oceano aprovaria.</h2>
       <p class="hero-slide-sub" data-pt="Espuma bio + fibras naturais + verniz sem solventes. Desempenho de elite, zero petroquímico." data-en="Bio foam + natural fibers + solvent-free finish. Elite performance, zero petrochemicals.">Espuma bio + fibras naturais + verniz sem solventes. Desempenho de elite, zero petroquímico.</p>
       <div class="hero-ctas">
-        <a href="#segmento-desporto" class="btn-primary" data-pt="Ver Segmento Desporto →" data-en="View Sport Segment →">Ver Segmento Desporto →</a>
+        <a href="/desporto" data-route="/desporto" class="btn-primary" data-pt="Ver Segmento Desporto →" data-en="View Sport Segment →">Ver Segmento Desporto →</a>
         <a href="#contacto" class="btn-outline" data-pt="Pedir Amostra" data-en="Request Sample">Pedir Amostra</a>
       </div>
     </div>
@@ -389,7 +409,7 @@ textarea.form-input{resize:vertical;min-height:100px}
       <h2 class="hero-slide-headline" data-pt="Do resíduo agrícola ao painel estrutural." data-en="From agricultural waste to structural panel.">Do resíduo agrícola ao painel estrutural.</h2>
       <p class="hero-slide-sub" data-pt="Painéis bio com isolamento superior. -40% CO₂ por euro. Alinhado com EU Taxonomy, BREEAM e LEED." data-en="Bio panels with superior insulation. -40% CO₂ per euro. Aligned with EU Taxonomy, BREEAM and LEED.">Painéis bio com isolamento superior. -40% CO₂ por euro. Alinhado com EU Taxonomy, BREEAM e LEED.</p>
       <div class="hero-ctas">
-        <a href="#segmento-construcao" class="btn-primary" data-pt="Ver Segmento Construção →" data-en="View Construction Segment →">Ver Segmento Construção →</a>
+        <a href="/construcao" data-route="/construcao" class="btn-primary" data-pt="Ver Segmento Construção →" data-en="View Construction Segment →">Ver Segmento Construção →</a>
         <a href="#contacto" class="btn-outline" data-pt="Pedir Amostra" data-en="Request Sample">Pedir Amostra</a>
       </div>
     </div>
@@ -406,7 +426,7 @@ textarea.form-input{resize:vertical;min-height:100px}
       <h2 class="hero-slide-headline" data-pt="Óculos nascidos de madeira. Sem plástico. Sem compromisso." data-en="Glasses born from wood. No plastic. No compromise.">Óculos nascidos de madeira. Sem plástico. Sem compromisso.</h2>
       <p class="hero-slide-sub" data-pt="Armações 100% bio, rastreáveis da fibra ao fim de vida. Para marcas que querem a diferença." data-en="100% bio frames, traceable from fiber to end-of-life. For brands that want to stand out.">Armações 100% bio, rastreáveis da fibra ao fim de vida. Para marcas que querem a diferença.</p>
       <div class="hero-ctas">
-        <a href="#segmento-outros" class="btn-primary" data-pt="Ver Segmento Moda →" data-en="View Fashion Segment →">Ver Segmento Moda →</a>
+        <a href="/moda" data-route="/moda" class="btn-primary" data-pt="Ver Segmento Moda →" data-en="View Fashion Segment →">Ver Segmento Moda →</a>
         <a href="#contacto" class="btn-outline" data-pt="Pedir Amostra" data-en="Request Sample">Pedir Amostra</a>
       </div>
     </div>
@@ -543,7 +563,7 @@ textarea.form-input{resize:vertical;min-height:100px}
         <h3 class="prod-title" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</h3>
         <p class="prod-desc" data-pt="Espuma bio expandida, fibras vegetais e verniz bicomponente sem solventes. Desempenho equivalente ao epóxi convencional, zero petroquímico." data-en="Expanded bio foam, plant fibers and solvent-free two-component varnish. Performance equivalent to conventional epoxy, zero petrochemicals.">Espuma bio expandida, fibras vegetais e verniz bicomponente sem solventes. Desempenho equivalente ao epóxi convencional, zero petroquímico.</p>
         <div class="prod-items" data-pt="Pranchas de Surf · Bodyboard · SUP" data-en="Surfboards · Bodyboard · SUP">Pranchas de Surf · Bodyboard · SUP</div>
-        <a href="#segmento-desporto" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
+        <a href="/desporto" data-route="/desporto" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
       </div>
     </div>
     <div class="prod-card reveal rd1">
@@ -558,7 +578,7 @@ textarea.form-input{resize:vertical;min-height:100px}
         <h3 class="prod-title" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</h3>
         <p class="prod-desc" data-pt="Painéis e blocos bio para construção de baixo carbono. Isolamento térmico e acústico superior. Alinhado com EU Taxonomy, BREEAM e LEED." data-en="Bio panels and blocks for low-carbon construction. Superior thermal and acoustic insulation. Aligned with EU Taxonomy, BREEAM and LEED.">Painéis e blocos bio para construção de baixo carbono. Isolamento térmico e acústico superior. Alinhado com EU Taxonomy, BREEAM e LEED.</p>
         <div class="prod-items" data-pt="Painéis estruturais · Placas eco · Blocos de isolamento" data-en="Structural panels · Eco boards · Insulation blocks">Painéis estruturais · Placas eco · Blocos de isolamento</div>
-        <a href="#segmento-construcao" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
+        <a href="/construcao" data-route="/construcao" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
       </div>
     </div>
     <div class="prod-card reveal rd2">
@@ -573,149 +593,11 @@ textarea.form-input{resize:vertical;min-height:100px}
         <h3 class="prod-title" data-pt="Moda & Acessórios" data-en="Fashion & Accessories">Moda & Acessórios</h3>
         <p class="prod-desc" data-pt="Armações 100% bio de fibra de madeira natural. Rastreável da origem ao fim de vida. Zero petroquímico, certificável como bio-based (EN 16785)." data-en="100% bio frames of natural wood fiber. Traceable from origin to end-of-life. Zero petrochemicals, certifiable as bio-based (EN 16785).">Armações 100% bio de fibra de madeira natural. Rastreável da origem ao fim de vida. Zero petroquímico, certificável como bio-based (EN 16785).</p>
         <div class="prod-items" data-pt="Armações de óculos · Acessórios circulares" data-en="Eyewear frames · Circular accessories">Armações de óculos · Acessórios circulares</div>
-        <a href="#segmento-outros" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
+        <a href="/moda" data-route="/moda" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ══ SEGMENT 1: CONSTRUÇÃO ══ -->
-<section id="segmento-construcao" class="seg-section">
-  <div class="seg-hero">
-    <div class="seg-blob"></div>
-    <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-construcao.mp4" type="video/mp4"></video>
-    <div class="seg-overlay"></div>
-    <div class="seg-hero-txt">
-      <span class="sec-tag" data-pt="BIO CONSTRUÇÃO" data-en="BIO CONSTRUCTION">BIO CONSTRUÇÃO</span>
-      <h2 data-pt="Construção de baixo carbono. Sem abrir mão da performance." data-en="Low-carbon construction. Without giving up performance.">Construção de baixo carbono. Sem abrir mão da performance.</h2>
-    </div>
-  </div>
-  <div class="seg-img-full img-ph">
-    <div class="img-ph-inner">
-      <div class="img-ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <span class="img-ph-label" data-pt="Fotografia — Aplicação em obra ou detalhe do painel" data-en="Photography — Construction site or panel detail">Fotografia — Aplicação em obra ou detalhe do painel</span>
-    </div>
-  </div>
-  <div class="seg-layout">
-    <div class="seg-col">
-      <h3 data-pt="ESPECIFICAÇÕES" data-en="SPECIFICATIONS">ESPECIFICAÇÕES</h3>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Redução de CO₂" data-en="CO₂ reduction">Redução de CO₂</span><span class="seg-spec-val"><span class="c">−40%</span> por euro</span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Conteúdo bio verificável" data-en="Verifiable bio content">Conteúdo bio verificável</span><span class="seg-spec-val"><span class="c">&gt;80%</span> EN 16785</span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Compostabilidade" data-en="Compostability">Compostabilidade</span><span class="seg-spec-val">90 dias EN 13432</span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Isolamento térmico" data-en="Thermal insulation">Isolamento térmico</span><span class="seg-spec-val" data-pt="Superior ao convencional" data-en="Superior to conventional">Superior ao convencional</span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Isolamento acústico" data-en="Acoustic insulation">Isolamento acústico</span><span class="seg-spec-val" data-pt="Superior ao convencional" data-en="Superior to conventional">Superior ao convencional</span></div>
-      <div class="pills-row" style="margin-top:2rem">
-        <span class="pill">EU Taxonomy</span><span class="pill">BREEAM</span><span class="pill">LEED</span><span class="pill">EN 16785</span><span class="pill">EN 13432</span>
-      </div>
-    </div>
-    <div class="seg-col">
-      <h3 data-pt="PRODUTOS" data-en="PRODUCTS">PRODUTOS</h3>
-      <div class="seg-steps-list">
-        <div class="step-item"><span class="seg-step-title" data-pt="Painéis bio estruturais" data-en="Bio structural panels">Painéis bio estruturais</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Para paredes, coberturas e lajes. Resistência estrutural comprovada com conteúdo bio &gt;80%." data-en="For walls, roofs and slabs. Proven structural resistance with bio content >80%.">Para paredes, coberturas e lajes. Resistência estrutural comprovada com conteúdo bio &gt;80%.</p></div>
-        <div class="step-item"><span class="seg-step-title" data-pt="Placas eco para divisórias" data-en="Eco boards for partitions">Placas eco para divisórias</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Divisórias interiores de baixo peso, alta performance acústica e zero emissões VOC." data-en="Lightweight interior partitions, high acoustic performance and zero VOC emissions.">Divisórias interiores de baixo peso, alta performance acústica e zero emissões VOC.</p></div>
-        <div class="step-item"><span class="seg-step-title" data-pt="Blocos de isolamento térmico e acústico" data-en="Thermal and acoustic insulation blocks">Blocos de isolamento térmico e acústico</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Produzidos a partir de resíduos agrícolas valorizados. Compostáveis industrialmente." data-en="Produced from valorized agricultural waste. Industrially compostable.">Produzidos a partir de resíduos agrícolas valorizados. Compostáveis industrialmente.</p></div>
-      </div>
-    </div>
-  </div>
-  <div class="seg-ctas">
-    <a href="#contacto" class="btn-fill" data-pt="Pedir Ficha Técnica" data-en="Request Technical Sheet">Pedir Ficha Técnica</a>
-    <a href="#contacto" class="btn-border" data-pt="Contactar para Projeto" data-en="Contact for Project">Contactar para Projeto</a>
-  </div>
-</section>
-
-<!-- ══ SEGMENT 2: DESPORTO ══ -->
-<section id="segmento-desporto" class="seg-section">
-  <div class="seg-hero">
-    <div class="seg-blob"></div>
-    <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-surf.mp4" type="video/mp4"></video>
-    <div class="seg-overlay"></div>
-    <div class="seg-hero-txt">
-      <span class="sec-tag" data-pt="DESPORTOS AQUÁTICOS" data-en="AQUATIC SPORTS">DESPORTOS AQUÁTICOS</span>
-      <h2 data-pt="Tecnologia bio. Desempenho sem compromisso." data-en="Bio technology. Performance without compromise.">Tecnologia bio. Desempenho sem compromisso.</h2>
-    </div>
-  </div>
-  <div class="seg-products-row">
-    <div class="seg-prod-card reveal">
-      <span class="seg-prod-tag" data-pt="Surf" data-en="Surf">Surf</span>
-      <div class="seg-prod-title" data-pt="Pranchas de Surf bio" data-en="Bio Surfboards">Pranchas de Surf bio</div>
-      <p class="seg-prod-body" data-pt="Núcleo bio expandido, cobertura de fibras vegetais com resina bio de alto desempenho." data-en="Expanded bio core, plant fiber coating with high-performance bio resin.">Núcleo bio expandido, cobertura de fibras vegetais com resina bio de alto desempenho.</p>
-    </div>
-    <div class="seg-prod-card reveal rd1">
-      <span class="seg-prod-tag" data-pt="Bodyboard" data-en="Bodyboard">Bodyboard</span>
-      <div class="seg-prod-title" data-pt="Bodyboard bio" data-en="Bio Bodyboard">Bodyboard bio</div>
-      <p class="seg-prod-body" data-pt="Leveza e flexibilidade com biodegradabilidade total. Sem EPS nem petroquímicos." data-en="Lightness and flexibility with full biodegradability. No EPS or petrochemicals.">Leveza e flexibilidade com biodegradabilidade total. Sem EPS nem petroquímicos.</p>
-    </div>
-    <div class="seg-prod-card reveal rd2">
-      <span class="seg-prod-tag" data-pt="Stand-Up Paddle" data-en="Stand-Up Paddle">Stand-Up Paddle</span>
-      <div class="seg-prod-title" data-pt="SUP bio" data-en="Bio SUP">SUP bio</div>
-      <p class="seg-prod-body" data-pt="Stand-Up Paddle de origem 100% renovável. Estabilidade e durabilidade de elite." data-en="Stand-Up Paddle of 100% renewable origin. Elite stability and durability.">Stand-Up Paddle de origem 100% renovável. Estabilidade e durabilidade de elite.</p>
-    </div>
-  </div>
-  <div class="seg-layout">
-    <div class="seg-col">
-      <h3 data-pt="PROCESSO DE FABRICO" data-en="MANUFACTURING PROCESS">PROCESSO DE FABRICO</h3>
-      <div class="seg-steps-list">
-        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 01 · NÚCLEO" data-en="STEP 01 · CORE">PASSO 01 · NÚCLEO</span><span class="seg-step-title" data-pt="Espuma Bio Expandida" data-en="Expanded Bio Foam">Espuma Bio Expandida</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Espuma de origem bio, leve e biodegradável. Performance equivalente ao EPS convencional." data-en="Bio-origin foam, light and biodegradable. Performance equivalent to conventional EPS.">Espuma de origem bio, leve e biodegradável. Performance equivalente ao EPS convencional.</p></div>
-        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 02 · COBERTURA" data-en="STEP 02 · COATING">PASSO 02 · COBERTURA</span><span class="seg-step-title" data-pt="Fibras Vegetais + Resina Bio" data-en="Plant Fibers + Bio Resin">Fibras Vegetais + Resina Bio</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Fibras vegetais impregnadas com resina bio de alto desempenho. Resistência estrutural superior." data-en="Plant fibers impregnated with high-performance bio resin. Superior structural resistance.">Fibras vegetais impregnadas com resina bio de alto desempenho. Resistência estrutural superior.</p></div>
-        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 03 · ACABAMENTO" data-en="STEP 03 · FINISH">PASSO 03 · ACABAMENTO</span><span class="seg-step-title" data-pt="Verniz 100% Natural" data-en="100% Natural Varnish">Verniz 100% Natural</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Verniz bicomponente natural, sem solventes, sem VOC. Durabilidade premium." data-en="Natural two-component varnish, solvent-free, VOC-free. Premium durability.">Verniz bicomponente natural, sem solventes, sem VOC. Durabilidade premium.</p></div>
-      </div>
-    </div>
-    <div class="seg-col">
-      <h3 data-pt="ESPECIFICAÇÕES" data-en="SPECIFICATIONS">ESPECIFICAÇÕES</h3>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Origem das matérias-primas" data-en="Raw material origin">Origem das matérias-primas</span><span class="seg-spec-val" data-pt="100% renovável" data-en="100% renewable">100% renovável</span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Solventes / VOC" data-en="Solvents / VOC">Solventes / VOC</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Petroquímicos" data-en="Petrochemicals">Petroquímicos</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Fim de vida" data-en="End of life">Fim de vida</span><span class="seg-spec-val" data-pt="Biodegradável / Compostável" data-en="Biodegradable / Compostable">Biodegradável / Compostável</span></div>
-    </div>
-  </div>
-  <div class="seg-quote-block">
-    <blockquote data-pt="&ldquo;A primeira prancha bio foi a prova de que era possível. Agora é o nosso ponto de partida.&rdquo;" data-en="&ldquo;The first bio board was proof that it was possible. Now it&rsquo;s our starting point.&rdquo;">"A primeira prancha bio foi a prova de que era possível. Agora é o nosso ponto de partida."</blockquote>
-  </div>
-  <div class="seg-ctas">
-    <a href="#contacto" class="btn-fill" data-pt="Pedir Amostra de Material" data-en="Request Material Sample">Pedir Amostra de Material</a>
-    <a href="#contacto" class="btn-border" data-pt="Falar com a Equipa" data-en="Talk to the Team">Falar com a Equipa</a>
-  </div>
-</section>
-
-<!-- ══ SEGMENT 3: MODA ══ -->
-<section id="segmento-outros" class="seg-section">
-  <div class="seg-hero">
-    <div class="seg-blob"></div>
-    <video class="seg-video" autoplay muted playsinline preload="none"><source src="hero-oculos.mp4" type="video/mp4"></video>
-    <div class="seg-overlay"></div>
-    <div class="seg-hero-txt">
-      <span class="sec-tag" data-pt="MODA & ACESSÓRIOS CIRCULARES" data-en="FASHION & CIRCULAR ACCESSORIES">MODA & ACESSÓRIOS CIRCULARES</span>
-      <h2 data-pt="Do interior da floresta à tua cara." data-en="From the heart of the forest to your face.">Do interior da floresta à tua cara.</h2>
-    </div>
-  </div>
-  <div class="seg-layout">
-    <div class="seg-col">
-      <h3 data-pt="PRODUTOS" data-en="PRODUCTS">PRODUTOS</h3>
-      <div class="seg-steps-list">
-        <div class="step-item"><span class="seg-step-title" data-pt="Armações de óculos 100% bio" data-en="100% bio eyewear frames">Armações de óculos 100% bio</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Fibra de madeira natural, zero petroquímico. Grain natural visível, acabamento matte premium." data-en="Natural wood fiber, zero petrochemicals. Visible natural grain, premium matte finish.">Fibra de madeira natural, zero petroquímico. Grain natural visível, acabamento matte premium.</p></div>
-        <div class="step-item"><span class="seg-step-title" data-pt="Acessórios circulares de origem vegetal" data-en="Circular accessories of plant origin">Acessórios circulares de origem vegetal</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Materiais com história e rastreabilidade. Certificáveis como bio-based (EN 16785)." data-en="Materials with story and traceability. Certifiable as bio-based (EN 16785).">Materiais com história e rastreabilidade. Certificáveis como bio-based (EN 16785).</p></div>
-      </div>
-      <div class="pills-row" style="margin-top:2rem">
-        <span class="pill">EN 16785</span>
-        <span class="pill" data-pt="Zero Plástico" data-en="Zero Plastic">Zero Plástico</span>
-        <span class="pill" data-pt="100% Bio-based" data-en="100% Bio-based">100% Bio-based</span>
-        <span class="pill" data-pt="Rastreável" data-en="Traceable">Rastreável</span>
-      </div>
-    </div>
-    <div class="seg-col">
-      <h3 data-pt="PARA QUEM É" data-en="WHO IT'S FOR">PARA QUEM É</h3>
-      <p class="sec-body" style="margin-bottom:2rem" data-pt="Para marcas de moda, ópticas e acessórios que querem materiais com história, rastreabilidade total e zero plástico petroquímico." data-en="For fashion brands, opticians and accessory brands that want materials with story, full traceability and zero petrochemical plastic.">Para marcas de moda, ópticas e acessórios que querem materiais com história, rastreabilidade total e zero plástico petroquímico.</p>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Rastreabilidade" data-en="Traceability">Rastreabilidade</span><span class="seg-spec-val" data-pt="Fibra ao fim de vida" data-en="Fiber to end-of-life">Fibra ao fim de vida</span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Certificação" data-en="Certification">Certificação</span><span class="seg-spec-val">EN 16785</span></div>
-      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Petroquímicos" data-en="Petrochemicals">Petroquímicos</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
-    </div>
-  </div>
-  <div class="seg-ctas">
-    <a href="#contacto" class="btn-fill" data-pt="Solicitar Catálogo de Materiais" data-en="Request Materials Catalogue">Solicitar Catálogo de Materiais</a>
-    <a href="#contacto" class="btn-border" data-pt="Parceria B2B" data-en="B2B Partnership">Parceria B2B</a>
-  </div>
-</section>
-
 <!-- ══ VISION & MISSION ══ -->
 <section id="visao" class="sec">
   <div class="sec-inner visao-inner">
@@ -884,9 +766,9 @@ textarea.form-input{resize:vertical;min-height:100px}
     </div>
     <div class="footer-col">
       <h4 data-pt="Segmentos" data-en="Segments">Segmentos</h4>
-      <a href="#segmento-desporto" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</a>
-      <a href="#segmento-construcao" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</a>
-      <a href="#segmento-outros" data-pt="Moda Circular" data-en="Circular Fashion">Moda Circular</a>
+      <a href="/desporto" data-route="/desporto" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</a>
+      <a href="/construcao" data-route="/construcao" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</a>
+      <a href="/moda" data-route="/moda" data-pt="Moda Circular" data-en="Circular Fashion">Moda Circular</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -894,6 +776,218 @@ textarea.form-input{resize:vertical;min-height:100px}
     <span class="footer-copy">© 2025 Wacky Waves · <a href="#" style="color:rgba(255,255,255,.24)" data-pt="Política de Privacidade" data-en="Privacy Policy">Política de Privacidade</a></span>
   </div>
 </footer>
+</div><!-- #main-page -->
+
+<!-- ══ SUB-PAGES ══ -->
+<!-- ══ SEGMENT 1: CONSTRUÇÃO ══ -->
+<div class="sub-page" id="page-construcao">
+  <div class="seg-hero">
+    <div class="seg-blob"></div>
+    <video class="seg-video" muted playsinline preload="none"><source src="hero-construcao.mp4" type="video/mp4"></video>
+    <div class="seg-overlay"></div>
+    <div class="seg-hero-txt">
+      <button class="back-btn" onclick="navigate('/')" data-pt="← Voltar" data-en="← Back">← Voltar</button>
+      <span class="sec-tag" data-pt="BIO CONSTRUÇÃO" data-en="BIO CONSTRUCTION">BIO CONSTRUÇÃO</span>
+      <h2 data-pt="Construção de baixo carbono. Sem abrir mão da performance." data-en="Low-carbon construction. Without giving up performance.">Construção de baixo carbono. Sem abrir mão da performance.</h2>
+    </div>
+  </div>
+  <div class="seg-img-full img-ph">
+    <div class="img-ph-inner">
+      <div class="img-ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <span class="img-ph-label" data-pt="Fotografia — Aplicação em obra ou detalhe do painel" data-en="Photography — Construction site or panel detail">Fotografia — Aplicação em obra ou detalhe do painel</span>
+    </div>
+  </div>
+  <div class="seg-layout">
+    <div class="seg-col">
+      <h3 data-pt="ESPECIFICAÇÕES" data-en="SPECIFICATIONS">ESPECIFICAÇÕES</h3>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Redução de CO₂" data-en="CO₂ reduction">Redução de CO₂</span><span class="seg-spec-val"><span class="c">−40%</span> por euro</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Conteúdo bio verificável" data-en="Verifiable bio content">Conteúdo bio verificável</span><span class="seg-spec-val"><span class="c">&gt;80%</span> EN 16785</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Compostabilidade" data-en="Compostability">Compostabilidade</span><span class="seg-spec-val">90 dias EN 13432</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Isolamento térmico" data-en="Thermal insulation">Isolamento térmico</span><span class="seg-spec-val" data-pt="Superior ao convencional" data-en="Superior to conventional">Superior ao convencional</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Isolamento acústico" data-en="Acoustic insulation">Isolamento acústico</span><span class="seg-spec-val" data-pt="Superior ao convencional" data-en="Superior to conventional">Superior ao convencional</span></div>
+      <div class="pills-row" style="margin-top:2rem">
+        <span class="pill">EU Taxonomy</span><span class="pill">BREEAM</span><span class="pill">LEED</span><span class="pill">EN 16785</span><span class="pill">EN 13432</span>
+      </div>
+    </div>
+    <div class="seg-col">
+      <h3 data-pt="PRODUTOS" data-en="PRODUCTS">PRODUTOS</h3>
+      <div class="seg-steps-list">
+        <div class="step-item"><span class="seg-step-title" data-pt="Painéis bio estruturais" data-en="Bio structural panels">Painéis bio estruturais</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Para paredes, coberturas e lajes. Resistência estrutural comprovada com conteúdo bio &gt;80%." data-en="For walls, roofs and slabs. Proven structural resistance with bio content >80%.">Para paredes, coberturas e lajes. Resistência estrutural comprovada com conteúdo bio &gt;80%.</p></div>
+        <div class="step-item"><span class="seg-step-title" data-pt="Placas eco para divisórias" data-en="Eco boards for partitions">Placas eco para divisórias</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Divisórias interiores de baixo peso, alta performance acústica e zero emissões VOC." data-en="Lightweight interior partitions, high acoustic performance and zero VOC emissions.">Divisórias interiores de baixo peso, alta performance acústica e zero emissões VOC.</p></div>
+        <div class="step-item"><span class="seg-step-title" data-pt="Blocos de isolamento térmico e acústico" data-en="Thermal and acoustic insulation blocks">Blocos de isolamento térmico e acústico</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Produzidos a partir de resíduos agrícolas valorizados. Compostáveis industrialmente." data-en="Produced from valorized agricultural waste. Industrially compostable.">Produzidos a partir de resíduos agrícolas valorizados. Compostáveis industrialmente.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="seg-ctas">
+    <a href="/#contacto" data-route="/#contacto" class="btn-fill" data-pt="Pedir Ficha Técnica" data-en="Request Technical Sheet">Pedir Ficha Técnica</a>
+    <a href="/#contacto" data-route="/#contacto" class="btn-border" data-pt="Contactar para Projeto" data-en="Contact for Project">Contactar para Projeto</a>
+  </div>
+
+<section class="seg-related">
+  <div class="seg-related-inner">
+    <span class="sec-tag" data-pt="OUTROS SEGMENTOS" data-en="OTHER SEGMENTS">OUTROS SEGMENTOS</span>
+    <div class="seg-related-grid">
+      <a class="seg-related-card" href="/desporto" data-route="/desporto">
+        <span class="seg-related-label">DESPORTO</span>
+        <div class="seg-related-title" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+      <a class="seg-related-card" href="/moda" data-route="/moda">
+        <span class="seg-related-label">MODA</span>
+        <div class="seg-related-title" data-pt="Moda & Acessórios" data-en="Fashion & Accessories">Moda & Acessórios</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+      <a class="seg-related-card" href="/" data-route="/">
+        <span class="seg-related-label">HOME</span>
+        <div class="seg-related-title" data-pt="Ver todos os segmentos" data-en="View all segments">Ver todos os segmentos</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+</div><!-- .sub-page -->
+
+<!-- ══ SEGMENT 2: DESPORTO ══ -->
+<div class="sub-page" id="page-desporto">
+  <div class="seg-hero">
+    <div class="seg-blob"></div>
+    <video class="seg-video" muted playsinline preload="none"><source src="hero-surf.mp4" type="video/mp4"></video>
+    <div class="seg-overlay"></div>
+    <div class="seg-hero-txt">
+      <button class="back-btn" onclick="navigate('/')" data-pt="← Voltar" data-en="← Back">← Voltar</button>
+      <span class="sec-tag" data-pt="DESPORTOS AQUÁTICOS" data-en="AQUATIC SPORTS">DESPORTOS AQUÁTICOS</span>
+      <h2 data-pt="Tecnologia bio. Desempenho sem compromisso." data-en="Bio technology. Performance without compromise.">Tecnologia bio. Desempenho sem compromisso.</h2>
+    </div>
+  </div>
+  <div class="seg-products-row">
+    <div class="seg-prod-card reveal">
+      <span class="seg-prod-tag" data-pt="Surf" data-en="Surf">Surf</span>
+      <div class="seg-prod-title" data-pt="Pranchas de Surf bio" data-en="Bio Surfboards">Pranchas de Surf bio</div>
+      <p class="seg-prod-body" data-pt="Núcleo bio expandido, cobertura de fibras vegetais com resina bio de alto desempenho." data-en="Expanded bio core, plant fiber coating with high-performance bio resin.">Núcleo bio expandido, cobertura de fibras vegetais com resina bio de alto desempenho.</p>
+    </div>
+    <div class="seg-prod-card reveal rd1">
+      <span class="seg-prod-tag" data-pt="Bodyboard" data-en="Bodyboard">Bodyboard</span>
+      <div class="seg-prod-title" data-pt="Bodyboard bio" data-en="Bio Bodyboard">Bodyboard bio</div>
+      <p class="seg-prod-body" data-pt="Leveza e flexibilidade com biodegradabilidade total. Sem EPS nem petroquímicos." data-en="Lightness and flexibility with full biodegradability. No EPS or petrochemicals.">Leveza e flexibilidade com biodegradabilidade total. Sem EPS nem petroquímicos.</p>
+    </div>
+    <div class="seg-prod-card reveal rd2">
+      <span class="seg-prod-tag" data-pt="Stand-Up Paddle" data-en="Stand-Up Paddle">Stand-Up Paddle</span>
+      <div class="seg-prod-title" data-pt="SUP bio" data-en="Bio SUP">SUP bio</div>
+      <p class="seg-prod-body" data-pt="Stand-Up Paddle de origem 100% renovável. Estabilidade e durabilidade de elite." data-en="Stand-Up Paddle of 100% renewable origin. Elite stability and durability.">Stand-Up Paddle de origem 100% renovável. Estabilidade e durabilidade de elite.</p>
+    </div>
+  </div>
+  <div class="seg-layout">
+    <div class="seg-col">
+      <h3 data-pt="PROCESSO DE FABRICO" data-en="MANUFACTURING PROCESS">PROCESSO DE FABRICO</h3>
+      <div class="seg-steps-list">
+        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 01 · NÚCLEO" data-en="STEP 01 · CORE">PASSO 01 · NÚCLEO</span><span class="seg-step-title" data-pt="Espuma Bio Expandida" data-en="Expanded Bio Foam">Espuma Bio Expandida</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Espuma de origem bio, leve e biodegradável. Performance equivalente ao EPS convencional." data-en="Bio-origin foam, light and biodegradable. Performance equivalent to conventional EPS.">Espuma de origem bio, leve e biodegradável. Performance equivalente ao EPS convencional.</p></div>
+        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 02 · COBERTURA" data-en="STEP 02 · COATING">PASSO 02 · COBERTURA</span><span class="seg-step-title" data-pt="Fibras Vegetais + Resina Bio" data-en="Plant Fibers + Bio Resin">Fibras Vegetais + Resina Bio</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Fibras vegetais impregnadas com resina bio de alto desempenho. Resistência estrutural superior." data-en="Plant fibers impregnated with high-performance bio resin. Superior structural resistance.">Fibras vegetais impregnadas com resina bio de alto desempenho. Resistência estrutural superior.</p></div>
+        <div class="step-item"><span class="seg-step-num" data-pt="PASSO 03 · ACABAMENTO" data-en="STEP 03 · FINISH">PASSO 03 · ACABAMENTO</span><span class="seg-step-title" data-pt="Verniz 100% Natural" data-en="100% Natural Varnish">Verniz 100% Natural</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Verniz bicomponente natural, sem solventes, sem VOC. Durabilidade premium." data-en="Natural two-component varnish, solvent-free, VOC-free. Premium durability.">Verniz bicomponente natural, sem solventes, sem VOC. Durabilidade premium.</p></div>
+      </div>
+    </div>
+    <div class="seg-col">
+      <h3 data-pt="ESPECIFICAÇÕES" data-en="SPECIFICATIONS">ESPECIFICAÇÕES</h3>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Origem das matérias-primas" data-en="Raw material origin">Origem das matérias-primas</span><span class="seg-spec-val" data-pt="100% renovável" data-en="100% renewable">100% renovável</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Solventes / VOC" data-en="Solvents / VOC">Solventes / VOC</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Petroquímicos" data-en="Petrochemicals">Petroquímicos</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Fim de vida" data-en="End of life">Fim de vida</span><span class="seg-spec-val" data-pt="Biodegradável / Compostável" data-en="Biodegradable / Compostable">Biodegradável / Compostável</span></div>
+    </div>
+  </div>
+  <div class="seg-quote-block">
+    <blockquote data-pt="&ldquo;A primeira prancha bio foi a prova de que era possível. Agora é o nosso ponto de partida.&rdquo;" data-en="&ldquo;The first bio board was proof that it was possible. Now it&rsquo;s our starting point.&rdquo;">"A primeira prancha bio foi a prova de que era possível. Agora é o nosso ponto de partida."</blockquote>
+  </div>
+  <div class="seg-ctas">
+    <a href="/#contacto" data-route="/#contacto" class="btn-fill" data-pt="Pedir Amostra de Material" data-en="Request Material Sample">Pedir Amostra de Material</a>
+    <a href="/#contacto" data-route="/#contacto" class="btn-border" data-pt="Falar com a Equipa" data-en="Talk to the Team">Falar com a Equipa</a>
+  </div>
+
+<section class="seg-related">
+  <div class="seg-related-inner">
+    <span class="sec-tag" data-pt="OUTROS SEGMENTOS" data-en="OTHER SEGMENTS">OUTROS SEGMENTOS</span>
+    <div class="seg-related-grid">
+      <a class="seg-related-card" href="/construcao" data-route="/construcao">
+        <span class="seg-related-label">CONSTRUÇÃO</span>
+        <div class="seg-related-title" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+      <a class="seg-related-card" href="/moda" data-route="/moda">
+        <span class="seg-related-label">MODA</span>
+        <div class="seg-related-title" data-pt="Moda & Acessórios" data-en="Fashion & Accessories">Moda & Acessórios</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+      <a class="seg-related-card" href="/" data-route="/">
+        <span class="seg-related-label">HOME</span>
+        <div class="seg-related-title" data-pt="Ver todos os segmentos" data-en="View all segments">Ver todos os segmentos</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+</div><!-- .sub-page -->
+
+<!-- ══ SEGMENT 3: MODA ══ -->
+<div class="sub-page" id="page-moda">
+  <div class="seg-hero">
+    <div class="seg-blob"></div>
+    <video class="seg-video" muted playsinline preload="none"><source src="hero-oculos.mp4" type="video/mp4"></video>
+    <div class="seg-overlay"></div>
+    <div class="seg-hero-txt">
+      <button class="back-btn" onclick="navigate('/')" data-pt="← Voltar" data-en="← Back">← Voltar</button>
+      <span class="sec-tag" data-pt="MODA & ACESSÓRIOS CIRCULARES" data-en="FASHION & CIRCULAR ACCESSORIES">MODA & ACESSÓRIOS CIRCULARES</span>
+      <h2 data-pt="Do interior da floresta à tua cara." data-en="From the heart of the forest to your face.">Do interior da floresta à tua cara.</h2>
+    </div>
+  </div>
+  <div class="seg-layout">
+    <div class="seg-col">
+      <h3 data-pt="PRODUTOS" data-en="PRODUCTS">PRODUTOS</h3>
+      <div class="seg-steps-list">
+        <div class="step-item"><span class="seg-step-title" data-pt="Armações de óculos 100% bio" data-en="100% bio eyewear frames">Armações de óculos 100% bio</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Fibra de madeira natural, zero petroquímico. Grain natural visível, acabamento matte premium." data-en="Natural wood fiber, zero petrochemicals. Visible natural grain, premium matte finish.">Fibra de madeira natural, zero petroquímico. Grain natural visível, acabamento matte premium.</p></div>
+        <div class="step-item"><span class="seg-step-title" data-pt="Acessórios circulares de origem vegetal" data-en="Circular accessories of plant origin">Acessórios circulares de origem vegetal</span><p class="seg-step-body" style="margin-top:.35rem" data-pt="Materiais com história e rastreabilidade. Certificáveis como bio-based (EN 16785)." data-en="Materials with story and traceability. Certifiable as bio-based (EN 16785).">Materiais com história e rastreabilidade. Certificáveis como bio-based (EN 16785).</p></div>
+      </div>
+      <div class="pills-row" style="margin-top:2rem">
+        <span class="pill">EN 16785</span>
+        <span class="pill" data-pt="Zero Plástico" data-en="Zero Plastic">Zero Plástico</span>
+        <span class="pill" data-pt="100% Bio-based" data-en="100% Bio-based">100% Bio-based</span>
+        <span class="pill" data-pt="Rastreável" data-en="Traceable">Rastreável</span>
+      </div>
+    </div>
+    <div class="seg-col">
+      <h3 data-pt="PARA QUEM É" data-en="WHO IT'S FOR">PARA QUEM É</h3>
+      <p class="sec-body" style="margin-bottom:2rem" data-pt="Para marcas de moda, ópticas e acessórios que querem materiais com história, rastreabilidade total e zero plástico petroquímico." data-en="For fashion brands, opticians and accessory brands that want materials with story, full traceability and zero petrochemical plastic.">Para marcas de moda, ópticas e acessórios que querem materiais com história, rastreabilidade total e zero plástico petroquímico.</p>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Rastreabilidade" data-en="Traceability">Rastreabilidade</span><span class="seg-spec-val" data-pt="Fibra ao fim de vida" data-en="Fiber to end-of-life">Fibra ao fim de vida</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Certificação" data-en="Certification">Certificação</span><span class="seg-spec-val">EN 16785</span></div>
+      <div class="seg-spec-row"><span class="seg-spec-label" data-pt="Petroquímicos" data-en="Petrochemicals">Petroquímicos</span><span class="seg-spec-val"><span class="c">Zero</span></span></div>
+    </div>
+  </div>
+  <div class="seg-ctas">
+    <a href="/#contacto" data-route="/#contacto" class="btn-fill" data-pt="Solicitar Catálogo de Materiais" data-en="Request Materials Catalogue">Solicitar Catálogo de Materiais</a>
+    <a href="/#contacto" data-route="/#contacto" class="btn-border" data-pt="Parceria B2B" data-en="B2B Partnership">Parceria B2B</a>
+  </div>
+
+<section class="seg-related">
+  <div class="seg-related-inner">
+    <span class="sec-tag" data-pt="OUTROS SEGMENTOS" data-en="OTHER SEGMENTS">OUTROS SEGMENTOS</span>
+    <div class="seg-related-grid">
+      <a class="seg-related-card" href="/desporto" data-route="/desporto">
+        <span class="seg-related-label">DESPORTO</span>
+        <div class="seg-related-title" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+      <a class="seg-related-card" href="/construcao" data-route="/construcao">
+        <span class="seg-related-label">CONSTRUÇÃO</span>
+        <div class="seg-related-title" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+      <a class="seg-related-card" href="/" data-route="/">
+        <span class="seg-related-label">HOME</span>
+        <div class="seg-related-title" data-pt="Ver todos os segmentos" data-en="View all segments">Ver todos os segmentos</div>
+        <div class="seg-related-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+</div><!-- .sub-page -->
+
 
 <script>
 // ── HERO SLIDER ──
@@ -994,6 +1088,74 @@ function handleForm(e) {
   btn.style.background = '#16a34a';
   setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3000);
 }
+
+// ── SPA ROUTER ──
+const mainPage = document.getElementById('main-page');
+const pageMap = {
+  construcao: document.getElementById('page-construcao'),
+  desporto:   document.getElementById('page-desporto'),
+  moda:       document.getElementById('page-moda')
+};
+
+function showPage(name) {
+  Object.values(pageMap).forEach(p => {
+    if (!p) return;
+    p.style.display = 'none';
+    const v = p.querySelector('.seg-video');
+    if (v) { v.pause(); v.currentTime = 0; }
+  });
+  if (!name || name === 'home') {
+    mainPage.style.display = '';
+    nav.classList.remove('inner');
+  } else {
+    const pg = pageMap[name];
+    if (!pg) return;
+    mainPage.style.display = 'none';
+    pg.style.display = '';
+    nav.classList.add('inner');
+    window.scrollTo(0, 0);
+    const vid = pg.querySelector('.seg-video');
+    if (vid) vid.play().catch(() => {});
+    pg.querySelectorAll('.reveal:not(.visible)').forEach(el => io.observe(el));
+    applyLang(lang);
+  }
+}
+
+function navigate(path) {
+  if (path === '/#contacto') {
+    history.pushState({}, '', '/');
+    showPage('home');
+    setTimeout(() => {
+      const el = document.getElementById('contacto');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 80);
+    return;
+  }
+  history.pushState({ path }, '', path);
+  const name = path === '/' ? 'home' : path.replace(/^\//, '');
+  showPage(name);
+}
+
+window.addEventListener('popstate', () => {
+  const name = location.pathname === '/' ? 'home' : location.pathname.replace(/^\//, '');
+  showPage(name);
+});
+
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-route]');
+  if (!a) return;
+  e.preventDefault();
+  navigate(a.dataset.route);
+});
+
+(function() {
+  const path = location.pathname;
+  if (path && path !== '/') {
+    const name = path.replace(/^\//, '');
+    if (pageMap[name]) showPage(name);
+  }
+})();
+
 </script>
 
 </body>

@@ -73,7 +73,7 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .prob-card{background:var(--white);border-radius:12px;padding:2.25rem 2rem;border:1px solid rgba(0,0,0,.07);transition:transform .22s,box-shadow .22s}
 .prob-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.1)}
-.prob-card .ico{font-size:1.5rem;margin-bottom:1rem}
+.prob-card .ico{display:block;width:28px;height:28px;margin-bottom:1rem;color:var(--accent)}
 .prob-card h3{font-family:var(--ff-d);font-weight:800;font-size:.92rem;margin-bottom:.55rem;line-height:1.3}
 .prob-card p{font-size:.85rem;line-height:1.78;color:var(--gray)}
 @media(max-width:820px){.prob-grid{grid-template-columns:1fr}}
@@ -85,7 +85,7 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:3.5rem}
 .sol-card{background:var(--bg-dark);padding:2.75rem 2.25rem;transition:background .22s}
 .sol-card:hover{background:rgba(255,255,255,.04)}
-.sol-card .ico{font-size:1.4rem;margin-bottom:1rem}
+.sol-card .ico{display:block;width:28px;height:28px;margin-bottom:1rem;color:var(--accent)}
 .sol-card h3{font-family:var(--ff-d);font-weight:800;font-size:.95rem;color:var(--white);margin-bottom:.65rem}
 .sol-card p{font-size:.85rem;line-height:1.78;color:rgba(255,255,255,.48)}
 .sol-card .tag{display:inline-block;font-family:var(--ff-d);font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(200,169,126,.3);border-radius:20px;padding:3px 10px;margin-top:1rem}
@@ -108,7 +108,7 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .app-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(0,0,0,.07);margin-top:3.5rem}
 .app-card{background:var(--white);padding:2.75rem 2.5rem;transition:background .2s}
 .app-card:hover{background:var(--bg-light)}
-.app-card .ico{font-size:1.6rem;margin-bottom:1rem}
+.app-card .ico{display:block;width:28px;height:28px;margin-bottom:1rem;color:var(--accent)}
 .app-card h3{font-family:var(--ff-d);font-weight:800;font-size:.95rem;margin-bottom:.5rem}
 .app-card p{font-size:.85rem;line-height:1.75;color:var(--gray)}
 @media(max-width:700px){.app-grid{grid-template-columns:1fr}}
@@ -119,7 +119,7 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:3.5rem}
 .who-card{background:var(--bg-dark);padding:2.5rem 2rem;border-top:3px solid transparent;transition:border-color .2s,background .2s}
 .who-card:hover{border-top-color:var(--accent);background:rgba(255,255,255,.03)}
-.who-card .ico{font-size:1.4rem;margin-bottom:.85rem}
+.who-card .ico{display:block;width:28px;height:28px;margin-bottom:.85rem;color:var(--accent)}
 .who-card h3{font-family:var(--ff-d);font-weight:800;font-size:.92rem;color:var(--white);margin-bottom:.5rem}
 .who-card p{font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.45)}
 @media(max-width:820px){.who-grid{grid-template-columns:1fr}}
@@ -230,17 +230,17 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
     </div>
     <div class="prob-grid">
       <div class="prob-card rv">
-        <div class="ico">🔍</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 11H11M14 11H11M11 11V8M11 11V14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 11C3 15.4183 6.58172 19 11 19C13.213 19 15.2161 18.1015 16.6644 16.6493C18.1077 15.2022 19 13.2053 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>O consumidor faz due diligence agora</h3>
         <p>QR codes, relatórios de sustentabilidade, certificações — o comprador de moda premium verifica. "Eco-friendly" sem prova documental é greenwashing, e penaliza a marca que o usa.</p>
       </div>
       <div class="prob-card rv d1">
-        <div class="ico">🪵</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22L12 14M12 10L12 14M12 14L16 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18H7.5C4.46243 18 2 15.5376 2 12.5C2 9.46243 4.46243 7 7.5 7H9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18H16.5C19.5376 18 22 15.5376 22 12.5C22 9.63102 19.8033 7.27508 17 7.02246" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>O acetato "bio" não é o que parece</h3>
         <p>Acetato de celulose convencional continua a usar plastificantes petroquímicos. Madeira laminada convencional usa adesivos com formaldeído. Os detalhes importam — e os clientes descobrem-nos.</p>
       </div>
       <div class="prob-card rv d2">
-        <div class="ico">📋</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 21.4V2.6C4 2.26863 4.26863 2 4.6 2H16.2515C16.4106 2 16.5632 2.06321 16.6757 2.17574L19.8243 5.32426C19.9368 5.43679 20 5.5894 20 5.74853V21.4C20 21.7314 19.7314 22 19.4 22H4.6C4.26863 22 4 21.7314 4 21.4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10L16 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18L16 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14L12 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 2V5.4C16 5.73137 16.2686 6 16.6 6H20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Regulamentação europeia a apertar</h3>
         <p>EU Green Claims Directive exige substanciação de qualquer afirmação ambiental. Quem não tiver documentação vai ter de retirar "eco" das fichas de produto e do marketing.</p>
       </div>
@@ -256,19 +256,19 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
     <p class="sec-sub rv">Compósito de fibra de madeira natural de origem controlada, sem adesivos petroquímicos, sem formaldeído, sem plastificantes. Documentação de ciclo de vida disponível. Rastreável end-to-end.</p>
     <div class="sol-grid">
       <div class="sol-card rv">
-        <div class="ico">🪵</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22L12 14M12 10L12 14M12 14L16 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18H7.5C4.46243 18 2 15.5376 2 12.5C2 9.46243 4.46243 7 7.5 7H9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 18H16.5C19.5376 18 22 15.5376 22 12.5C22 9.63102 19.8033 7.27508 17 7.02246" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Composição 100% Natural</h3>
         <p>Fibras de madeira de origem renovável e controlada. Zero petroquímico no material e no processo de fabrico. Bio-based &gt;80% verificável por norma EN 16785.</p>
         <span class="tag">EN 16785</span>
       </div>
       <div class="sol-card rv d1">
-        <div class="ico">✨</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 15C12.8747 15 15 12.949 15 8C15 12.949 17.1104 15 22 15C17.1104 15 15 17.1104 15 22C15 17.1104 12.8747 15 8 15Z" stroke="currentColor" stroke-linejoin="round"/><path d="M2 6.5C5.13376 6.5 6.5 5.18153 6.5 2C6.5 5.18153 7.85669 6.5 11 6.5C7.85669 6.5 6.5 7.85669 6.5 11C6.5 7.85669 5.13376 6.5 2 6.5Z" stroke="currentColor" stroke-linejoin="round"/></svg></div>
         <h3>Estética Premium Genuína</h3>
         <p>Grain natural visível. Acabamento matte ou semi-gloss bio. Cada peça ligeiramente única — porque vem de uma árvore, não de um barril de petróleo. Uma história que o preço premium justifica.</p>
         <span class="tag">Premium natural</span>
       </div>
       <div class="sol-card rv d2">
-        <div class="ico">📄</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 21.4V2.6C4 2.26863 4.26863 2 4.6 2H16.2515C16.4106 2 16.5632 2.06321 16.6757 2.17574L19.8243 5.32426C19.9368 5.43679 20 5.5894 20 5.74853V21.4C20 21.7314 19.7314 22 19.4 22H4.6C4.26863 22 4 21.7314 4 21.4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10L16 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18L16 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14L12 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 2V5.4C16 5.73137 16.2686 6 16.6 6H20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Documentação Completa</h3>
         <p>Ficha de composição de material. Análise de ciclo de vida. Rastreabilidade de origem. Tudo o que a EU Green Claims Directive vai exigir — já disponível com a amostra.</p>
         <span class="tag">EU Green Claims</span>
@@ -313,22 +313,22 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
     <h2 class="sec-h rv">Onde o material se aplica.</h2>
     <div class="app-grid">
       <div class="app-card rv">
-        <div class="ico">👓</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 14C2 16.2091 3.79086 18 6 18C8.20914 18 10 16.2091 10 14C10 11.7909 8.20914 10 6 10C3.79086 10 2 11.7909 2 14ZM2 14V6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 14C22 16.2091 20.2091 18 18 18C15.7909 18 14 16.2091 14 14C14 11.7909 15.7909 10 18 10C20.2091 10 22 11.7909 22 14ZM22 14V6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 14H10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Armações de óculos</h3>
         <p>Compósito maquinável por CNC. Tolerâncias compatíveis com produção de óculos de precisão. Substituto direto do acetato convencional sem alteração do equipamento.</p>
       </div>
       <div class="app-card rv d1">
-        <div class="ico">💍</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 8C4.68629 8 2 10.6863 2 14C2 17.3137 4.68629 20 8 20C11.3137 20 14 17.3137 14 14C14 10.6863 11.3137 8 8 8ZM8 8V3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8C12.6863 8 10 10.6863 10 14C10 17.3137 12.6863 20 16 20C19.3137 20 22 17.3137 22 14C22 10.6863 19.3137 8 16 8ZM16 8V3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Acessórios de moda</h3>
         <p>Botões, fivelas, aplicações em couro-free. Formas complexas possíveis por moldagem ou maquinagem CNC. Acabamento matte bio premium.</p>
       </div>
       <div class="app-card rv">
-        <div class="ico">⌚</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 16.4722V20C16 21.1045 15.1046 22 14 22H10C8.89543 22 8 21.1045 8 20V16.4722" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7.52779V4C8 2.89543 8.89543 2 10 2H14C15.1046 2 16 2.89543 16 4V7.52779" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18C15.3137 18 18 15.3137 18 12Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 12H12V10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Acessórios premium</h3>
         <p>Alternativa ao acetato e ao metal para marcas que querem uma história de material genuíno e documentada — não uma afirmação de marketing sem substância.</p>
       </div>
       <div class="app-card rv d1">
-        <div class="ico">🎒</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 8H4C2.89543 8 2 8.89543 2 10V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V10C22 8.89543 21.1046 8 20 8H15M9 8V3.6C9 3.26863 9.26863 3 9.6 3H14.4C14.7314 3 15 3.26863 15 3.6V8M9 8H15M9 8V14M15 8V14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Componentes de produto de moda</h3>
         <p>Aplicações de superfície, ornamentos, elementos estruturais leves em vestuário e maroquinaria. Peças com grain natural visível como elemento de design.</p>
       </div>
@@ -343,17 +343,17 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
     <h2 class="sec-h rv">Feito para marcas<br>com algo a provar.</h2>
     <div class="who-grid">
       <div class="who-card rv">
-        <div class="ico">🏭</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 10C18 9 17 8 15 8C14.6978 8 14.355 8 14.0002 8C12.3434 8 11 6.65685 11 5V2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 21H21V12H18V16.5M18 21V16.5M18 21L3 21V17L6.5 14L10.5 16.5L14.5 14L18 16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 10C21 4 17 4 17 4C17 4 21 4.5 21 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Fabricantes de armações de óculos</h3>
         <p>Precisa de matéria-prima bio que entra no processo de maquinagem CNC sem alterar o equipamento existente ou o workflow de produção.</p>
       </div>
       <div class="who-card rv d1">
-        <div class="ico">🎨</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.5096 9.54C20.4243 9.77932 20.2918 9.99909 20.12 10.1863C19.9483 10.3735 19.7407 10.5244 19.5096 10.63C18.2796 11.1806 17.2346 12.0745 16.5002 13.2045C15.7659 14.3345 15.3733 15.6524 15.3696 17C15.3711 17.4701 15.418 17.9389 15.5096 18.4C15.5707 18.6818 15.5747 18.973 15.5215 19.2564C15.4682 19.5397 15.3588 19.8096 15.1996 20.05C15.0649 20.2604 14.8877 20.4403 14.6793 20.5781C14.4709 20.7158 14.2359 20.8085 13.9896 20.85C13.4554 20.9504 12.9131 21.0006 12.3696 21C11.1638 21.0006 9.97011 20.7588 8.85952 20.2891C7.74893 19.8194 6.74405 19.1314 5.90455 18.2657C5.06506 17.4001 4.40807 16.3747 3.97261 15.2502C3.53714 14.1257 3.33208 12.9252 3.36959 11.72C3.4472 9.47279 4.3586 7.33495 5.92622 5.72296C7.49385 4.11097 9.60542 3.14028 11.8496 3H12.3596C14.0353 3.00042 15.6777 3.46869 17.1017 4.35207C18.5257 5.23544 19.6748 6.49885 20.4196 8C20.6488 8.47498 20.6812 9.02129 20.5096 9.52V9.54Z" stroke="currentColor" stroke-width="1.5"/><path d="M8 16.01L8.01 15.9989" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 12.01L6.01 11.9989" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8.01L8.01 7.99889" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6.01L12.01 5.99889" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8.01L16.01 7.99889" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Marcas de moda com linha sustentável</h3>
         <p>Quer materiais com história real, documentada, comunicável — não certificações compradas ou afirmações vagas que não passam um due diligence jornalístico.</p>
       </div>
       <div class="who-card rv d2">
-        <div class="ico">🏪</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V10" stroke="currentColor" stroke-width="1.5"/><path d="M14.8333 21V15C14.8333 13.8954 13.9379 13 12.8333 13H10.8333C9.72874 13 8.83331 13.8954 8.83331 15V21" stroke="currentColor" stroke-miterlimit="16"/><path d="M21.8183 9.36418L20.1243 3.43517C20.0507 3.17759 19.8153 3 19.5474 3H15.5L15.9753 8.70377C15.9909 8.89043 16.0923 9.05904 16.2532 9.15495C16.6425 9.38698 17.4052 9.81699 18 10C19.0158 10.3125 20.5008 10.1998 21.3465 10.0958C21.6982 10.0526 21.9157 9.7049 21.8183 9.36418Z" stroke="currentColor" stroke-width="1.5"/><path d="M14 10C14.5675 9.82538 15.2879 9.42589 15.6909 9.18807C15.8828 9.07486 15.9884 8.86103 15.9699 8.63904L15.5 3H8.5L8.03008 8.63904C8.01158 8.86103 8.11723 9.07486 8.30906 9.18807C8.71207 9.42589 9.4325 9.82538 10 10C11.493 10.4594 12.507 10.4594 14 10Z" stroke="currentColor" stroke-width="1.5"/><path d="M3.87567 3.43517L2.18166 9.36418C2.08431 9.7049 2.3018 10.0526 2.6535 10.0958C3.49916 10.1998 4.98424 10.3125 6 10C6.59477 9.81699 7.35751 9.38698 7.74678 9.15495C7.90767 9.05904 8.00913 8.89043 8.02469 8.70377L8.5 3H4.45258C4.18469 3 3.94926 3.17759 3.87567 3.43517Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <h3>Óticas com linha própria</h3>
         <p>Quer diferenciar com armações bio genuínas e ter a documentação para justificar o premium de preço ao comprador mais exigente.</p>
       </div>

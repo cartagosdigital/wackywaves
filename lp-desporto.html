@@ -74,7 +74,7 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .prob-card{background:var(--white);border-radius:12px;padding:2.25rem 2rem;border:1px solid rgba(0,0,0,.07);transition:transform .22s,box-shadow .22s}
 .prob-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.1)}
-.prob-card .ico{font-size:1.5rem;margin-bottom:1rem}
+.prob-card .ico{display:block;width:28px;height:28px;margin-bottom:1rem;color:var(--accent)}
 .prob-card h3{font-family:var(--ff-d);font-weight:800;font-size:.92rem;margin-bottom:.55rem;line-height:1.3}
 .prob-card p{font-size:.85rem;line-height:1.78;color:var(--gray)}
 @media(max-width:820px){.prob-grid{grid-template-columns:1fr}}
@@ -86,7 +86,7 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:3.5rem}
 .sol-card{background:var(--bg-dark);padding:2.75rem 2.25rem;transition:background .22s}
 .sol-card:hover{background:rgba(255,255,255,.04)}
-.sol-card .ico{font-size:1.4rem;margin-bottom:1rem}
+.sol-card .ico{display:block;width:28px;height:28px;margin-bottom:1rem;color:var(--accent)}
 .sol-card h3{font-family:var(--ff-d);font-weight:800;font-size:.95rem;color:var(--white);margin-bottom:.65rem}
 .sol-card p{font-size:.85rem;line-height:1.78;color:rgba(255,255,255,.48)}
 .sol-card .tag{display:inline-block;font-family:var(--ff-d);font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(26,190,255,.3);border-radius:20px;padding:3px 10px;margin-top:1rem}
@@ -109,7 +109,7 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
 .who-card{background:var(--white);border-left:3px solid var(--accent);padding:2.25rem 2rem;border-radius:0 12px 12px 0;transition:transform .2s,box-shadow .2s}
 .who-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.09)}
-.who-card .ico{font-size:1.4rem;margin-bottom:.85rem}
+.who-card .ico{display:block;width:28px;height:28px;margin-bottom:.85rem;color:var(--accent)}
 .who-card h3{font-family:var(--ff-d);font-weight:800;font-size:.92rem;margin-bottom:.5rem}
 .who-card p{font-size:.85rem;line-height:1.75;color:var(--gray)}
 @media(max-width:820px){.who-grid{grid-template-columns:1fr}}
@@ -232,17 +232,17 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
     </div>
     <div class="prob-grid">
       <div class="prob-card rv">
-        <div class="ico">🌊</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10C5.48276 10 7.34483 7 7.34483 7C7.34483 7 9.2069 10 11.6897 10C14.1724 10 16.6552 7 16.6552 7C16.6552 7 19.1379 10 21 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17C5.48276 17 7.34483 14 7.34483 14C7.34483 14 9.2069 17 11.6897 17C14.1724 17 16.6552 14 16.6552 14C16.6552 14 19.1379 17 21 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>O rider consciente chegou</h3>
         <p>A nova geração de surfistas e praticantes de SUP investiga os materiais dos seus equipamentos. "Bio-friendly" sem documentação não vende — engana. E o mercado penaliza quem engana.</p>
       </div>
       <div class="prob-card rv d1">
-        <div class="ico">🏭</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 10C18 9 17 8 15 8C14.6978 8 14.355 8 14.0002 8C12.3434 8 11 6.65685 11 5V2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 21H21V12H18V16.5M18 21V16.5M18 21L3 21V17L6.5 14L10.5 16.5L14.5 14L18 16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 10C21 4 17 4 17 4C17 4 21 4.5 21 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>O processo atual é insustentável</h3>
         <p>Espuma de poliuretano, resina epóxi e fibra de vidro: tóxicos no fabrico, não biodegradáveis, sem fim de vida definido. Um passivo de reputação crescente para qualquer marca séria.</p>
       </div>
       <div class="prob-card rv d2">
-        <div class="ico">📈</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 16L16 8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16L12 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 16L8 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 20.4V3.6C3 3.26863 3.26863 3 3.6 3H20.4C20.7314 3 21 3.26863 21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H3.6C3.26863 21 3 20.7314 3 20.4Z" stroke="currentColor" stroke-width="1.5"/></svg></div>
         <h3>A regulamentação europeia não vai esperar</h3>
         <p>Diretiva de Ecodesign e Extended Producer Responsibility estão a aproximar-se do sector do equipamento desportivo. Quem já tiver a solução, não vai correr para a encontrar.</p>
       </div>
@@ -258,19 +258,19 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
     <p class="sec-sub rv">Desenvolvemos um sistema de materiais bio completo para o fabrico de equipamentos aquáticos — compatível com processos de shaping existentes, sem curva de aprendizagem.</p>
     <div class="sol-grid">
       <div class="sol-card rv">
-        <div class="ico">🔵</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.5 15L5.5 15" stroke="currentColor" stroke-linejoin="round"/><path d="M16 4L8 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 4.5L9 10.2602C9 10.7376 8.82922 11.1992 8.51851 11.5617L3.48149 17.4383C3.17078 17.8008 3 18.2624 3 18.7398V19C3 20.1046 3.89543 21 5 21L19 21C20.1046 21 21 20.1046 21 19V18.7398C21 18.2624 20.8292 17.8008 20.5185 17.4383L15.4815 11.5617C15.1708 11.1992 15 10.7376 15 10.2602L15 4.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Núcleo — Espuma Bio Expandida</h3>
         <p>Substituto direto do EPS/PU. Densidade e comportamento mecânico equivalentes. Origem bio &gt;80%, biodegradável. Disponível em blocos para corte CNC ou shaping manual.</p>
         <span class="tag">Substituto EPS/PU</span>
       </div>
       <div class="sol-card rv d1">
-        <div class="ico">🟢</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 21C7 21 7.5 16.5 11 12.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.1297 4.24224L19.7243 10.4167C20.0984 14.3026 17.1849 17.7626 13.2989 18.1367C9.486 18.5039 6.03191 15.7168 5.66477 11.9039C5.29763 8.09099 8.09098 4.70237 11.9039 4.33523L18.475 3.70251C18.8048 3.67074 19.098 3.91239 19.1297 4.24224Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Cobertura — Fibras Vegetais</h3>
         <p>Fibras naturais pré-impregnadas em resina bio de alto desempenho. Substitui fibra de vidro e carbono em aplicações de equipamento aquático leve. Processo de aplicação idêntico.</p>
         <span class="tag">Sem fibra de vidro</span>
       </div>
       <div class="sol-card rv d2">
-        <div class="ico">⚪</div>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 15C12.8747 15 15 12.949 15 8C15 12.949 17.1104 15 22 15C17.1104 15 15 17.1104 15 22C15 17.1104 12.8747 15 8 15Z" stroke="currentColor" stroke-linejoin="round"/><path d="M2 6.5C5.13376 6.5 6.5 5.18153 6.5 2C6.5 5.18153 7.85669 6.5 11 6.5C7.85669 6.5 6.5 7.85669 6.5 11C6.5 7.85669 5.13376 6.5 2 6.5Z" stroke="currentColor" stroke-linejoin="round"/></svg></div>
         <h3>Acabamento — Verniz Bio</h3>
         <p>Bicomponente 100% natural. Zero solventes, zero VOC. Proteção equivalente ao verniz epóxi convencional. Aplicação por pistola ou rolo — processo idêntico ao atual.</p>
         <span class="tag">Zero VOC</span>
@@ -315,17 +315,17 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
     <h2 class="sec-h rv">Construído para quem fabrica.</h2>
     <div class="who-grid">
       <div class="who-card rv">
-        <div class="ico">🏄</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10C5.48276 10 7.34483 7 7.34483 7C7.34483 7 9.2069 10 11.6897 10C14.1724 10 16.6552 7 16.6552 7C16.6552 7 19.1379 10 21 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17C5.48276 17 7.34483 14 7.34483 14C7.34483 14 9.2069 17 11.6897 17C14.1724 17 16.6552 14 16.6552 14C16.6552 14 19.1379 17 21 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Marcas de surf e bodyboard</h3>
         <p>Quer diferenciar a linha com "genuinamente bio" — documentado, certificável, comunicável ao consumidor. Não apenas uma afirmação de marketing.</p>
       </div>
       <div class="who-card rv d1">
-        <div class="ico">🧘</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5714 15.0036L15.4286 16.8486C15.4286 16.8486 19.2857 17.6678 19.2857 19.6162C19.2857 21 17.5714 21 17.5714 21H13L10.75 19.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.42864 15.0036L8.5715 16.8486C8.5715 16.8486 4.71436 17.6678 4.71436 19.6162C4.71436 21 6.42864 21 6.42864 21H8.50007L10.7501 19.75L13.5001 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 15.9261C3 15.9261 5.14286 15.4649 6.42857 15.0036C7.71429 8.54595 11.5714 9.00721 12 9.00721C12.4286 9.00721 16.2857 8.54595 17.5714 15.0036C18.8571 15.4649 21 15.9261 21 15.9261" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7C13.1046 7 14 6.10457 14 5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5C10 6.10457 10.8954 7 12 7Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Fabricantes de SUP e equipamento náutico</h3>
         <p>Precisa de matéria-prima bio compatível com produção em volume. Fornecimento regular com especificações técnicas estáveis e lead times previsíveis.</p>
       </div>
       <div class="who-card rv d2">
-        <div class="ico">🏭</div>
+        <div class="ico"><svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 10C18 9 17 8 15 8C14.6978 8 14.355 8 14.0002 8C12.3434 8 11 6.65685 11 5V2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 21H21V12H18V16.5M18 21V16.5M18 21L3 21V17L6.5 14L10.5 16.5L14.5 14L18 16.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 10C21 4 17 4 17 4C17 4 21 4.5 21 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>OEM e contract manufacturers</h3>
         <p>Produz para marcas de terceiros e precisa de responder a cadernos de encargos com critérios de sustentabilidade crescentemente exigentes.</p>
       </div>

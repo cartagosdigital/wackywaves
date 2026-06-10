@@ -1,5 +1,8 @@
 {
   "rewrites": [
+    { "source": "/construcao",    "destination": "/lp-construcao.html" },
+    { "source": "/desporto",      "destination": "/lp-desporto.html"   },
+    { "source": "/moda",          "destination": "/lp-moda.html"       },
     { "source": "/lp-construcao", "destination": "/lp-construcao.html" },
     { "source": "/lp-desporto",   "destination": "/lp-desporto.html"   },
     { "source": "/lp-moda",       "destination": "/lp-moda.html"       },

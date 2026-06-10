@@ -22,24 +22,44 @@ a{color:inherit;text-decoration:none}
 img,video{max-width:100%;display:block}
 button{border:none;cursor:pointer;font-family:inherit;background:none}
 
-/* ── HEADER ── */
-#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(1.5rem,8%,6rem);transition:background .35s,box-shadow .35s}
-#hdr.on{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(0,0,0,.08),0 4px 32px rgba(0,0,0,.06);backdrop-filter:blur(12px)}
-.hdr-logo{font-family:var(--ff-d);font-weight:900;font-size:1rem;color:var(--white);letter-spacing:-.01em;transition:color .35s}
-.hdr-logo span{color:var(--cyan)}
-.hdr-logo sub{font-size:.55rem;font-weight:700;letter-spacing:.08em;color:var(--cyan);text-transform:uppercase;margin-left:4px;vertical-align:middle}
-#hdr.on .hdr-logo{color:var(--black)}
-.hdr-right{display:flex;align-items:center;gap:1.25rem}
-.hdr-link{font-family:var(--ff-d);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.75);transition:color .2s}
-.hdr-link:hover{color:var(--white)}
-#hdr.on .hdr-link{color:rgba(0,0,0,.6)}
-#hdr.on .hdr-link:hover{color:var(--black)}
-.hdr-cta{font-family:var(--ff-d);font-size:.8rem;font-weight:800;padding:9px 22px;border-radius:24px;
-  background:var(--accent);color:var(--white);transition:all .2s;white-space:nowrap}
-.hdr-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,190,255,.45)}
-#hdr.on .hdr-cta{color:var(--black)}
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;padding:0 clamp(1.5rem,8%,6rem);transition:background .4s,box-shadow .4s}
+#nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 2px 24px rgba(0,0,0,.08);backdrop-filter:blur(12px)}
+#nav.scrolled .nav-link{color:var(--black)}
+#nav.scrolled .nav-logo-name{color:var(--black)}
+#nav.scrolled .nav-hamburger span{background:var(--black)}
+.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{font-family:var(--ff-d);font-weight:900;font-size:1.05rem;color:var(--white);letter-spacing:-.01em;transition:color .4s}
+.nav-logo-sub{font-family:var(--ff-d);font-size:.58rem;font-weight:700;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+.nav-menu{display:flex;align-items:center;gap:2rem;margin-left:auto;list-style:none;padding:0;margin-top:0;margin-bottom:0}
+.nav-link{font-family:var(--ff-d);font-weight:600;font-size:.88rem;color:rgba(255,255,255,.9);transition:color .2s;cursor:pointer;text-decoration:none}
+.nav-link:hover{color:var(--cyan)}
+.nav-dropdown{position:relative}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(-8px);background:var(--white);border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.14);padding:8px;min-width:210px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.nav-dropdown-item{display:block;padding:10px 14px;font-family:var(--ff-d);font-size:.85rem;font-weight:600;color:var(--black);border-radius:6px;transition:background .15s,color .15s}
+.nav-dropdown-item:hover{background:var(--bg-light);color:var(--cyan)}
+.nav-right{display:flex;align-items:center;gap:1rem;margin-left:2rem}
+.lang-toggle{font-family:var(--ff-d);font-size:.75rem;font-weight:700;color:rgba(255,255,255,.75);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 14px;cursor:pointer;transition:all .2s}
+.lang-toggle:hover{background:rgba(255,255,255,.2);color:var(--white)}
+#nav.scrolled .lang-toggle{color:var(--black);background:var(--bg-light);border-color:transparent}
+.nav-cta{font-family:var(--ff-d);font-size:.82rem;font-weight:700;padding:8px 20px;border-radius:6px;border:1.5px solid rgba(26,190,255,.7);color:var(--cyan);background:transparent;transition:all .2s;display:inline-block}
+.nav-cta:hover{background:var(--cyan);color:var(--black)}
+#nav.scrolled .nav-cta{border-color:rgba(26,190,255,.7);color:var(--cyan)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;margin-left:auto;background:none;border:none}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+@media(max-width:900px){
+  .nav-menu,.nav-right{display:none}
+  .nav-hamburger{display:flex}
+  body.nav-open .nav-menu{display:flex;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--white);padding:1.5rem clamp(1.5rem,8%,6rem);box-shadow:0 8px 32px rgba(0,0,0,.1);gap:0;align-items:flex-start;z-index:999}
+  body.nav-open .nav-link{color:var(--black);font-size:1rem;padding:.6rem 0;border-bottom:1px solid rgba(0,0,0,.05);width:100%}
+  body.nav-open .nav-right{display:flex;flex-direction:column;align-items:flex-start;position:fixed;top:auto;left:0;right:0;background:var(--white);padding:1rem clamp(1.5rem,8%,6rem) 1.5rem;box-shadow:0 8px 32px rgba(0,0,0,.1);z-index:998}
+  body.nav-open .lang-toggle{color:var(--black);background:var(--bg-light);border-color:transparent}
+  .nav-dropdown-menu{position:static;transform:none!important;opacity:0;box-shadow:none;padding:0 0 0 1rem;background:transparent;min-width:auto;pointer-events:none;max-height:0;overflow:hidden;transition:max-height .3s,opacity .3s}
+  .nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:all;max-height:200px}
+  .nav-dropdown-item{padding:6px 0;font-size:.9rem}
+}
 
 /* ── HERO ── */
 #hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:var(--bg-dark);display:flex;align-items:flex-end}
@@ -154,7 +174,7 @@ form{margin-top:2.5rem}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(26,190,255,.45);background:rgba(255,255,255,.1)}
 .fg input.err,.fg select.err{border-color:#f87171}
 .fg textarea{resize:vertical;min-height:88px}
-.btn-sub{font-family:var(--ff-d);font-size:.92rem;font-weight:800;width:100%;padding:15px;border-radius:8px;background:var(--accent);color:var(--white);margin-top:1.25rem;cursor:pointer;border:none;transition:all .22s}
+.btn-sub{font-family:var(--ff-d);font-size:.92rem;font-weight:800;width:100%;padding:15px;border-radius:6px;background:var(--accent);color:var(--black);margin-top:1.25rem;cursor:pointer;border:none;transition:all .22s}
 .btn-sub:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(26,190,255,.5)}
 .f-trust{font-size:.75rem;color:rgba(255,255,255,.3);text-align:center;margin-top:.65rem;line-height:1.5}
 .f-success{display:none;text-align:center;padding:3rem 2rem;background:rgba(255,255,255,.04);border-radius:8px;border:1px solid rgba(26,190,255,.15);margin-top:2.5rem}
@@ -173,8 +193,8 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
 
 /* ── MOBILE CTA ── */
 #mob-cta{display:none;position:fixed;bottom:1rem;left:.85rem;right:.85rem;z-index:999;
-  font-family:var(--ff-d);font-size:.88rem;font-weight:800;padding:14px;border-radius:13px;
-  text-align:center;background:var(--accent);color:var(--white);
+  font-family:var(--ff-d);font-size:.88rem;font-weight:800;padding:14px;border-radius:6px;
+  text-align:center;background:var(--accent);color:var(--black);
   box-shadow:0 6px 28px rgba(0,0,0,.32);transition:transform .15s}
 #mob-cta:active{transform:scale(.98)}
 @media(max-width:768px){#mob-cta{display:block}body{padding-bottom:88px}}
@@ -188,13 +208,36 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
 <body>
 
 <!-- HEADER -->
-<header id="hdr">
-  <a href="/" class="hdr-logo">Wacky Waves<sub>eco-materiais</sub></a>
-  <div class="hdr-right">
-    <a href="/" class="hdr-link">← Site Principal</a>
-    <a href="#form-sec" class="hdr-cta">Pedir Amostras →</a>
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <svg width="50" height="32" viewBox="0 0 50 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 17C25 17 17 7 9 7C3.5 7 1 12 1 17C1 22 3.5 27 9 27C17 27 25 17 25 17C25 17 33 7 41 7C46.5 7 49 12 49 17C49 22 46.5 27 41 27C33 27 25 17 25 17Z" stroke="#1ABEFF" stroke-width="2.5" fill="none" stroke-linejoin="round"/><path d="M9 7C9 7 12.5 2.5 9 0.5C5.5 2.5 9 7 9 7Z" fill="#76E093"/><line x1="9" y1="0.5" x2="9" y2="5.5" stroke="#76E093" stroke-width="1.3"/></svg>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">WACKY WAVES</span>
+      <span class="nav-logo-sub">Sustainable Innovation</span>
+    </div>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="/#sobre" class="nav-link">Sobre</a></li>
+    <li><a href="/#tecnologia" class="nav-link">Tecnologia</a></li>
+    <li class="nav-dropdown">
+      <span class="nav-link">Segmentos ▾</span>
+      <div class="nav-dropdown-menu">
+        <a href="/construcao" class="nav-dropdown-item">Construção</a>
+        <a href="/desporto" class="nav-dropdown-item">Desporto</a>
+        <a href="/moda" class="nav-dropdown-item">Moda & Outros</a>
+      </div>
+    </li>
+    <li><a href="/#visao" class="nav-link">Sustentabilidade</a></li>
+    <li><a href="#form-sec" class="nav-link">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-toggle" id="langBtn">PT</button>
+    <a href="#form-sec" class="nav-cta">Pedir Amostra</a>
   </div>
-</header>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
 <!-- HERO -->
 <section id="hero">
@@ -450,9 +493,12 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
 <a href="#form-sec" id="mob-cta">Pedir Kit de Amostras →</a>
 
 <script>
-// ── STICKY HEADER ──
-const hdr = document.getElementById('hdr');
-window.addEventListener('scroll', () => hdr.classList.toggle('on', window.scrollY > 60), {passive:true});
+// ── NAV ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), {passive:true});
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.body.classList.toggle('nav-open');
+});
 
 // ── SCROLL REVEAL ──
 const ro = new IntersectionObserver(entries => {

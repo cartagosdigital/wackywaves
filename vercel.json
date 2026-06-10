@@ -1,5 +1,8 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/wacky_waves_website.html" }
+    { "source": "/lp-construcao", "destination": "/lp-construcao.html" },
+    { "source": "/lp-desporto",   "destination": "/lp-desporto.html"   },
+    { "source": "/lp-moda",       "destination": "/lp-moda.html"       },
+    { "source": "/(.*)",           "destination": "/wacky_waves_website.html" }
   ]
 }

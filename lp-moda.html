@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moda & Acessórios — Wacky Waves | Compósito de Fibra de Madeira Natural</title>
+<meta name="description" content="Compósito de fibra de madeira natural, zero petroquímico, rastreável end-to-end. Preparado para EU Green Claims Directive. B2B para marcas e fabricantes de acessórios premium.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#C8A97E;--accent-glow:rgba(200,169,126,.45);--cyan:#1ABEFF;--green:#76E093;
+  --bg-dark:#071A0C;--bg-light:#F5F7F5;--black:#0A0A0A;--white:#FFFFFF;
+  --gray:rgba(0,0,0,.52);--ff-d:'Manrope',sans-serif;--ff-b:'Inter',sans-serif;
+  --nav-h:68px;--mw:1160px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--ff-b);color:var(--black);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+button{border:none;cursor:pointer;font-family:inherit;background:none}
+
+/* ── HEADER ── */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.25rem,5vw,5rem);transition:background .35s,box-shadow .35s}
+#hdr.on{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(0,0,0,.08),0 4px 32px rgba(0,0,0,.06);backdrop-filter:blur(12px)}
+.hdr-logo{font-family:var(--ff-d);font-weight:900;font-size:1rem;color:var(--white);letter-spacing:-.01em;transition:color .35s}
+.hdr-logo span{color:var(--cyan)}
+.hdr-logo sub{font-size:.55rem;font-weight:700;letter-spacing:.08em;color:var(--cyan);text-transform:uppercase;margin-left:4px;vertical-align:middle}
+#hdr.on .hdr-logo{color:var(--black)}
+.hdr-right{display:flex;align-items:center;gap:1.25rem}
+.hdr-link{font-family:var(--ff-d);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.75);transition:color .2s}
+.hdr-link:hover{color:var(--white)}
+#hdr.on .hdr-link{color:rgba(0,0,0,.6)}
+#hdr.on .hdr-link:hover{color:var(--black)}
+.hdr-cta{font-family:var(--ff-d);font-size:.8rem;font-weight:800;padding:9px 22px;border-radius:24px;
+  background:var(--accent);color:var(--black);transition:all .2s;white-space:nowrap}
+.hdr-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px var(--accent-glow)}
+
+/* ── HERO ── */
+#hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:var(--bg-dark);display:flex;align-items:flex-end}
+.hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.ho{position:absolute;inset:0;z-index:1;background:linear-gradient(155deg,rgba(7,26,12,.78) 0%,rgba(7,26,12,.38) 50%,rgba(7,26,12,.95) 100%)}
+.hc{position:relative;z-index:2;padding:0 clamp(1.5rem,7vw,7rem) clamp(4rem,8vh,7rem);max-width:720px}
+.eyebrow{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:1.25rem}
+.hero-h{font-family:var(--ff-d);font-weight:900;font-size:clamp(1.9rem,4.2vw,3.6rem);line-height:1.08;letter-spacing:-.025em;color:var(--white);margin-bottom:1.25rem}
+.hero-sub{font-size:clamp(.88rem,1.3vw,1.05rem);line-height:1.75;color:rgba(255,255,255,.75);margin-bottom:2.5rem;max-width:500px}
+.ctas{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.btn-a{font-family:var(--ff-d);font-size:.9rem;font-weight:800;padding:14px 32px;border-radius:28px;background:var(--accent);color:var(--black);transition:all .22s;display:inline-block}
+.btn-a:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--accent-glow)}
+.btn-b{font-family:var(--ff-d);font-size:.85rem;font-weight:700;color:rgba(255,255,255,.75);transition:color .2s}
+.btn-b:hover{color:var(--white)}
+
+/* ── TRUST BAR ── */
+#trust{background:var(--white);border-bottom:1px solid rgba(0,0,0,.07);padding:.9rem clamp(1.25rem,5vw,5rem)}
+.trust-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap}
+.ti{font-family:var(--ff-d);font-size:.75rem;font-weight:700;color:rgba(0,0,0,.6);display:flex;align-items:center;gap:.4rem;white-space:nowrap}
+.ti::before{content:'✓';color:var(--accent);font-size:.85rem;font-weight:900}
+
+/* ── SECTION BASE ── */
+.sec{padding:5.5rem clamp(1.25rem,5vw,5rem)}
+.sec-inner{max-width:var(--mw);margin:0 auto}
+.sec-lbl{font-family:var(--ff-d);font-size:.6rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:.85rem}
+.sec-h{font-family:var(--ff-d);font-weight:900;font-size:clamp(1.55rem,3vw,2.4rem);line-height:1.15;letter-spacing:-.02em}
+.sec-sub{font-size:.94rem;line-height:1.82;color:var(--gray);max-width:560px;margin-top:.75rem}
+
+/* ── PROBLEM ── */
+#problem{background:var(--bg-light)}
+.prob-hd{margin-bottom:3.5rem}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prob-card{background:var(--white);border-radius:12px;padding:2.25rem 2rem;border:1px solid rgba(0,0,0,.07);transition:transform .22s,box-shadow .22s}
+.prob-card:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.1)}
+.prob-card .ico{font-size:1.5rem;margin-bottom:1rem}
+.prob-card h3{font-family:var(--ff-d);font-weight:800;font-size:.92rem;margin-bottom:.55rem;line-height:1.3}
+.prob-card p{font-size:.85rem;line-height:1.78;color:var(--gray)}
+@media(max-width:820px){.prob-grid{grid-template-columns:1fr}}
+
+/* ── SOLUTION ── */
+#solution{background:var(--bg-dark)}
+#solution .sec-h{color:var(--white)}
+#solution .sec-sub{color:rgba(255,255,255,.52)}
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:3.5rem}
+.sol-card{background:var(--bg-dark);padding:2.75rem 2.25rem;transition:background .22s}
+.sol-card:hover{background:rgba(255,255,255,.04)}
+.sol-card .ico{font-size:1.4rem;margin-bottom:1rem}
+.sol-card h3{font-family:var(--ff-d);font-weight:800;font-size:.95rem;color:var(--white);margin-bottom:.65rem}
+.sol-card p{font-size:.85rem;line-height:1.78;color:rgba(255,255,255,.48)}
+.sol-card .tag{display:inline-block;font-family:var(--ff-d);font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(200,169,126,.3);border-radius:20px;padding:3px 10px;margin-top:1rem}
+@media(max-width:820px){.sol-grid{grid-template-columns:1fr}}
+
+/* ── METRICS ── */
+#metrics{background:var(--white)}
+.met-title{text-align:center;margin-bottom:4rem}
+.met-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.07)}
+.met-item{background:var(--white);padding:3rem 2rem}
+.met-num{font-family:var(--ff-d);font-weight:900;font-size:clamp(2.25rem,3.5vw,3.2rem);line-height:1;letter-spacing:-.04em;margin-bottom:.5rem}
+.met-num .a{color:var(--accent)}
+.met-lbl{font-family:var(--ff-d);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(0,0,0,.4);line-height:1.5}
+.met-note{text-align:center;font-size:.78rem;color:rgba(0,0,0,.38);line-height:1.65;max-width:500px;margin:2rem auto 0;border-top:1px solid rgba(0,0,0,.06);padding-top:1.5rem}
+@media(max-width:820px){.met-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.met-grid{grid-template-columns:1fr}}
+
+/* ── APPLICATIONS ── */
+#apps{background:var(--bg-light)}
+.app-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(0,0,0,.07);margin-top:3.5rem}
+.app-card{background:var(--white);padding:2.75rem 2.5rem;transition:background .2s}
+.app-card:hover{background:var(--bg-light)}
+.app-card .ico{font-size:1.6rem;margin-bottom:1rem}
+.app-card h3{font-family:var(--ff-d);font-weight:800;font-size:.95rem;margin-bottom:.5rem}
+.app-card p{font-size:.85rem;line-height:1.75;color:var(--gray)}
+@media(max-width:700px){.app-grid{grid-template-columns:1fr}}
+
+/* ── WHO ── */
+#who{background:var(--bg-dark)}
+#who .sec-h{color:var(--white)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);margin-top:3.5rem}
+.who-card{background:var(--bg-dark);padding:2.5rem 2rem;border-top:3px solid transparent;transition:border-color .2s,background .2s}
+.who-card:hover{border-top-color:var(--accent);background:rgba(255,255,255,.03)}
+.who-card .ico{font-size:1.4rem;margin-bottom:.85rem}
+.who-card h3{font-family:var(--ff-d);font-weight:800;font-size:.92rem;color:var(--white);margin-bottom:.5rem}
+.who-card p{font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.45)}
+@media(max-width:820px){.who-grid{grid-template-columns:1fr}}
+
+/* ── CERTS ── */
+#certs{background:var(--bg-light)}
+.certs-wrap{margin-top:3rem}
+.ct-row{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 0;border-bottom:1px solid rgba(0,0,0,.07)}
+.ct-row:last-of-type{border-bottom:none}
+.ct-name{font-size:.9rem;color:var(--black);font-weight:500;flex:1;padding-right:2rem}
+.ct-status{font-family:var(--ff-d);font-weight:800;font-size:.78rem;color:var(--accent);text-align:right;white-space:nowrap}
+.cert-note{font-size:.78rem;color:rgba(0,0,0,.38);line-height:1.65;margin-top:2rem;padding-top:1.25rem;border-top:1px solid rgba(0,0,0,.07)}
+@media(max-width:600px){.ct-row{flex-direction:column;gap:.3rem}.ct-status{text-align:left}}
+
+/* ── FORM ── */
+#form-sec{background:var(--bg-dark);position:relative;overflow:hidden}
+#form-sec::before{content:'';position:absolute;width:55vw;height:55vw;border-radius:50%;background:radial-gradient(var(--accent),transparent 70%);top:-25vw;right:-15vw;opacity:.05;pointer-events:none}
+#form-sec::after{content:'';position:absolute;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(var(--cyan),transparent 70%);bottom:-15vw;left:-10vw;opacity:.04;pointer-events:none}
+.form-wrap{max-width:640px;position:relative;z-index:1}
+#form-sec .sec-h{color:var(--white)}
+#form-sec .sec-sub{color:rgba(255,255,255,.55)}
+form{margin-top:2.5rem}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:.85rem}
+.fr.full{grid-template-columns:1fr}
+.fg{display:flex;flex-direction:column;gap:.35rem}
+.fg label{font-family:var(--ff-d);font-size:.67rem;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:8px;padding:11px 13px;font-family:var(--ff-b);font-size:.88rem;color:var(--white);outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.28)}
+.fg select option{background:#0D2814;color:var(--white)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(200,169,126,.5);background:rgba(255,255,255,.1)}
+.fg input.err,.fg select.err{border-color:#f87171}
+.fg textarea{resize:vertical;min-height:88px}
+.btn-sub{font-family:var(--ff-d);font-size:.92rem;font-weight:800;width:100%;padding:15px;border-radius:12px;background:var(--accent);color:var(--black);margin-top:1.25rem;cursor:pointer;border:none;transition:all .22s}
+.btn-sub:hover{transform:translateY(-2px);box-shadow:0 8px 32px var(--accent-glow)}
+.f-trust{font-size:.75rem;color:rgba(255,255,255,.3);text-align:center;margin-top:.65rem;line-height:1.5}
+.f-success{display:none;text-align:center;padding:3rem 2rem;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(200,169,126,.15);margin-top:2.5rem}
+.f-success.show{display:block}
+.f-success strong{font-family:var(--ff-d);font-size:1.05rem;font-weight:800;color:var(--white);display:block;margin-bottom:.5rem}
+.f-success span{font-size:.85rem;color:rgba(255,255,255,.48);line-height:1.6}
+@media(max-width:620px){.fr{grid-template-columns:1fr}}
+
+/* ── FOOTER ── */
+footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padding:1.5rem clamp(1.25rem,5vw,5rem);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.f-logo{font-family:var(--ff-d);font-weight:900;font-size:.88rem;color:rgba(255,255,255,.4)}
+.f-logo span{color:var(--cyan)}
+.f-links{display:flex;gap:1.5rem}
+.f-links a{font-size:.75rem;color:rgba(255,255,255,.3);transition:color .2s}
+.f-links a:hover{color:rgba(255,255,255,.65)}
+
+/* ── MOBILE CTA ── */
+#mob-cta{display:none;position:fixed;bottom:1rem;left:.85rem;right:.85rem;z-index:999;
+  font-family:var(--ff-d);font-size:.88rem;font-weight:800;padding:14px;border-radius:13px;
+  text-align:center;background:var(--accent);color:var(--black);
+  box-shadow:0 6px 28px rgba(0,0,0,.32);transition:transform .15s}
+#mob-cta:active{transform:scale(.98)}
+@media(max-width:768px){#mob-cta{display:block}body{padding-bottom:88px}}
+
+/* ── SCROLL REVEAL ── */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+.rv.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <a href="/" class="hdr-logo">Wacky Waves<sub>eco-materiais</sub></a>
+  <div class="hdr-right">
+    <a href="/" class="hdr-link">← Site Principal</a>
+    <a href="#form-sec" class="hdr-cta">Pedir Amostra →</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <video class="hv" autoplay muted playsinline loop preload="auto">
+    <source src="hero-oculos.mp4" type="video/mp4">
+  </video>
+  <div class="ho"></div>
+  <div class="hc">
+    <span class="eyebrow">Eco-Materiais para Moda & Acessórios · Wacky Waves</span>
+    <h1 class="hero-h">O acetato acabou<br>a sua utilidade.<br>Existe agora algo<br>genuinamente bio.</h1>
+    <p class="hero-sub">Compósito de fibra de madeira natural. Zero petroquímico. Rastreável da árvore ao aterro zero. Fornecimento B2B para marcas e fabricantes de acessórios.</p>
+    <div class="ctas">
+      <a href="#form-sec" class="btn-a">Pedir Amostra de Material →</a>
+      <a href="#certs" class="btn-b">Ver documentação ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust">
+  <div class="trust-inner">
+    <span class="ti">Zero petroquímico · Zero plástico</span>
+    <span class="ti">Fibra de madeira natural certificável</span>
+    <span class="ti">Rastreável da origem ao fim de vida</span>
+    <span class="ti">Bio-based &gt;80% (EN 16785)</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem" class="sec">
+  <div class="sec-inner">
+    <div class="prob-hd rv">
+      <span class="sec-lbl">O Problema</span>
+      <h2 class="sec-h">"Sustentável" virou palavra vazia.<br>Os seus clientes sabem disso.</h2>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-card rv">
+        <div class="ico">🔍</div>
+        <h3>O consumidor faz due diligence agora</h3>
+        <p>QR codes, relatórios de sustentabilidade, certificações — o comprador de moda premium verifica. "Eco-friendly" sem prova documental é greenwashing, e penaliza a marca que o usa.</p>
+      </div>
+      <div class="prob-card rv d1">
+        <div class="ico">🪵</div>
+        <h3>O acetato "bio" não é o que parece</h3>
+        <p>Acetato de celulose convencional continua a usar plastificantes petroquímicos. Madeira laminada convencional usa adesivos com formaldeído. Os detalhes importam — e os clientes descobrem-nos.</p>
+      </div>
+      <div class="prob-card rv d2">
+        <div class="ico">📋</div>
+        <h3>Regulamentação europeia a apertar</h3>
+        <p>EU Green Claims Directive exige substanciação de qualquer afirmação ambiental. Quem não tiver documentação vai ter de retirar "eco" das fichas de produto e do marketing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution" class="sec">
+  <div class="sec-inner">
+    <span class="sec-lbl rv">A Solução</span>
+    <h2 class="sec-h rv">Um material que aguenta<br>o escrutínio.</h2>
+    <p class="sec-sub rv">Compósito de fibra de madeira natural de origem controlada, sem adesivos petroquímicos, sem formaldeído, sem plastificantes. Documentação de ciclo de vida disponível. Rastreável end-to-end.</p>
+    <div class="sol-grid">
+      <div class="sol-card rv">
+        <div class="ico">🪵</div>
+        <h3>Composição 100% Natural</h3>
+        <p>Fibras de madeira de origem renovável e controlada. Zero petroquímico no material e no processo de fabrico. Bio-based &gt;80% verificável por norma EN 16785.</p>
+        <span class="tag">EN 16785</span>
+      </div>
+      <div class="sol-card rv d1">
+        <div class="ico">✨</div>
+        <h3>Estética Premium Genuína</h3>
+        <p>Grain natural visível. Acabamento matte ou semi-gloss bio. Cada peça ligeiramente única — porque vem de uma árvore, não de um barril de petróleo. Uma história que o preço premium justifica.</p>
+        <span class="tag">Premium natural</span>
+      </div>
+      <div class="sol-card rv d2">
+        <div class="ico">📄</div>
+        <h3>Documentação Completa</h3>
+        <p>Ficha de composição de material. Análise de ciclo de vida. Rastreabilidade de origem. Tudo o que a EU Green Claims Directive vai exigir — já disponível com a amostra.</p>
+        <span class="tag">EU Green Claims</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics" class="sec">
+  <div class="sec-inner">
+    <div class="met-title rv">
+      <span class="sec-lbl">O que é Documentável</span>
+      <h2 class="sec-h">O que entra na ficha de produto<br>e no relatório de sustentabilidade.</h2>
+    </div>
+    <div class="met-grid">
+      <div class="met-item rv">
+        <div class="met-num"><span class="a">&gt;</span><span class="counter" data-target="80" data-suffix="%">0%</span></div>
+        <div class="met-lbl">Bio-based<br>verificável</div>
+      </div>
+      <div class="met-item rv d1">
+        <div class="met-num"><span class="a">Zero</span></div>
+        <div class="met-lbl">Petroquímico<br>no material final</div>
+      </div>
+      <div class="met-item rv d2">
+        <div class="met-num"><span class="a counter" data-target="100" data-suffix="%">0%</span></div>
+        <div class="met-lbl">Rastreável<br>origem–produto</div>
+      </div>
+      <div class="met-item rv d3">
+        <div class="met-num"><span class="a">End-to-end</span></div>
+        <div class="met-lbl">Documentação<br>de ciclo de vida</div>
+      </div>
+    </div>
+    <p class="met-note rv">Toda a documentação técnica é entregue com a amostra de material, incluindo análise de composição e rastreabilidade de origem.</p>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section id="apps" class="sec">
+  <div class="sec-inner">
+    <span class="sec-lbl rv">Aplicações</span>
+    <h2 class="sec-h rv">Onde o material se aplica.</h2>
+    <div class="app-grid">
+      <div class="app-card rv">
+        <div class="ico">👓</div>
+        <h3>Armações de óculos</h3>
+        <p>Compósito maquinável por CNC. Tolerâncias compatíveis com produção de óculos de precisão. Substituto direto do acetato convencional sem alteração do equipamento.</p>
+      </div>
+      <div class="app-card rv d1">
+        <div class="ico">💍</div>
+        <h3>Acessórios de moda</h3>
+        <p>Botões, fivelas, aplicações em couro-free. Formas complexas possíveis por moldagem ou maquinagem CNC. Acabamento matte bio premium.</p>
+      </div>
+      <div class="app-card rv">
+        <div class="ico">⌚</div>
+        <h3>Acessórios premium</h3>
+        <p>Alternativa ao acetato e ao metal para marcas que querem uma história de material genuíno e documentada — não uma afirmação de marketing sem substância.</p>
+      </div>
+      <div class="app-card rv d1">
+        <div class="ico">🎒</div>
+        <h3>Componentes de produto de moda</h3>
+        <p>Aplicações de superfície, ornamentos, elementos estruturais leves em vestuário e maroquinaria. Peças com grain natural visível como elemento de design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="who" class="sec">
+  <div class="sec-inner">
+    <span class="sec-lbl rv" style="color:rgba(255,255,255,.4)">Para Quem É</span>
+    <h2 class="sec-h rv">Feito para marcas<br>com algo a provar.</h2>
+    <div class="who-grid">
+      <div class="who-card rv">
+        <div class="ico">🏭</div>
+        <h3>Fabricantes de armações de óculos</h3>
+        <p>Precisa de matéria-prima bio que entra no processo de maquinagem CNC sem alterar o equipamento existente ou o workflow de produção.</p>
+      </div>
+      <div class="who-card rv d1">
+        <div class="ico">🎨</div>
+        <h3>Marcas de moda com linha sustentável</h3>
+        <p>Quer materiais com história real, documentada, comunicável — não certificações compradas ou afirmações vagas que não passam um due diligence jornalístico.</p>
+      </div>
+      <div class="who-card rv d2">
+        <div class="ico">🏪</div>
+        <h3>Óticas com linha própria</h3>
+        <p>Quer diferenciar com armações bio genuínas e ter a documentação para justificar o premium de preço ao comprador mais exigente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs" class="sec">
+  <div class="sec-inner">
+    <span class="sec-lbl rv">Conformidade</span>
+    <h2 class="sec-h rv">Preparado para a<br>EU Green Claims Directive.</h2>
+    <div class="certs-wrap rv">
+      <div class="ct-row"><span class="ct-name">Bio-based content &gt;80% (EN 16785)</span><span class="ct-status">✓ Verificável e documentado</span></div>
+      <div class="ct-row"><span class="ct-name">Zero petroquímico (composição)</span><span class="ct-status">✓ Verificável por análise</span></div>
+      <div class="ct-row"><span class="ct-name">Rastreabilidade de origem</span><span class="ct-status">✓ End-to-end documentada</span></div>
+      <div class="ct-row"><span class="ct-name">Sem formaldeído (processo)</span><span class="ct-status">✓ Verificado no fabrico</span></div>
+      <div class="ct-row"><span class="ct-name">Análise de ciclo de vida disponível</span><span class="ct-status">✓ Entregue com amostra</span></div>
+      <div class="ct-row"><span class="ct-name">Biodegradável / compostável</span><span class="ct-status">✓ EN 13432 aplicável</span></div>
+    </div>
+    <p class="cert-note rv">A formulação e processo de fabrico são propriedade intelectual da Wacky Waves, protegidos como segredo de negócio e em processo de registo de patente.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="form-sec" class="sec">
+  <div class="sec-inner">
+    <div class="form-wrap">
+      <span class="sec-lbl">Pedir Amostra + Documentação</span>
+      <h2 class="sec-h rv">Toque no material<br>antes de decidir.</h2>
+      <p class="sec-sub rv">Enviamos amostras do compósito de fibra de madeira com ficha técnica, análise de composição e documentação de rastreabilidade. Sem compromisso. Com acompanhamento técnico.</p>
+
+      <form id="lp-form" novalidate>
+        <div class="fr">
+          <div class="fg"><label>Nome completo *</label><input type="text" name="nome" placeholder="Maria Ferreira" required></div>
+          <div class="fg"><label>Email profissional *</label><input type="email" name="email" placeholder="maria@marca.pt" required></div>
+        </div>
+        <div class="fr">
+          <div class="fg"><label>Marca / Empresa *</label><input type="text" name="empresa" placeholder="Atelier X Lda" required></div>
+          <div class="fg"><label>Cargo *</label><input type="text" name="cargo" placeholder="Diretora de Produto" required></div>
+        </div>
+        <div class="fr">
+          <div class="fg"><label>Categoria de produto *</label>
+            <select name="tipo" required>
+              <option value="">Selecionar...</option>
+              <option>Armações de óculos</option>
+              <option>Acessórios de moda</option>
+              <option>Bijuteria / joalharia</option>
+              <option>Componentes de vestuário</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="fg"><label>Volume estimado *</label>
+            <select name="volume" required>
+              <option value="">Selecionar...</option>
+              <option>Avaliação de material / projeto piloto</option>
+              <option>Pequena série (até 1.000 unidades)</option>
+              <option>Média série (1.000 – 10.000 unidades)</option>
+              <option>Grande volume (acima de 10.000 unidades)</option>
+            </select>
+          </div>
+        </div>
+        <div class="fr full">
+          <div class="fg"><label>Mensagem (opcional)</label><textarea name="msg" placeholder="Descreva o produto, processo atual ou requisitos específicos..."></textarea></div>
+        </div>
+        <button type="submit" class="btn-sub">Pedir Amostra + Documentação →</button>
+        <p class="f-trust">Respondemos em 48h úteis. Enviamos para Portugal e toda a Europa.</p>
+      </form>
+
+      <div class="f-success" id="f-ok">
+        <strong>✓ Pedido recebido.</strong>
+        <span>Obrigado. Receberá a confirmação em info@wackywaves.pt nas próximas 48 horas.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-logo">Wacky <span>Waves</span></span>
+  <div class="f-links">
+    <a href="/">Site Principal</a>
+    <a href="/construcao">Bio Construção</a>
+    <a href="/desporto">Desportos Aquáticos</a>
+  </div>
+</footer>
+
+<!-- MOBILE CTA -->
+<a href="#form-sec" id="mob-cta">Pedir Amostra + Documentação →</a>
+
+<script>
+// ── STICKY HEADER ──
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('on', window.scrollY > 60), {passive:true});
+
+// ── SCROLL REVEAL ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
+}, {threshold: 0.12});
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+
+// ── COUNTER ──
+function runCounter(el) {
+  const target = +el.dataset.target;
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const start = performance.now();
+  (function step(now) {
+    const t = Math.min((now - start) / 1600, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = prefix + Math.round(ease * target) + suffix;
+    if (t < 1) requestAnimationFrame(step);
+    else el.textContent = prefix + target + suffix;
+  })(start);
+}
+const co = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { runCounter(e.target); co.unobserve(e.target); } });
+}, {threshold: 0.5});
+document.querySelectorAll('.counter').forEach(el => co.observe(el));
+
+// ── FORM ──
+document.getElementById('lp-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+  this.querySelectorAll('[required]').forEach(f => {
+    f.classList.remove('err');
+    if (!f.value.trim()) { f.classList.add('err'); valid = false; }
+  });
+  if (!valid) return;
+  this.style.display = 'none';
+  document.getElementById('f-ok').classList.add('show');
+  window.scrollTo({top: document.getElementById('form-sec').offsetTop - 80, behavior:'smooth'});
+});
+</script>
+</body>
+</html>

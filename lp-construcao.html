@@ -213,7 +213,9 @@ form{margin-top:2.5rem}
 /* form split layout */
 .form-wrap{display:grid;grid-template-columns:1fr 1.2fr;column-gap:5rem;align-items:start}
 .form-wrap>.sec-lbl,.form-wrap>h2,.form-wrap>p.sec-sub{grid-column:1}
-.form-wrap>form,.form-wrap>.f-success{grid-column:2;grid-row:1/span 3;align-self:start}
+.form-wrap>form,.form-wrap>.f-success{grid-column:2;grid-row:1/span 4;align-self:start}
+.form-ico{display:block;width:28px;height:28px;color:var(--accent);margin-bottom:1.5rem}
+.form-wrap>.form-ico{grid-column:1}
 /* certs spacing */
 .certs-wrap{margin-top:2.5rem}
 .cert-note{margin-top:1.75rem;font-size:.8rem;color:rgba(0,0,0,.38);line-height:1.65}
@@ -251,7 +253,7 @@ form{margin-top:2.5rem}
   </ul>
   <div class="nav-right">
     <button class="lang-toggle" id="langBtn">PT</button>
-    <a href="#form-sec" class="nav-cta">Pedir Amostra</a>
+    <a href="#form-sec" class="nav-cta">Fale Connosco</a>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -269,7 +271,7 @@ form{margin-top:2.5rem}
     <h1 class="hero-h">Os seus projetos precisam<br>de baixo carbono.<br>Os nossos painéis<br>entregam −40% CO₂.</h1>
     <p class="hero-sub">Materiais bio estruturais com desempenho comprovado, alinhados com EU Taxonomy, BREEAM e LEED. Fornecimento B2B para construtoras e fabricantes.</p>
     <div class="ctas">
-      <a href="#form-sec" class="btn-a">Pedir Amostra Gratuita →</a>
+      <a href="#form-sec" class="btn-a">Fale Connosco →</a>
       <a href="#certs" class="btn-b">Ver ficha técnica ↓</a>
     </div>
   </div>
@@ -456,44 +458,33 @@ form{margin-top:2.5rem}
 <section id="form-sec" class="sec">
   <div class="sec-inner">
     <div class="form-wrap">
-      <span class="sec-lbl">Pedir Amostra</span>
-      <h2 class="sec-h rv">Receba uma amostra.<br>Veja o material nas suas mãos antes de decidir.</h2>
-      <p class="sec-sub rv">Sem compromisso. A amostra inclui ficha técnica, dados de ciclo de vida e contacto direto com a nossa equipa técnica.</p>
+      <svg class="form-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 7l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="sec-lbl">Fale Connosco</span>
+      <h2 class="sec-h rv">Inicie uma conversa técnica sobre o seu projeto.</h2>
+      <p class="sec-sub rv">Contacte-nos para amostras, parcerias B2B, projetos personalizados ou informações técnicas sobre os nossos eco-materiais de construção.</p>
 
       <form id="lp-form" novalidate>
         <div class="fr">
-          <div class="fg"><label>Nome completo *</label><input type="text" name="nome" placeholder="Ana Silva" required></div>
-          <div class="fg"><label>Email profissional *</label><input type="email" name="email" placeholder="ana@empresa.pt" required></div>
+          <div class="fg"><label>Nome *</label><input type="text" name="nome" placeholder="João Silva" required></div>
+          <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="joao@empresa.pt" required></div>
         </div>
         <div class="fr">
-          <div class="fg"><label>Empresa *</label><input type="text" name="empresa" placeholder="Construtora SA" required></div>
-          <div class="fg"><label>Cargo / Função *</label><input type="text" name="cargo" placeholder="Diretor de Obra" required></div>
-        </div>
-        <div class="fr">
-          <div class="fg"><label>Tipo de projeto *</label>
-            <select name="tipo" required>
-              <option value="">Selecionar...</option>
-              <option>Construção residencial</option>
-              <option>Construção comercial / industrial</option>
-              <option>Fabricação de painéis / componentes</option>
-              <option>Arquitetura e especificação</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <div class="fg"><label>Volume estimado *</label>
-            <select name="volume" required>
-              <option value="">Selecionar...</option>
-              <option>Projeto piloto / avaliação</option>
-              <option>Até 500m²</option>
-              <option>500m² – 5.000m²</option>
-              <option>Acima de 5.000m²</option>
+          <div class="fg"><label>Empresa</label><input type="text" name="empresa" placeholder="Empresa, Lda."></div>
+          <div class="fg"><label>Segmento</label>
+            <select name="segmento">
+              <option value="">—</option>
+              <option value="construcao">Construção</option>
+              <option value="desporto">Desportos Aquáticos</option>
+              <option value="moda">Moda & Acessórios</option>
+              <option value="design">Design & Arquitetura</option>
+              <option value="outro">Outro</option>
             </select>
           </div>
         </div>
         <div class="fr full">
-          <div class="fg"><label>Mensagem (opcional)</label><textarea name="msg" placeholder="Descreva o projeto ou contexto..."></textarea></div>
+          <div class="fg"><label>Mensagem</label><textarea name="msg" placeholder="Descreva o seu projeto ou pedido..."></textarea></div>
         </div>
-        <button type="submit" class="btn-sub">Pedir Amostra Gratuita →</button>
+        <button type="submit" class="btn-sub">Enviar Mensagem →</button>
         <p class="f-trust">Respondemos em 48h úteis. Os seus dados não são partilhados com terceiros.</p>
       </form>
 
@@ -540,7 +531,7 @@ form{margin-top:2.5rem}
 </footer>
 
 <!-- MOBILE CTA -->
-<a href="#form-sec" id="mob-cta">Pedir Amostra Gratuita →</a>
+<a href="#form-sec" id="mob-cta">Fale Connosco →</a>
 
 <script>
 // ── NAV ──

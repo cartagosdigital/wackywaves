@@ -45,17 +45,26 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .nav-cta:hover{background:var(--cyan);color:var(--black)}
 #nav.scrolled .nav-cta{border-color:rgba(26,190,255,.7);color:var(--cyan)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;margin-left:auto;background:none;border:none}
-.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform .3s,opacity .3s}
+#nav-panel{display:contents}
+#nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:998}
+
 @media(max-width:900px){
-  .nav-menu,.nav-right{display:none}
   .nav-hamburger{display:flex}
-  body.nav-open .nav-menu{display:flex;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--white);padding:1.5rem clamp(1.5rem,8%,6rem);box-shadow:0 8px 32px rgba(0,0,0,.1);gap:0;align-items:flex-start;z-index:999}
-  body.nav-open .nav-link{color:var(--black);font-size:1rem;padding:.6rem 0;border-bottom:1px solid rgba(0,0,0,.05);width:100%}
-  body.nav-open .nav-right{display:flex;flex-direction:column;align-items:flex-start;position:fixed;top:auto;left:0;right:0;background:var(--white);padding:1rem clamp(1.5rem,8%,6rem) 1.5rem;box-shadow:0 8px 32px rgba(0,0,0,.1);z-index:998}
-  body.nav-open .lang-toggle{color:var(--black);background:var(--bg-light);border-color:transparent}
+  #nav-panel{display:none;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--white);padding:1.5rem clamp(1.5rem,8%,6rem) 2rem;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:999;max-height:calc(100vh - var(--nav-h));overflow-y:auto}
+  body.nav-open #nav-panel{display:flex}
+  body.nav-open #nav-overlay{display:block}
+  #nav-panel .nav-menu{display:flex;flex-direction:column;gap:0;list-style:none;padding:0;margin:0;width:100%}
+  #nav-panel .nav-link{color:var(--black);font-size:1rem;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.06);width:100%;display:block}
+  #nav-panel .nav-right{display:flex;flex-direction:column;gap:.75rem;margin-left:0;padding-top:1.25rem;width:100%}
+  #nav-panel .lang-toggle{color:var(--black);background:var(--bg-light);border-color:transparent;align-self:flex-start}
+  #nav-panel .nav-cta{width:100%;text-align:center;margin:0}
   .nav-dropdown-menu{position:static;transform:none!important;opacity:0;box-shadow:none;padding:0 0 0 1rem;background:transparent;min-width:auto;pointer-events:none;max-height:0;overflow:hidden;transition:max-height .3s,opacity .3s}
-  .nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:all;max-height:200px}
-  .nav-dropdown-item{padding:6px 0;font-size:.9rem}
+  .nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:auto;max-height:200px}
+  .nav-dropdown-item{padding:.5rem 0;font-size:.9rem;display:block;color:var(--black)}
+  body.nav-open .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.nav-open .nav-hamburger span:nth-child(2){opacity:0;transform:scaleX(0)}
+  body.nav-open .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
 
 /* ── HERO ── */
@@ -234,28 +243,31 @@ form{margin-top:2.5rem}
   <a href="/" class="nav-logo">
     <img src="logo_wackywaves.png" alt="Wacky Waves" class="nav-logo-img">
   </a>
-  <ul class="nav-menu">
-    <li><a href="/#sobre" class="nav-link">Sobre</a></li>
-    <li><a href="/#tecnologia" class="nav-link">Tecnologia</a></li>
-    <li class="nav-dropdown">
-      <span class="nav-link">Segmentos ▾</span>
-      <div class="nav-dropdown-menu">
-        <a href="/construcao" class="nav-dropdown-item">Construção</a>
-        <a href="/desporto" class="nav-dropdown-item">Desporto</a>
-        <a href="/moda" class="nav-dropdown-item">Moda & Outros</a>
-      </div>
-    </li>
-    <li><a href="/#visao" class="nav-link">Sustentabilidade</a></li>
-    <li><a href="#form-sec" class="nav-link">Contacto</a></li>
-  </ul>
-  <div class="nav-right">
-    <button class="lang-toggle" id="langBtn">PT</button>
-    <a href="#form-sec" class="nav-cta">Fale Connosco</a>
+  <div id="nav-panel">
+    <ul class="nav-menu">
+      <li><a href="/#sobre" class="nav-link">Sobre</a></li>
+      <li><a href="/#tecnologia" class="nav-link">Tecnologia</a></li>
+      <li class="nav-dropdown">
+        <span class="nav-link">Segmentos ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="/construcao" class="nav-dropdown-item">Construção</a>
+          <a href="/desporto" class="nav-dropdown-item">Desporto</a>
+          <a href="/moda" class="nav-dropdown-item">Moda & Outros</a>
+        </div>
+      </li>
+      <li><a href="/#visao" class="nav-link">Sustentabilidade</a></li>
+      <li><a href="#form-sec" class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langBtn">PT</button>
+      <a href="#form-sec" class="nav-cta">Fale Connosco</a>
+    </div>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
+<div id="nav-overlay"></div>
 
 <!-- HERO -->
 <section id="hero">
@@ -526,6 +538,11 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), {passive:true});
 document.getElementById('hamburger').addEventListener('click', () => {
   document.body.classList.toggle('nav-open');
+});
+document.getElementById('nav-overlay').addEventListener('click', () => document.body.classList.remove('nav-open'));
+document.querySelectorAll('.nav-link:not(.nav-dropdown>.nav-link), .nav-dropdown-item, .nav-cta').forEach(el => el.addEventListener('click', () => document.body.classList.remove('nav-open')));
+document.querySelectorAll('.nav-dropdown').forEach(dd => {
+  dd.querySelector('.nav-link').addEventListener('click', e => { if (window.innerWidth <= 900) { e.preventDefault(); e.stopPropagation(); dd.classList.toggle('open'); } });
 });
 
 // ── SCROLL REVEAL ──

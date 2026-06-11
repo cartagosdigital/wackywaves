@@ -181,12 +181,20 @@ form{margin-top:2.5rem}
 @media(max-width:620px){.fr{grid-template-columns:1fr}}
 
 /* ── FOOTER ── */
-footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padding:1.5rem clamp(1.5rem,8%,6rem);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.f-logo{font-family:var(--ff-d);font-weight:900;font-size:.88rem;color:rgba(255,255,255,.65)}
-.f-logo span{color:var(--cyan)}
-.f-links{display:flex;gap:1.5rem}
-.f-links a{font-size:.75rem;color:rgba(255,255,255,.55);transition:color .2s}
-.f-links a:hover{color:rgba(255,255,255,.78)}
+#footer{padding:4rem clamp(1.5rem,8%,6rem);background:var(--black);border-top:1px solid rgba(255,255,255,.07)}
+.footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem}
+.footer-brand{display:flex;flex-direction:column;gap:.75rem}
+.footer-tagline{font-size:.85rem;color:rgba(255,255,255,.58);line-height:1.72;max-width:260px;margin-top:.25rem}
+.footer-socials{display:flex;gap:.5rem;margin-top:.25rem}
+.soc{width:34px;height:34px;border-radius:2px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;font-size:.82rem;color:rgba(255,255,255,.58);transition:all .2s;text-decoration:none}
+.soc:hover{background:rgba(26,190,255,.12);border-color:rgba(26,190,255,.4);color:var(--cyan)}
+.footer-col h4{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.50);margin-bottom:1.25rem}
+.footer-col a{display:block;font-size:.85rem;color:rgba(255,255,255,.65);margin-bottom:.5rem;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{max-width:1160px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.footer-legal{font-size:.72rem;color:rgba(255,255,255,.40);line-height:1.75;max-width:560px}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.38);white-space:nowrap}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr;gap:2.5rem}.footer-bottom{flex-direction:column}}
 
 /* ── MOBILE CTA ── */
 #mob-cta{display:none;position:fixed;bottom:1rem;left:.85rem;right:.85rem;z-index:999;
@@ -489,12 +497,36 @@ footer{background:var(--bg-dark);border-top:1px solid rgba(255,255,255,.07);padd
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <img src="logo_wackywaves.png" alt="Wacky Waves" style="height:40px;width:auto;filter:brightness(0) invert(1)">
-  <div class="f-links">
-    <a href="/">Site Principal</a>
-    <a href="/construcao">Bio Construção</a>
-    <a href="/moda">Moda & Acessórios</a>
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" style="text-decoration:none">
+        <img src="logo_wackywaves.png" alt="Wacky Waves" style="height:48px;width:auto;filter:brightness(0) invert(1)">
+      </a>
+      <p class="footer-tagline">Startup portuguesa de eco-materiais de nova geração com base tecnológica bio de ciclo fechado.</p>
+      <div class="footer-socials">
+        <a href="#" class="soc" aria-label="LinkedIn">in</a>
+        <a href="#" class="soc" aria-label="Instagram">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <a href="/">Site Principal</a>
+      <a href="/#sobre">Sobre</a>
+      <a href="/#tecnologia">Tecnologia</a>
+      <a href="/#produtos">Produtos</a>
+      <a href="/#contacto">Contacto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Segmentos</h4>
+      <a href="/desporto">Desportos Aquáticos</a>
+      <a href="/construcao">Bio Construção</a>
+      <a href="/moda">Moda Circular</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-legal">Toda a formulação e processo de fabrico são propriedade intelectual da empresa, protegidos como segredo de negócio e em processo de registo de patente.</p>
+    <span class="footer-copy">© 2025 Wacky Waves · <a href="#" style="color:rgba(255,255,255,.38)">Política de Privacidade</a></span>
   </div>
 </footer>
 

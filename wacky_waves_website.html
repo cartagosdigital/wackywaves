@@ -134,15 +134,16 @@ button{border:none;cursor:pointer;font-family:inherit}
 .pills-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
 
 /* ── IMPACT STATS ── */
-#impact{background:var(--white);border-top:1px solid rgba(0,0,0,.07);border-bottom:1px solid rgba(0,0,0,.07)}
-.impact-bar{max-width:1160px;margin:0 auto;padding:4.5rem 8%;display:grid;grid-template-columns:repeat(4,1fr)}
+#impact{background:var(--white);border-top:1px solid rgba(0,0,0,.07);border-bottom:1px solid rgba(0,0,0,.07);padding:4.5rem clamp(1.5rem,8%,6rem)}
+.impact-bar{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
 .impact-item{padding:0 2.5rem;border-right:1px solid rgba(0,0,0,.08)}
 .impact-item:first-child{padding-left:0}
-.impact-item:last-child{border-right:none}
+.impact-item:last-child{border-right:none;padding-right:0}
 .impact-val{font-family:var(--ff-d);font-weight:900;font-size:clamp(2.4rem,4.5vw,3.8rem);color:var(--black);line-height:1;letter-spacing:-.04em}
-.impact-val .c{color:var(--cyan)}
-.impact-lbl{font-family:var(--ff-d);font-size:.72rem;font-weight:600;color:rgba(0,0,0,.4);margin-top:.6rem;line-height:1.5}
-@media(max-width:700px){.impact-bar{grid-template-columns:repeat(2,1fr);gap:2rem}.impact-item{border-right:none;padding:0}}
+.impact-val .c{color:var(--black)}
+.impact-val .unit{font-size:.38em;font-weight:700;color:rgba(0,0,0,.38);margin-left:.18em;letter-spacing:.04em;vertical-align:.1em}
+.impact-lbl{font-family:var(--ff-d);font-size:.72rem;font-weight:600;color:rgba(0,0,0,.48);margin-top:.75rem;line-height:1.5}
+@media(max-width:700px){.impact-bar{grid-template-columns:repeat(2,1fr);gap:2.5rem 0}.impact-item{border-right:none;padding:0}}
 
 /* ── ABOUT ── */
 #sobre{background:var(--white)}
@@ -449,15 +450,15 @@ textarea.form-input{resize:vertical;min-height:100px}
 <section id="impact">
   <div class="impact-bar">
     <div class="impact-item reveal">
-      <div class="impact-val"><span class="c">&gt;</span><span class="counter" data-target="80" data-suffix="%">0%</span></div>
+      <div class="impact-val">&gt;<span class="counter" data-target="80" data-suffix="%">0%</span></div>
       <div class="impact-lbl" data-pt="Bio-based content verificável (EN 16785)" data-en="Verifiable bio-based content (EN 16785)">Bio-based content verificável (EN 16785)</div>
     </div>
     <div class="impact-item reveal rd1">
-      <div class="impact-val"><span class="c">−</span><span class="counter" data-target="40" data-suffix="%">0%</span></div>
+      <div class="impact-val">−<span class="counter" data-target="40" data-suffix="%">0%</span></div>
       <div class="impact-lbl" data-pt="CO₂ vs. equivalentes convencionais" data-en="CO₂ vs. conventional equivalents">CO₂ vs. equivalentes convencionais</div>
     </div>
     <div class="impact-item reveal rd2">
-      <div class="impact-val"><span class="counter" data-target="90" data-suffix="">0</span><span style="font-size:.45em;font-weight:700;opacity:.45;margin-left:4px">dias</span></div>
+      <div class="impact-val"><span class="counter" data-target="90" data-suffix="">0</span><span class="unit">dias</span></div>
       <div class="impact-lbl" data-pt="Compostável industrialmente (EN 13432)" data-en="Industrially compostable (EN 13432)">Compostável industrialmente (EN 13432)</div>
     </div>
     <div class="impact-item reveal rd3">

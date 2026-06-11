@@ -229,12 +229,16 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 /* ── VISION & MISSION ── */
 #visao{background:var(--bg-dark)}
-.visao-inner{max-width:860px;margin:0 auto}
-.visao-block{padding:4rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.visao-block:last-child{border-bottom:none}
-.visao-lbl{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:1.5rem}
-.visao-quote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1.2rem,2.5vw,1.85rem);font-weight:700;color:var(--white);line-height:1.45;letter-spacing:-.01em}
-.missao-txt{font-size:1rem;color:rgba(255,255,255,.6);line-height:1.85}
+.visao-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:1px;background:rgba(255,255,255,.1);margin-top:3rem}
+.visao-card{background:var(--bg-dark);padding:3.5rem 3rem}
+.visao-ico{display:block;width:28px;height:28px;color:var(--accent);margin-bottom:1.5rem}
+.visao-card-lbl{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:1rem}
+.visao-card-quote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1.15rem,1.8vw,1.55rem);font-weight:700;color:var(--white);line-height:1.52;letter-spacing:-.01em}
+.visao-card-body{font-size:.94rem;color:rgba(255,255,255,.72);line-height:1.85}
+.visao-points{list-style:none;margin-top:1.75rem;display:flex;flex-direction:column;gap:.65rem}
+.visao-points li{font-family:var(--ff-d);font-size:.82rem;font-weight:600;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:.65rem}
+.visao-points li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@media(max-width:768px){.visao-grid{grid-template-columns:1fr}}
 
 /* ── VALUES ── */
 #valores{background:var(--bg-light)}
@@ -601,14 +605,25 @@ textarea.form-input{resize:vertical;min-height:100px}
 </section>
 <!-- ══ VISION & MISSION ══ -->
 <section id="visao" class="sec">
-  <div class="sec-inner visao-inner">
-    <div class="visao-block reveal">
-      <span class="visao-lbl" data-pt="VISÃO" data-en="VISION">VISÃO</span>
-      <p class="visao-quote" data-pt="&ldquo;Liderar a transição para um futuro onde natureza e tecnologia coexistem em harmonia — onde cada produto é concebido com inteligência ecológica e propósito regenerativo.&rdquo;" data-en="&ldquo;Lead the transition to a future where nature and technology coexist in harmony — where every product is designed with ecological intelligence and regenerative purpose.&rdquo;">"Liderar a transição para um futuro onde natureza e tecnologia coexistem em harmonia — onde cada produto é concebido com inteligência ecológica e propósito regenerativo."</p>
-    </div>
-    <div class="visao-block reveal rd1">
-      <span class="visao-lbl" data-pt="MISSÃO" data-en="MISSION">MISSÃO</span>
-      <p class="missao-txt" data-pt="Desenvolver e oferecer soluções ecológicas de nova geração — desde materiais avançados até produtos finais — que respeitam os recursos naturais e promovem um impacto ambiental positivo." data-en="Develop and offer new-generation ecological solutions — from advanced materials to final products — that respect natural resources and promote a positive environmental impact.">Desenvolver e oferecer soluções ecológicas de nova geração — desde materiais avançados até produtos finais — que respeitam os recursos naturais e promovem um impacto ambiental positivo.</p>
+  <div class="sec-inner">
+    <span class="sec-tag reveal" data-pt="Propósito" data-en="Purpose">Propósito</span>
+    <h2 class="sec-h sec-h--lg reveal rd1" style="color:var(--white)" data-pt="O que nos move" data-en="What drives us">O que nos move</h2>
+    <div class="visao-grid">
+      <div class="visao-card reveal rd1">
+        <svg class="visao-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 7.5L14.5 14.5L7.5 16.5L9.5 9.5L16.5 7.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="visao-card-lbl" data-pt="VISÃO" data-en="VISION">VISÃO</span>
+        <p class="visao-card-quote" data-pt="&ldquo;Liderar a transição para um futuro onde natureza e tecnologia coexistem em harmonia — onde cada produto é concebido com inteligência ecológica e propósito regenerativo.&rdquo;" data-en="&ldquo;Lead the transition to a future where nature and technology coexist in harmony — where every product is designed with ecological intelligence and regenerative purpose.&rdquo;">"Liderar a transição para um futuro onde natureza e tecnologia coexistem em harmonia — onde cada produto é concebido com inteligência ecológica e propósito regenerativo."</p>
+      </div>
+      <div class="visao-card reveal rd2">
+        <svg class="visao-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M7 21C7 21 7.5 16.5 11 12.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.1297 4.24224L19.7243 10.4167C20.0984 14.3026 17.1849 17.7626 13.2989 18.1367C9.486 18.5039 6.03191 15.7168 5.66477 11.9039C5.29763 8.09099 8.09098 4.70237 11.9039 4.33523L18.475 3.70251C18.8048 3.67074 19.098 3.91239 19.1297 4.24224Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="visao-card-lbl" data-pt="MISSÃO" data-en="MISSION">MISSÃO</span>
+        <p class="visao-card-body" data-pt="Desenvolver e oferecer soluções ecológicas de nova geração — desde materiais avançados até produtos finais — que respeitam os recursos naturais e promovem um impacto ambiental positivo." data-en="Develop and offer new-generation ecological solutions — from advanced materials to final products — that respect natural resources and promote a positive environmental impact.">Desenvolver e oferecer soluções ecológicas de nova geração — desde materiais avançados até produtos finais — que respeitam os recursos naturais e promovem um impacto ambiental positivo.</p>
+        <ul class="visao-points">
+          <li data-pt="Materiais avançados a produtos finais" data-en="Advanced materials to final products">Materiais avançados a produtos finais</li>
+          <li data-pt="Respeito pelos recursos naturais" data-en="Respect for natural resources">Respeito pelos recursos naturais</li>
+          <li data-pt="Impacto ambiental positivo mensurável" data-en="Measurable positive environmental impact">Impacto ambiental positivo mensurável</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

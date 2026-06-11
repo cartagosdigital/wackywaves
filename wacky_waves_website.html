@@ -245,11 +245,11 @@ button{border:none;cursor:pointer;font-family:inherit}
 .valores-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem}
 .valores-header .sec-h--lg{margin-top:1rem}
 .valores-header p{font-size:.95rem;color:rgba(0,0,0,.55);line-height:1.82}
-.valores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.08)}
-.valor-item{background:var(--bg-light);padding:2.5rem 2rem}
-.valor-num{font-family:var(--ff-d);font-size:1.8rem;font-weight:900;color:rgba(0,0,0,.07);line-height:1;margin-bottom:1.25rem}
-.valor-title{font-family:var(--ff-d);font-weight:800;font-size:.92rem;margin-bottom:.5rem;color:var(--black)}
-.valor-body{font-size:.83rem;color:rgba(0,0,0,.52);line-height:1.7}
+.valores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.07);margin-top:3.5rem}
+.valor-item{background:var(--white);padding:3rem 2.5rem}
+.valor-ico{display:block;width:28px;height:28px;color:var(--accent);margin-bottom:1.75rem;flex-shrink:0}
+.valor-title{font-family:var(--ff-d);font-weight:800;font-size:.97rem;margin-bottom:.6rem;color:var(--black)}
+.valor-body{font-size:.84rem;color:rgba(0,0,0,.55);line-height:1.75}
 @media(max-width:900px){.valores-header{grid-template-columns:1fr}.valores-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.valores-grid{grid-template-columns:1fr}}
 
@@ -638,16 +638,48 @@ textarea.form-input{resize:vertical;min-height:100px}
       </div>
       <p class="reveal rd1" data-pt="Não somos uma empresa de greenwashing. Cada valor é operacional — define como trabalhamos, com quem trabalhamos e o que recusamos fazer." data-en="We are not a greenwashing company. Each value is operational — it defines how we work, who we work with and what we refuse to do.">Não somos uma empresa de greenwashing. Cada valor é operacional — define como trabalhamos, com quem trabalhamos e o que recusamos fazer.</p>
     </div>
-  </div>
-  <div class="valores-grid">
-    <div class="valor-item reveal"><div class="valor-num">01</div><div class="valor-title" data-pt="Sustentabilidade Radical" data-en="Radical Sustainability">Sustentabilidade Radical</div><p class="valor-body" data-pt="Sem compromisso com o meio ambiente em nenhuma fase do ciclo de vida do produto." data-en="No compromise with the environment at any stage of the product lifecycle.">Sem compromisso com o meio ambiente em nenhuma fase do ciclo de vida do produto.</p></div>
-    <div class="valor-item reveal rd1"><div class="valor-num">02</div><div class="valor-title" data-pt="Inovação com Propósito" data-en="Innovation with Purpose">Inovação com Propósito</div><p class="valor-body" data-pt="Tecnologia que serve o planeta e as pessoas — não apenas os indicadores financeiros." data-en="Technology that serves the planet and people — not just financial indicators.">Tecnologia que serve o planeta e as pessoas — não apenas os indicadores financeiros.</p></div>
-    <div class="valor-item reveal rd2"><div class="valor-num">03</div><div class="valor-title" data-pt="Circularidade como Princípio" data-en="Circularity as Principle">Circularidade como Princípio</div><p class="valor-body" data-pt="O fim de vida faz parte do design desde o primeiro dia. Não é um add-on." data-en="End-of-life is part of the design from day one. It's not an add-on.">O fim de vida faz parte do design desde o primeiro dia. Não é um add-on.</p></div>
-    <div class="valor-item reveal rd3"><div class="valor-num">04</div><div class="valor-title" data-pt="Inclusão e Acessibilidade" data-en="Inclusion and Accessibility">Inclusão e Acessibilidade</div><p class="valor-body" data-pt="Eco-materiais para todos — não apenas para quem pode pagar o prémio de sustentabilidade." data-en="Eco-materials for everyone — not just those who can pay the sustainability premium.">Eco-materiais para todos — não apenas para quem pode pagar o prémio de sustentabilidade.</p></div>
-    <div class="valor-item reveal"><div class="valor-num">05</div><div class="valor-title" data-pt="Responsabilidade Social Ativa" data-en="Active Social Responsibility">Responsabilidade Social Ativa</div><p class="valor-body" data-pt="Comprometidos com cadeias de valor éticas e comunidades locais." data-en="Committed to ethical value chains and local communities.">Comprometidos com cadeias de valor éticas e comunidades locais.</p></div>
-    <div class="valor-item reveal rd1"><div class="valor-num">06</div><div class="valor-title" data-pt="Respeito pelos Oceanos" data-en="Respect for the Oceans">Respeito pelos Oceanos</div><p class="valor-body" data-pt="O oceano foi a nossa inspiração. A sua preservação é o nosso compromisso inegociável." data-en="The ocean was our inspiration. Its preservation is our non-negotiable commitment.">O oceano foi a nossa inspiração. A sua preservação é o nosso compromisso inegociável.</p></div>
-    <div class="valor-item reveal rd2"><div class="valor-num">07</div><div class="valor-title" data-pt="Colaboração Regenerativa" data-en="Regenerative Collaboration">Colaboração Regenerativa</div><p class="valor-body" data-pt="Parcerias que criam valor positivo para todos os envolvidos — incluindo o ecossistema." data-en="Partnerships that create positive value for all involved — including the ecosystem.">Parcerias que criam valor positivo para todos os envolvidos — incluindo o ecossistema.</p></div>
-    <div class="valor-item reveal rd3"><div class="valor-num">08</div><div class="valor-title" data-pt="Ética e Transparência" data-en="Ethics and Transparency">Ética e Transparência</div><p class="valor-body" data-pt="Dados reais, certificações verificáveis, linguagem técnica rigorosa. Zero greenwashing." data-en="Real data, verifiable certifications, rigorous technical language. Zero greenwashing.">Dados reais, certificações verificáveis, linguagem técnica rigorosa. Zero greenwashing.</p></div>
+    <div class="valores-grid">
+      <div class="valor-item reveal">
+        <svg class="valor-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M7 21C7 21 7.5 16.5 11 12.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.1297 4.24224L19.7243 10.4167C20.0984 14.3026 17.1849 17.7626 13.2989 18.1367C9.486 18.5039 6.03191 15.7168 5.66477 11.9039C5.29763 8.09099 8.09098 4.70237 11.9039 4.33523L18.475 3.70251C18.8048 3.67074 19.098 3.91239 19.1297 4.24224Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="valor-title" data-pt="Sustentabilidade Radical" data-en="Radical Sustainability">Sustentabilidade Radical</div>
+        <p class="valor-body" data-pt="Sem compromisso com o meio ambiente em nenhuma fase do ciclo de vida do produto." data-en="No compromise with the environment at any stage of the product lifecycle.">Sem compromisso com o meio ambiente em nenhuma fase do ciclo de vida do produto.</p>
+      </div>
+      <div class="valor-item reveal rd1">
+        <svg class="valor-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M9 18h6M10 21h4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 15.5V16a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-.5C16.2 14.1 17 12.1 17 10a5 5 0 0 0-10 0c0 2.1.8 4.1 2.5 5.5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="valor-title" data-pt="Inovação com Propósito" data-en="Innovation with Purpose">Inovação com Propósito</div>
+        <p class="valor-body" data-pt="Tecnologia que serve o planeta e as pessoas — não apenas os indicadores financeiros." data-en="Technology that serves the planet and people — not just financial indicators.">Tecnologia que serve o planeta e as pessoas — não apenas os indicadores financeiros.</p>
+      </div>
+      <div class="valor-item reveal rd2">
+        <svg class="valor-ico" width="28" height="28" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M16.5829 9.66667C15.8095 8.09697 14.043 7 11.9876 7C9.38854 7 7.25148 8.75408 7 11" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.4939 9.72222H16.4001C16.7315 9.72222 17.0001 9.45359 17.0001 9.12222V7.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.41707 13.6667C8.19054 15.6288 9.95698 17 12.0124 17C14.6115 17 16.7485 14.8074 17 12" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5061 13.6222H7.59992C7.26855 13.6222 6.99992 13.8909 6.99992 14.2222V16.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="valor-title" data-pt="Circularidade como Princípio" data-en="Circularity as Principle">Circularidade como Princípio</div>
+        <p class="valor-body" data-pt="O fim de vida faz parte do design desde o primeiro dia. Não é um add-on." data-en="End-of-life is part of the design from day one. It's not an add-on.">O fim de vida faz parte do design desde o primeiro dia. Não é um add-on.</p>
+      </div>
+      <div class="valor-item reveal rd3">
+        <svg class="valor-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><circle cx="12" cy="7" r="3" stroke-linecap="round"/><path d="M6 21v-1a6 6 0 0 1 12 0v1" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v-.5A3.5 3.5 0 0 1 6.5 13" stroke-linecap="round"/><circle cx="4.5" cy="10" r="2"/><path d="M21 17v-.5A3.5 3.5 0 0 0 17.5 13" stroke-linecap="round"/><circle cx="19.5" cy="10" r="2"/></svg>
+        <div class="valor-title" data-pt="Inclusão e Acessibilidade" data-en="Inclusion and Accessibility">Inclusão e Acessibilidade</div>
+        <p class="valor-body" data-pt="Eco-materiais para todos — não apenas para quem pode pagar o prémio de sustentabilidade." data-en="Eco-materials for everyone — not just those who can pay the sustainability premium.">Eco-materiais para todos — não apenas para quem pode pagar o prémio de sustentabilidade.</p>
+      </div>
+      <div class="valor-item reveal">
+        <svg class="valor-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M12 20C12 20 4 14.5 4 9a4 4 0 0 1 8-1.2A4 4 0 0 1 20 9c0 5.5-8 11-8 11Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="valor-title" data-pt="Responsabilidade Social Ativa" data-en="Active Social Responsibility">Responsabilidade Social Ativa</div>
+        <p class="valor-body" data-pt="Comprometidos com cadeias de valor éticas e comunidades locais." data-en="Committed to ethical value chains and local communities.">Comprometidos com cadeias de valor éticas e comunidades locais.</p>
+      </div>
+      <div class="valor-item reveal rd1">
+        <svg class="valor-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M3 8C4 7 5 7 6 8S8 9 9 8 11 7 12 8 14 9 15 8 17 7 18 8 20 9 21 8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13C4 12 5 12 6 13S8 14 9 13 11 12 12 13 14 14 15 13 17 12 18 13 20 14 21 13" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18C4 17 5 17 6 18S8 19 9 18 11 17 12 18 14 19 15 18 17 17 18 18 20 19 21 18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="valor-title" data-pt="Respeito pelos Oceanos" data-en="Respect for the Oceans">Respeito pelos Oceanos</div>
+        <p class="valor-body" data-pt="O oceano foi a nossa inspiração. A sua preservação é o nosso compromisso inegociável." data-en="The ocean was our inspiration. Its preservation is our non-negotiable commitment.">O oceano foi a nossa inspiração. A sua preservação é o nosso compromisso inegociável.</p>
+      </div>
+      <div class="valor-item reveal rd2">
+        <svg class="valor-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><circle cx="12" cy="12" r="2"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M6 7l4.5 4M18 7l-4.5 4M6 17l4.5-4M18 17l-4.5-4" stroke-linecap="round"/></svg>
+        <div class="valor-title" data-pt="Colaboração Regenerativa" data-en="Regenerative Collaboration">Colaboração Regenerativa</div>
+        <p class="valor-body" data-pt="Parcerias que criam valor positivo para todos os envolvidos — incluindo o ecossistema." data-en="Partnerships that create positive value for all involved — including the ecosystem.">Parcerias que criam valor positivo para todos os envolvidos — incluindo o ecossistema.</p>
+      </div>
+      <div class="valor-item reveal rd3">
+        <svg class="valor-ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><path d="M3 12C3 12 5.5 5 12 5s9 7 9 7-2.5 7-9 7-9-7-9-7Z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3"/></svg>
+        <div class="valor-title" data-pt="Ética e Transparência" data-en="Ethics and Transparency">Ética e Transparência</div>
+        <p class="valor-body" data-pt="Dados reais, certificações verificáveis, linguagem técnica rigorosa. Zero greenwashing." data-en="Real data, verifiable certifications, rigorous technical language. Zero greenwashing.">Dados reais, certificações verificáveis, linguagem técnica rigorosa. Zero greenwashing.</p>
+      </div>
+    </div>
   </div>
 </section>
 

@@ -205,7 +205,8 @@ form{margin-top:2.5rem}
 .footer-legal{font-size:.72rem;color:rgba(255,255,255,.40);line-height:1.75;max-width:560px}
 .footer-copy{font-size:.72rem;color:rgba(255,255,255,.38);white-space:nowrap}
 .footer-bottom-right{display:flex;flex-direction:column;align-items:flex-end;gap:.75rem}
-.footer-prr{height:56px;width:auto;opacity:.85}
+.footer-prr-wrap{background:#fff;border-radius:8px;padding:.6rem 1rem;display:inline-flex;align-items:center;justify-content:center}
+.footer-prr{height:68px;width:auto;display:block}
 @media(max-width:700px){.footer-inner{grid-template-columns:1fr;gap:2.5rem}.footer-bottom{flex-direction:column}}
 
 /* ── MOBILE CTA ── */
@@ -526,7 +527,7 @@ form{margin-top:2.5rem}
   <div class="footer-bottom">
     <p class="footer-legal">Toda a formulação e processo de fabrico são propriedade intelectual da empresa, protegidos como segredo de negócio e em processo de registo de patente.</p>
     <div class="footer-bottom-right">
-      <img src="prr.png" alt="PRR — Plano de Recuperação e Resiliência" class="footer-prr">
+      <div class="footer-prr-wrap"><img src="prr.png" alt="PRR — Plano de Recuperação e Resiliência" class="footer-prr"></div>
       <span class="footer-copy">© 2025 Wacky Waves · <a href="#" style="color:rgba(255,255,255,.38)">Política de Privacidade</a></span>
     </div>
   </div>

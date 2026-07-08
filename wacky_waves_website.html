@@ -180,7 +180,9 @@ button{border:none;cursor:pointer;font-family:inherit}
 .prod-header p{font-size:.95rem;color:rgba(0,0,0,.55);max-width:340px;line-height:1.75;flex-shrink:0}
 .prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:rgba(0,0,0,.08)}
 .prod-card{background:var(--white);padding:0 0 2rem}
-.prod-img{aspect-ratio:4/3;width:100%}
+.prod-img{aspect-ratio:4/3;width:100%;overflow:hidden}
+.prod-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.prod-card:hover .prod-img img{transform:scale(1.04)}
 .prod-body{padding:1.75rem 2rem 0}
 .prod-cat{font-family:var(--ff-d);font-size:.62rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem;display:block}
 .prod-title{font-family:var(--ff-d);font-weight:900;font-size:1.1rem;line-height:1.2;margin-bottom:.75rem}
@@ -527,11 +529,8 @@ textarea.form-input{resize:vertical;min-height:100px}
   </div>
   <div class="prod-grid">
     <div class="prod-card reveal">
-      <div class="prod-img img-ph">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <span class="img-ph-label">Fotografia<br>Painel OSB Bio</span>
-        </div>
+      <div class="prod-img">
+        <img src="produto-f10.jpeg" alt="F10 — Painel OSB Bio">
       </div>
       <div class="prod-body">
         <span class="prod-cat">F10 · Painel Compósito</span>
@@ -542,11 +541,8 @@ textarea.form-input{resize:vertical;min-height:100px}
       </div>
     </div>
     <div class="prod-card reveal rd1">
-      <div class="prod-img img-ph">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <span class="img-ph-label">Fotografia<br>Painel Estrutural LW</span>
-        </div>
+      <div class="prod-img">
+        <img src="produto-f4h.jpeg" alt="F4-H — Painel Estrutural LW">
       </div>
       <div class="prod-body">
         <span class="prod-cat">F4-H · Compósito Estrutural</span>
@@ -557,11 +553,8 @@ textarea.form-input{resize:vertical;min-height:100px}
       </div>
     </div>
     <div class="prod-card reveal rd2">
-      <div class="prod-img img-ph">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h3l2-4h8l2 4h3a1 1 0 0 1 1 1v2a8 8 0 0 1-16 0V8a1 1 0 0 1 1-1Z"/></svg></div>
-          <span class="img-ph-label">Fotografia<br>Espuma Estrutural Exterior</span>
-        </div>
+      <div class="prod-img">
+        <img src="produto-f11.jpeg" alt="F11 — Espuma Estrutural Exterior Bio">
       </div>
       <div class="prod-body">
         <span class="prod-cat">F11 · Espuma Bio</span>
@@ -572,11 +565,8 @@ textarea.form-input{resize:vertical;min-height:100px}
       </div>
     </div>
     <div class="prod-card reveal">
-      <div class="prod-img img-ph">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
-          <span class="img-ph-label">Fotografia<br>Espuma Semirrígida</span>
-        </div>
+      <div class="prod-img">
+        <img src="produto-f13.jpeg" alt="F13 — Espuma Semirrígida Liquid Wood">
       </div>
       <div class="prod-body">
         <span class="prod-cat">F13 · Espuma Semirrígida</span>
@@ -587,11 +577,8 @@ textarea.form-input{resize:vertical;min-height:100px}
       </div>
     </div>
     <div class="prod-card reveal rd1">
-      <div class="prod-img img-ph">
-        <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M8 12h8M12 8v8"/></svg></div>
-          <span class="img-ph-label">Fotografia<br>Espuma de Madeira Rígida</span>
-        </div>
+      <div class="prod-img">
+        <img src="produto-f14h.jpeg" alt="F14-H — Espuma de Madeira Rígida">
       </div>
       <div class="prod-body">
         <span class="prod-cat">F14-H · Espuma Rígida</span>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moda & Acessórios — Wacky Waves | Compósito de Fibra de Madeira Natural</title>
+<link rel="icon" href="logo_wackywaves.png" type="image/png">
 <meta name="description" content="Compósito de fibra de madeira natural, zero petroquímico, rastreável end-to-end. Preparado para EU Green Claims Directive. B2B para marcas e fabricantes de acessórios premium.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,8 +34,9 @@ button{border:none;cursor:pointer;font-family:inherit;background:none}
 .nav-link{font-family:var(--ff-d);font-weight:600;font-size:.88rem;color:rgba(255,255,255,.9);transition:color .2s;cursor:pointer;text-decoration:none}
 .nav-link:hover{color:var(--cyan)}
 .nav-dropdown{position:relative}
-.nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
-.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(-8px);background:var(--white);border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.14);padding:8px;min-width:210px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.nav-dropdown::after{content:'';position:absolute;top:100%;left:-12px;right:-12px;height:14px}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(-8px);background:var(--white);border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.14);padding:8px;min-width:210px;opacity:0;pointer-events:none;transition:opacity .2s .2s,transform .2s .2s}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0);transition:opacity .15s,transform .15s}
 .nav-dropdown-item{display:block;padding:10px 14px;font-family:var(--ff-d);font-size:.85rem;font-weight:600;color:var(--black);border-radius:6px;transition:background .15s,color .15s}
 .nav-dropdown-item:hover{background:var(--bg-light);color:var(--cyan)}
 .nav-right{display:flex;align-items:center;gap:1rem;margin-left:2rem}

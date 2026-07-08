@@ -178,7 +178,7 @@ button{border:none;cursor:pointer;font-family:inherit}
 .prod-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;gap:2rem}
 .prod-header .sec-h--lg{margin-top:1rem}
 .prod-header p{font-size:.95rem;color:rgba(0,0,0,.55);max-width:340px;line-height:1.75;flex-shrink:0}
-.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.08)}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:rgba(0,0,0,.08)}
 .prod-card{background:var(--white);padding:0 0 2rem}
 .prod-img{aspect-ratio:4/3;width:100%}
 .prod-body{padding:1.75rem 2rem 0}
@@ -369,49 +369,32 @@ textarea.form-input{resize:vertical;min-height:100px}
 
 <!-- ══ HERO ══ -->
 <section id="hero">
-  <!-- Slide 1 — Aquatic Sport -->
+  <!-- Slide 1 — Bio Build -->
   <div class="hero-slide active" id="slide-0">
     <div class="hero-blob"></div>
     <video class="hero-video" autoplay muted playsinline preload="none">
-      <source src="hero-surf.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-slide-content">
-      <span class="eyebrow" data-pt="LINHA 1 · DESPORTOS AQUÁTICOS" data-en="LINE 1 · AQUATIC SPORTS">LINHA 1 · DESPORTOS AQUÁTICOS</span>
-      <h2 class="hero-slide-headline" data-pt="A prancha que o oceano aprovaria." data-en="The board the ocean would approve.">A prancha que o oceano aprovaria.</h2>
-      <p class="hero-slide-sub" data-pt="Espuma bio + fibras naturais + verniz sem solventes. Desempenho de elite, zero petroquímico." data-en="Bio foam + natural fibers + solvent-free finish. Elite performance, zero petrochemicals.">Espuma bio + fibras naturais + verniz sem solventes. Desempenho de elite, zero petroquímico.</p>
-      <div class="hero-ctas">
-        <a href="/desporto" class="btn-primary" data-pt="Ver Segmento Desporto →" data-en="View Sport Segment →">Ver Segmento Desporto →</a>
-        <a href="#contacto" class="btn-outline" data-pt="Fale Connosco" data-en="Get in Touch">Fale Connosco</a>
-      </div>
-    </div>
-  </div>
-  <!-- Slide 2 — Bio Build -->
-  <div class="hero-slide" id="slide-1">
-    <div class="hero-blob"></div>
-    <video class="hero-video" muted playsinline preload="none">
       <source src="hero-construcao.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-slide-content">
-      <span class="eyebrow" data-pt="LINHA 2 · BIO CONSTRUÇÃO" data-en="LINE 2 · BIO CONSTRUCTION">LINHA 2 · BIO CONSTRUÇÃO</span>
-      <h2 class="hero-slide-headline" data-pt="Do resíduo agrícola ao painel estrutural." data-en="From agricultural waste to structural panel.">Do resíduo agrícola ao painel estrutural.</h2>
-      <p class="hero-slide-sub" data-pt="Painéis bio com isolamento superior. -40% CO₂ por euro. Alinhado com EU Taxonomy, BREEAM e LEED." data-en="Bio panels with superior insulation. -40% CO₂ per euro. Aligned with EU Taxonomy, BREEAM and LEED.">Painéis bio com isolamento superior. -40% CO₂ por euro. Alinhado com EU Taxonomy, BREEAM e LEED.</p>
+      <span class="eyebrow" data-pt="LIQUID WOOD · BIO CONSTRUÇÃO" data-en="LIQUID WOOD · BIO CONSTRUCTION">LIQUID WOOD · BIO CONSTRUÇÃO</span>
+      <h2 class="hero-slide-headline" data-pt="Do resíduo vegetal ao painel estrutural." data-en="From plant waste to structural panel.">Do resíduo vegetal ao painel estrutural.</h2>
+      <p class="hero-slide-sub" data-pt="F10 e F4-H — compósitos bio para construção, mobiliário e componentes industriais. Matéria-prima 100% vegetal, validada em laboratório próprio." data-en="F10 and F4-H — bio composites for construction, furniture and industrial components. 100% plant-based raw material, validated in proprietary laboratory.">F10 e F4-H — compósitos bio para construção, mobiliário e componentes industriais. Matéria-prima 100% vegetal, validada em laboratório próprio.</p>
       <div class="hero-ctas">
-        <a href="/construcao" class="btn-primary" data-pt="Ver Segmento Construção →" data-en="View Construction Segment →">Ver Segmento Construção →</a>
+        <a href="#produtos" class="btn-primary" data-pt="Ver Linha LIQUID WOOD →" data-en="View LIQUID WOOD Line →">Ver Linha LIQUID WOOD →</a>
         <a href="#contacto" class="btn-outline" data-pt="Fale Connosco" data-en="Get in Touch">Fale Connosco</a>
       </div>
     </div>
   </div>
-  <!-- Slide 3 — Circular Fashion -->
-  <div class="hero-slide" id="slide-2">
+  <!-- Slide 2 — Moda & Design -->
+  <div class="hero-slide" id="slide-1">
     <div class="hero-blob"></div>
     <video class="hero-video" muted playsinline preload="none">
       <source src="hero-oculos.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-slide-content">
-      <span class="eyebrow" data-pt="LINHA 3 · MODA CIRCULAR" data-en="LINE 3 · CIRCULAR FASHION">LINHA 3 · MODA CIRCULAR</span>
+      <span class="eyebrow" data-pt="LIQUID WOOD · MODA & DESIGN" data-en="LIQUID WOOD · FASHION & DESIGN">LIQUID WOOD · MODA & DESIGN</span>
       <h2 class="hero-slide-headline" data-pt="Óculos nascidos de madeira. Sem plástico. Sem compromisso." data-en="Glasses born from wood. No plastic. No compromise.">Óculos nascidos de madeira. Sem plástico. Sem compromisso.</h2>
       <p class="hero-slide-sub" data-pt="Armações 100% bio, rastreáveis da fibra ao fim de vida. Para marcas que querem a diferença." data-en="100% bio frames, traceable from fiber to end-of-life. For brands that want to stand out.">Armações 100% bio, rastreáveis da fibra ao fim de vida. Para marcas que querem a diferença.</p>
       <div class="hero-ctas">
@@ -425,7 +408,6 @@ textarea.form-input{resize:vertical;min-height:100px}
   <div class="hero-progress" id="heroBars">
     <div class="hero-bar active" data-idx="0"><div class="hero-bar-fill"></div></div>
     <div class="hero-bar" data-idx="1"><div class="hero-bar-fill"></div></div>
-    <div class="hero-bar" data-idx="2"><div class="hero-bar-fill"></div></div>
   </div>
 
   <!-- Arrows -->
@@ -450,8 +432,8 @@ textarea.form-input{resize:vertical;min-height:100px}
       <div class="impact-lbl" data-pt="Compostável industrialmente (EN 13432)" data-en="Industrially compostable (EN 13432)">Compostável industrialmente (EN 13432)</div>
     </div>
     <div class="impact-item reveal rd3">
-      <div class="impact-val"><span class="counter" data-target="3" data-suffix="">0</span></div>
-      <div class="impact-lbl" data-pt="Linhas de produto em mercados distintos" data-en="Product lines in distinct markets">Linhas de produto em mercados distintos</div>
+      <div class="impact-val"><span class="counter" data-target="5" data-suffix="">0</span></div>
+      <div class="impact-lbl" data-pt="Formulações LIQUID WOOD validadas em lab" data-en="LIQUID WOOD formulations validated in lab">Formulações LIQUID WOOD validadas em lab</div>
     </div>
   </div>
 </section>
@@ -461,11 +443,11 @@ textarea.form-input{resize:vertical;min-height:100px}
   <div class="sobre-grid">
     <div class="sobre-text reveal">
       <span class="sec-tag" data-pt="A Nossa Origem" data-en="Our Origin">A Nossa Origem</span>
-      <h2 class="sec-h sec-h--lg" data-pt="Tudo começou no oceano." data-en="It all started in the ocean.">Tudo começou no oceano.</h2>
-      <p class="sec-body" data-pt="O ponto de partida foi o surf e um desafio concreto: desenvolver uma prancha completamente livre de materiais tóxicos e não biodegradáveis, sem comprometer desempenho nem durabilidade." data-en="The starting point was surfing and a concrete challenge: develop a board completely free of toxic and non-biodegradable materials, without compromising performance or durability.">O ponto de partida foi o surf e um desafio concreto: desenvolver uma prancha completamente livre de materiais tóxicos e não biodegradáveis, sem comprometer desempenho nem durabilidade.</p>
-      <blockquote class="sobre-quote" data-pt="Essa prancha bio tornou-se a prova de conceito de uma tecnologia mais ampla — e que hoje alimenta três linhas de produto em mercados distintos." data-en="That bio board became the proof of concept for a broader technology — which today powers three product lines across distinct markets.">Essa prancha bio tornou-se a prova de conceito de uma tecnologia mais ampla — e que hoje alimenta três linhas de produto em mercados distintos.</blockquote>
+      <h2 class="sec-h sec-h--lg" data-pt="Da natureza nasce o material do futuro." data-en="From nature comes the material of the future.">Da natureza nasce o material do futuro.</h2>
+      <p class="sec-body" data-pt="A WACKY WAVES desenvolveu a linha LIQUID WOOD — materiais bio-based concebidos para substituir plásticos, aglomerados e espumas de origem fóssil em aplicações de construção, mobiliário, desporto e indústria automóvel. Todos os produtos são formulados a partir de matérias-primas de origem vegetal e renovável." data-en="WACKY WAVES developed the LIQUID WOOD line — bio-based materials designed to replace plastics, agglomerates and fossil-origin foams in construction, furniture, sports and automotive industry applications. All products are formulated from plant-based and renewable raw materials.">A WACKY WAVES desenvolveu a linha LIQUID WOOD — materiais bio-based concebidos para substituir plásticos, aglomerados e espumas de origem fóssil em aplicações de construção, mobiliário, desporto e indústria automóvel. Todos os produtos são formulados a partir de matérias-primas de origem vegetal e renovável.</p>
+      <blockquote class="sobre-quote" data-pt="Processos desenvolvidos e validados em laboratório próprio. Cinco formulações. Uma missão: tornar o bio-based a opção técnica e economicamente superior." data-en="Processes developed and validated in our own laboratory. Five formulations. One mission: making bio-based the technically and economically superior option.">Processos desenvolvidos e validados em laboratório próprio. Cinco formulações. Uma missão: tornar o bio-based a opção técnica e economicamente superior.</blockquote>
       <div class="cta-row">
-        <a href="#produtos" class="btn-fill" data-pt="Ver as Linhas de Produto" data-en="See Product Lines">Ver as Linhas de Produto</a>
+        <a href="#produtos" class="btn-fill" data-pt="Ver Linha LIQUID WOOD" data-en="See LIQUID WOOD Line">Ver Linha LIQUID WOOD</a>
         <a href="#contacto" class="btn-border" data-pt="Falar Connosco" data-en="Talk to Us">Falar Connosco</a>
       </div>
     </div>
@@ -497,7 +479,7 @@ textarea.form-input{resize:vertical;min-height:100px}
           <div class="tech-title" data-pt="Origem Bio e Renovável" data-en="Bio and Renewable Origin">Origem Bio e Renovável</div>
           <div class="tech-body" data-pt="Matérias-primas de recursos renováveis ou resíduos industriais e agrícolas valorizados. Zero dependência de derivados petroquímicos. Tecnologia proprietária — segredo de negócio em processo de registo de patente." data-en="Raw materials from renewable resources or valorized industrial and agricultural waste. Zero dependence on petrochemical derivatives. Proprietary technology — trade secret in patent registration process.">Matérias-primas de recursos renováveis ou resíduos industriais e agrícolas valorizados. Zero dependência de derivados petroquímicos. Tecnologia proprietária — segredo de negócio em processo de registo de patente.</div>
         </div>
-        <div class="tech-specs" data-pt="EN 16785&#10;Bio-based &gt;80%&#10;Rastreável da origem" data-en="EN 16785&#10;Bio-based >80%&#10;Origin traceable">EN 16785<br>Bio-based &gt;80%<br>Rastreável da origem</div>
+        <div class="tech-specs" data-pt="ASTM D6866&#10;EN 16640&#10;EN 16785&#10;Rastreável da origem" data-en="ASTM D6866&#10;EN 16640&#10;EN 16785&#10;Origin traceable">ASTM D6866<br>EN 16640<br>EN 16785<br>Rastreável da origem</div>
       </div>
       <div class="tech-row reveal rd1">
         <div class="tech-num">02</div>
@@ -517,6 +499,8 @@ textarea.form-input{resize:vertical;min-height:100px}
       </div>
     </div>
     <div class="pills-row reveal" style="margin-top:3rem">
+      <span class="pill pill--dark">ASTM D6866</span>
+      <span class="pill pill--dark">EN 16640</span>
       <span class="pill pill--dark">EN 16785</span>
       <span class="pill pill--dark">EN 13432</span>
       <span class="pill pill--dark" data-pt="Livre VOC" data-en="VOC-Free">Livre VOC</span>
@@ -533,56 +517,86 @@ textarea.form-input{resize:vertical;min-height:100px}
   <div class="sec-inner">
     <div class="prod-header">
       <div class="reveal">
-        <span class="sec-tag" data-pt="As Nossas Linhas" data-en="Our Lines">As Nossas Linhas</span>
-        <h2 class="sec-h sec-h--lg" data-pt="Uma base tecnológica,<br>três mercados em crescimento" data-en="One technology base,<br>three growing markets">Uma base tecnológica,<br>três mercados em crescimento</h2>
+        <span class="sec-tag" data-pt="Linha LIQUID WOOD" data-en="LIQUID WOOD Line">Linha LIQUID WOOD</span>
+        <h2 class="sec-h sec-h--lg" data-pt="Materiais do Futuro,<br>Feitos da Natureza" data-en="Materials of the Future,<br>Made from Nature">Materiais do Futuro,<br>Feitos da Natureza</h2>
       </div>
-      <p class="reveal rd1" data-pt="A mesma inovação de materiais aplicada a contextos radicalmente diferentes — com a mesma exigência de desempenho, rastreabilidade e impacto ambiental positivo." data-en="The same materials innovation applied to radically different contexts — with the same demand for performance, traceability and positive environmental impact.">A mesma inovação de materiais aplicada a contextos radicalmente diferentes — com a mesma exigência de desempenho, rastreabilidade e impacto ambiental positivo.</p>
+      <p class="reveal rd1" data-pt="Cinco formulações bio-based validadas em laboratório próprio, concebidas para substituir plásticos, aglomerados e espumas de origem fóssil em construção, mobiliário, desporto e indústria automóvel." data-en="Five bio-based formulations validated in proprietary laboratory, designed to replace plastics, agglomerates and fossil-origin foams in construction, furniture, sports and automotive industry.">Cinco formulações bio-based validadas em laboratório próprio, concebidas para substituir plásticos, aglomerados e espumas de origem fóssil em construção, mobiliário, desporto e indústria automóvel.</p>
     </div>
   </div>
   <div class="prod-grid">
     <div class="prod-card reveal">
       <div class="prod-img img-ph">
         <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <span class="img-ph-label" data-pt="Fotografia — Prancha de Surf bio" data-en="Photography — Bio Surfboard">Fotografia<br>Prancha de Surf bio</span>
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <span class="img-ph-label">Fotografia<br>Painel OSB Bio</span>
         </div>
       </div>
       <div class="prod-body">
-        <span class="prod-cat" data-pt="Linha 1 · Desportos Aquáticos" data-en="Line 1 · Aquatic Sports">Linha 1 · Desportos Aquáticos</span>
-        <h3 class="prod-title" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</h3>
-        <p class="prod-desc" data-pt="Espuma bio expandida, fibras vegetais e verniz bicomponente sem solventes. Desempenho equivalente ao epóxi convencional, zero petroquímico." data-en="Expanded bio foam, plant fibers and solvent-free two-component varnish. Performance equivalent to conventional epoxy, zero petrochemicals.">Espuma bio expandida, fibras vegetais e verniz bicomponente sem solventes. Desempenho equivalente ao epóxi convencional, zero petroquímico.</p>
-        <div class="prod-items" data-pt="Pranchas de Surf · Bodyboard · SUP" data-en="Surfboards · Bodyboard · SUP">Pranchas de Surf · Bodyboard · SUP</div>
-        <a href="/desporto" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
+        <span class="prod-cat">F10 · Painel Compósito</span>
+        <h3 class="prod-title" data-pt="Painel OSB Bio" data-en="Bio OSB Panel">Painel OSB Bio</h3>
+        <p class="prod-desc" data-pt="Painel compósito lignocelulósico bio-based, alternativa sustentável aos painéis OSB convencionais. Combina resistência estrutural, leveza e identidade de origem 100% natural." data-en="Bio-based lignocellulosic composite panel, sustainable alternative to conventional OSB panels. Combines structural resistance, lightness and 100% natural origin identity.">Painel compósito lignocelulósico bio-based, alternativa sustentável aos painéis OSB convencionais. Combina resistência estrutural, leveza e identidade de origem 100% natural.</p>
+        <div class="prod-items" data-pt="Divisórias · Revestimentos · Teto Falso · Pavimentos · Mobiliário · Automóvel" data-en="Partitions · Cladding · False Ceiling · Flooring · Furniture · Automotive">Divisórias · Revestimentos · Teto Falso · Pavimentos · Mobiliário · Automóvel</div>
+        <a href="#contacto" class="link-arr" data-pt="Pedir Amostra →" data-en="Request Sample →">Pedir Amostra →</a>
       </div>
     </div>
     <div class="prod-card reveal rd1">
       <div class="prod-img img-ph">
         <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <span class="img-ph-label" data-pt="Fotografia — Painel Bio Estrutural" data-en="Photography — Bio Structural Panel">Fotografia<br>Painel Bio Estrutural</span>
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <span class="img-ph-label">Fotografia<br>Painel Estrutural LW</span>
         </div>
       </div>
       <div class="prod-body">
-        <span class="prod-cat" data-pt="Linha 2 · Bio Construção" data-en="Line 2 · Bio Construction">Linha 2 · Bio Construção</span>
-        <h3 class="prod-title" data-pt="Bio Construção" data-en="Bio Construction">Bio Construção</h3>
-        <p class="prod-desc" data-pt="Painéis e blocos bio para construção de baixo carbono. Isolamento térmico e acústico superior. Alinhado com EU Taxonomy, BREEAM e LEED." data-en="Bio panels and blocks for low-carbon construction. Superior thermal and acoustic insulation. Aligned with EU Taxonomy, BREEAM and LEED.">Painéis e blocos bio para construção de baixo carbono. Isolamento térmico e acústico superior. Alinhado com EU Taxonomy, BREEAM e LEED.</p>
-        <div class="prod-items" data-pt="Painéis estruturais · Placas eco · Blocos de isolamento" data-en="Structural panels · Eco boards · Insulation blocks">Painéis estruturais · Placas eco · Blocos de isolamento</div>
-        <a href="/construcao" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
+        <span class="prod-cat">F4-H · Compósito Estrutural</span>
+        <h3 class="prod-title" data-pt="Painel Estrutural LW" data-en="LW Structural Panel">Painel Estrutural LW</h3>
+        <p class="prod-desc" data-pt="Compósito estrutural leve de alta versatilidade produzido a partir de pellets Liquid Wood. Elevado desempenho para aplicações que exigem rigidez, leveza e moldabilidade." data-en="Lightweight structural composite of high versatility produced from Liquid Wood pellets. High performance for applications requiring rigidity, lightness and mouldability.">Compósito estrutural leve de alta versatilidade produzido a partir de pellets Liquid Wood. Elevado desempenho para aplicações que exigem rigidez, leveza e moldabilidade.</p>
+        <div class="prod-items" data-pt="Painéis de Construção · Quilheiros · Inserts · Componentes de Surf · Peças Técnicas" data-en="Construction Panels · Fin Boxes · Inserts · Surf Components · Technical Parts">Painéis de Construção · Quilheiros · Inserts · Componentes de Surf · Peças Técnicas</div>
+        <a href="#contacto" class="link-arr" data-pt="Pedir Amostra →" data-en="Request Sample →">Pedir Amostra →</a>
       </div>
     </div>
     <div class="prod-card reveal rd2">
       <div class="prod-img img-ph">
         <div class="img-ph-inner">
-          <div class="img-ph-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
-          <span class="img-ph-label" data-pt="Fotografia — Armações de Óculos bio" data-en="Photography — Bio Eyewear Frames">Fotografia<br>Armações de Óculos bio</span>
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h3l2-4h8l2 4h3a1 1 0 0 1 1 1v2a8 8 0 0 1-16 0V8a1 1 0 0 1 1-1Z"/></svg></div>
+          <span class="img-ph-label">Fotografia<br>Espuma Estrutural Exterior</span>
         </div>
       </div>
       <div class="prod-body">
-        <span class="prod-cat" data-pt="Linha 3 · Moda Circular" data-en="Line 3 · Circular Fashion">Linha 3 · Moda Circular</span>
-        <h3 class="prod-title" data-pt="Moda & Acessórios" data-en="Fashion & Accessories">Moda & Acessórios</h3>
-        <p class="prod-desc" data-pt="Armações 100% bio de fibra de madeira natural. Rastreável da origem ao fim de vida. Zero petroquímico, certificável como bio-based (EN 16785)." data-en="100% bio frames of natural wood fiber. Traceable from origin to end-of-life. Zero petrochemicals, certifiable as bio-based (EN 16785).">Armações 100% bio de fibra de madeira natural. Rastreável da origem ao fim de vida. Zero petroquímico, certificável como bio-based (EN 16785).</p>
-        <div class="prod-items" data-pt="Armações de óculos · Acessórios circulares" data-en="Eyewear frames · Circular accessories">Armações de óculos · Acessórios circulares</div>
-        <a href="/moda" class="link-arr" data-pt="Ver Segmento →" data-en="View Segment →">Ver Segmento →</a>
+        <span class="prod-cat">F11 · Espuma Bio</span>
+        <h3 class="prod-title" data-pt="Espuma Estrutural Exterior Bio" data-en="Bio Exterior Structural Foam">Espuma Estrutural Exterior Bio</h3>
+        <p class="prod-desc" data-pt="Espuma bio-based de alta resistência mecânica para a camada estrutural exterior de pranchas de surf, bodyboard e SUP. Desempenho equivalente às espumas sintéticas, com base vegetal certificável." data-en="High mechanical resistance bio-based foam for the outer structural layer of surfboards, bodyboard and SUP. Performance equivalent to synthetic foams, with certifiable plant-based composition.">Espuma bio-based de alta resistência mecânica para a camada estrutural exterior de pranchas de surf, bodyboard e SUP. Desempenho equivalente às espumas sintéticas, com base vegetal certificável.</p>
+        <div class="prod-items" data-pt="Pranchas de Surf · Bodyboard · SUP" data-en="Surfboards · Bodyboard · SUP">Pranchas de Surf · Bodyboard · SUP</div>
+        <a href="#contacto" class="link-arr" data-pt="Pedir Amostra →" data-en="Request Sample →">Pedir Amostra →</a>
+      </div>
+    </div>
+    <div class="prod-card reveal">
+      <div class="prod-img img-ph">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+          <span class="img-ph-label">Fotografia<br>Espuma Semirrígida</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <span class="prod-cat">F13 · Espuma Semirrígida</span>
+        <h3 class="prod-title" data-pt="Espuma Semirrígida Liquid Wood" data-en="Liquid Wood Semi-rigid Foam">Espuma Semirrígida Liquid Wood</h3>
+        <p class="prod-desc" data-pt="Espuma polimérica bio-based semirrígida, validada para painéis de isolamento, bodyboard, SUP e blocos eco. Leve, estável e de fácil processamento." data-en="Semi-rigid bio-based polymer foam, validated for insulation panels, bodyboard, SUP and eco blocks. Light, stable and easy to process.">Espuma polimérica bio-based semirrígida, validada para painéis de isolamento, bodyboard, SUP e blocos eco. Leve, estável e de fácil processamento.</p>
+        <div class="prod-items" data-pt="Isolamento · Bodyboard · SUP · Blocos Eco" data-en="Insulation · Bodyboard · SUP · Eco Blocks">Isolamento · Bodyboard · SUP · Blocos Eco</div>
+        <a href="#contacto" class="link-arr" data-pt="Pedir Amostra →" data-en="Request Sample →">Pedir Amostra →</a>
+      </div>
+    </div>
+    <div class="prod-card reveal rd1">
+      <div class="prod-img img-ph">
+        <div class="img-ph-inner">
+          <div class="img-ph-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <span class="img-ph-label">Fotografia<br>Espuma de Madeira Rígida</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <span class="prod-cat">F14-H · Espuma Rígida</span>
+        <h3 class="prod-title" data-pt="Espuma de Madeira Rígida" data-en="Rigid Wood Foam">Espuma de Madeira Rígida</h3>
+        <p class="prod-desc" data-pt="Espuma rígida com fração lignocelulósica vegetal que combina o comportamento de espuma técnica com a textura de madeira. Para blocos eco, mobiliário, construção leve e substituição de plásticos industriais." data-en="Rigid foam with plant lignocellulosic fraction combining technical foam behaviour with wood texture. For eco blocks, furniture, light construction and industrial plastic replacement.">Espuma rígida com fração lignocelulósica vegetal que combina o comportamento de espuma técnica com a textura de madeira. Para blocos eco, mobiliário, construção leve e substituição de plásticos industriais.</p>
+        <div class="prod-items" data-pt="Blocos Eco · Mobiliário · Construção Leve · Indústria · Design" data-en="Eco Blocks · Furniture · Light Construction · Industry · Design">Blocos Eco · Mobiliário · Construção Leve · Indústria · Design</div>
+        <a href="#contacto" class="link-arr" data-pt="Pedir Amostra →" data-en="Request Sample →">Pedir Amostra →</a>
       </div>
     </div>
   </div>
@@ -672,20 +686,20 @@ textarea.form-input{resize:vertical;min-height:100px}
   <div class="sec-inner">
     <div class="certs-layout">
       <div class="reveal">
-        <span class="sec-tag" data-pt="Conformidade" data-en="Compliance">Conformidade</span>
-        <h2 class="sec-h sec-h--md" data-pt="Alinhamento com normas europeias" data-en="Alignment with European standards">Alinhamento com normas europeias</h2>
-        <p class="sec-body" style="margin-top:1rem" data-pt="Todos os nossos materiais são desenvolvidos com alinhamento às normas europeias de bio-based content e compostabilidade, garantindo rastreabilidade e verificabilidade para os nossos clientes B2B." data-en="All our materials are developed in alignment with European standards for bio-based content and compostability, ensuring traceability and verifiability for our B2B customers.">Todos os nossos materiais são desenvolvidos com alinhamento às normas europeias de bio-based content e compostabilidade, garantindo rastreabilidade e verificabilidade para os nossos clientes B2B.</p>
+        <span class="sec-tag" data-pt="Certificações" data-en="Certifications">Certificações</span>
+        <h2 class="sec-h sec-h--md" data-pt="Transparência e rastreabilidade verificáveis" data-en="Verifiable transparency and traceability">Transparência e rastreabilidade verificáveis</h2>
+        <p class="sec-body" style="margin-top:1rem" data-pt="Todos os produtos LIQUID WOOD estão em processo de certificação de conteúdo bio-based pelas normas internacionais ASTM D6866, EN 16640 e EN 16785, garantindo transparência, rastreabilidade e credibilidade técnica para compradores, parceiros e mercados exigentes." data-en="All LIQUID WOOD products are in the process of bio-based content certification under international standards ASTM D6866, EN 16640 and EN 16785, ensuring transparency, traceability and technical credibility for buyers, partners and demanding markets.">Todos os produtos LIQUID WOOD estão em processo de certificação de conteúdo bio-based pelas normas internacionais ASTM D6866, EN 16640 e EN 16785, garantindo transparência, rastreabilidade e credibilidade técnica para compradores, parceiros e mercados exigentes.</p>
       </div>
       <div class="reveal rd1">
         <table class="certs-table">
           <thead><tr><th data-pt="Certificação / Norma" data-en="Certification / Standard">Certificação / Norma</th><th data-pt="Estado" data-en="Status">Estado</th></tr></thead>
           <tbody>
-            <tr><td>Bio-based content (EN 16785), &gt;80%</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
-            <tr><td data-pt="Biodegradável (EN 13432)" data-en="Biodegradable (EN 13432)">Biodegradável (EN 13432)</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
-            <tr><td data-pt="Compostável industrialmente" data-en="Industrially compostable">Compostável industrialmente</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
+            <tr><td>Bio-based carbon content (ASTM D6866)</td><td><span class="cert-ok" data-pt="Em certificação" data-en="In certification">Em certificação</span></td></tr>
+            <tr><td>Bio-based content — materiais (EN 16640)</td><td><span class="cert-ok" data-pt="Em certificação" data-en="In certification">Em certificação</span></td></tr>
+            <tr><td>Bio-based content — produtos (EN 16785)</td><td><span class="cert-ok" data-pt="Em certificação" data-en="In certification">Em certificação</span></td></tr>
+            <tr><td data-pt="Compostável industrialmente (EN 13432)" data-en="Industrially compostable (EN 13432)">Compostável industrialmente (EN 13432)</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
             <tr><td data-pt="Livre de VOC" data-en="VOC-Free">Livre de VOC</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
             <tr><td data-pt="Isento de formaldeído" data-en="Formaldehyde-free">Isento de formaldeído</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
-            <tr><td data-pt="Resíduos valorizados" data-en="Valorized waste">Resíduos valorizados</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
             <tr><td data-pt="Economia circular (EU Taxonomy)" data-en="Circular economy (EU Taxonomy)">Economia circular (EU Taxonomy)</td><td><span class="cert-ok" data-pt="Aplicável" data-en="Applicable">Aplicável</span></td></tr>
           </tbody>
         </table>
@@ -755,7 +769,7 @@ textarea.form-input{resize:vertical;min-height:100px}
       <a href="#hero" style="text-decoration:none">
         <img src="logo_wackywaves.png" alt="Wacky Waves" style="height:48px;width:auto;filter:brightness(0) invert(1)">
       </a>
-      <p class="footer-tagline" data-pt="Startup portuguesa de eco-materiais de nova geração com base tecnológica bio de ciclo fechado." data-en="Portuguese startup of new-generation eco-materials with closed-loop bio technology base.">Startup portuguesa de eco-materiais de nova geração com base tecnológica bio de ciclo fechado.</p>
+      <p class="footer-tagline" data-pt="Desenvolvemos a linha LIQUID WOOD — materiais bio-based que substituem plásticos e espumas fósseis em construção, mobiliário, desporto e indústria." data-en="We develop the LIQUID WOOD line — bio-based materials replacing plastics and fossil foams in construction, furniture, sports and industry.">Desenvolvemos a linha LIQUID WOOD — materiais bio-based que substituem plásticos e espumas fósseis em construção, mobiliário, desporto e indústria.</p>
       <div class="footer-socials">
         <a href="#" class="soc" aria-label="LinkedIn">in</a>
         <a href="#" class="soc" aria-label="Instagram">ig</a>

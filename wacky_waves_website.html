@@ -151,13 +151,15 @@ button{border:none;cursor:pointer;font-family:inherit}
 
 /* ── ABOUT ── */
 #sobre{background:var(--white)}
-.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:100%;align-items:stretch}
-.sobre-text{padding:6rem 6rem 6rem 8%}
-.sobre-text .sec-h--lg{margin:1rem 0 2rem}
-.sobre-text .sec-body{margin-bottom:1.5rem}
-.sobre-quote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;line-height:1.5;color:var(--black);border-left:3px solid var(--cyan);padding-left:1.75rem;margin:2rem 0}
-.sobre-img{min-height:520px;flex:1}
-@media(max-width:900px){.sobre-grid{grid-template-columns:1fr}.sobre-text{padding:4rem 8%}.sobre-img{min-height:320px}}
+.sobre-inner{max-width:1160px;margin:0 auto;padding:6rem clamp(1.5rem,8%,6rem)}
+.sobre-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin:2rem 0 3rem}
+.sobre-quote{font-family:var(--ff-d);font-style:italic;font-size:clamp(1.1rem,2vw,1.35rem);font-weight:700;line-height:1.55;color:var(--black);border-left:3px solid var(--cyan);padding-left:1.75rem;margin:0}
+.sobre-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.07);margin-top:3.5rem}
+.sobre-pillar{background:var(--bg-light);padding:2rem 1.75rem}
+.sobre-pillar-num{font-family:var(--ff-d);font-size:2rem;font-weight:900;color:var(--cyan);letter-spacing:-.03em;line-height:1;margin-bottom:.5rem}
+.sobre-pillar-title{font-family:var(--ff-d);font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--black);margin-bottom:.5rem}
+.sobre-pillar-body{font-size:.88rem;color:rgba(0,0,0,.52);line-height:1.65}
+@media(max-width:900px){.sobre-intro{grid-template-columns:1fr;gap:2rem}.sobre-pillars{grid-template-columns:1fr}}
 
 /* ── TECHNOLOGY ── */
 #tecnologia{background:var(--bg-dark)}
@@ -443,25 +445,34 @@ textarea.form-input{resize:vertical;min-height:100px}
 </section>
 
 <!-- ══ ABOUT ══ -->
-<section id="sobre" style="padding:0">
-  <div class="sobre-grid">
-    <div class="sobre-text reveal">
-      <span class="sec-tag" data-pt="A Nossa Origem" data-en="Our Origin">A Nossa Origem</span>
-      <h2 class="sec-h sec-h--lg" data-pt="Da natureza nasce o material do futuro." data-en="From nature comes the material of the future.">Da natureza nasce o material do futuro.</h2>
-      <p class="sec-body" data-pt="A WACKY WAVES desenvolveu a linha LIQUID WOOD — materiais bio-based concebidos para substituir plásticos, aglomerados e espumas de origem fóssil em aplicações de construção, mobiliário, desporto e indústria automóvel. Todos os produtos são formulados a partir de matérias-primas de origem vegetal e renovável." data-en="WACKY WAVES developed the LIQUID WOOD line — bio-based materials designed to replace plastics, agglomerates and fossil-origin foams in construction, furniture, sports and automotive industry applications. All products are formulated from plant-based and renewable raw materials.">A WACKY WAVES desenvolveu a linha LIQUID WOOD — materiais bio-based concebidos para substituir plásticos, aglomerados e espumas de origem fóssil em aplicações de construção, mobiliário, desporto e indústria automóvel. Todos os produtos são formulados a partir de matérias-primas de origem vegetal e renovável.</p>
-      <blockquote class="sobre-quote" data-pt="Processos desenvolvidos e validados em laboratório próprio. Cinco formulações. Uma missão: tornar o bio-based a opção técnica e economicamente superior." data-en="Processes developed and validated in our own laboratory. Five formulations. One mission: making bio-based the technically and economically superior option.">Processos desenvolvidos e validados em laboratório próprio. Cinco formulações. Uma missão: tornar o bio-based a opção técnica e economicamente superior.</blockquote>
-      <div class="cta-row">
-        <a href="#produtos" class="btn-fill" data-pt="Ver Linha LIQUID WOOD" data-en="See LIQUID WOOD Line">Ver Linha LIQUID WOOD</a>
-        <a href="#contacto" class="btn-border" data-pt="Falar Connosco" data-en="Talk to Us">Falar Connosco</a>
+<section id="sobre">
+  <div class="sobre-inner">
+    <span class="sec-tag reveal" data-pt="A Nossa Origem" data-en="Our Origin">A Nossa Origem</span>
+    <h2 class="sec-h sec-h--lg reveal rd1" style="margin:1rem 0 0" data-pt="Da natureza nasce o material do futuro." data-en="From nature comes the material of the future.">Da natureza nasce o material do futuro.</h2>
+    <div class="sobre-intro reveal rd1">
+      <p class="sec-body" style="margin:0" data-pt="A WACKY WAVES desenvolveu a linha LIQUID WOOD — materiais bio-based concebidos para substituir plásticos, aglomerados e espumas de origem fóssil em aplicações de construção, mobiliário, desporto e indústria automóvel. Todos os produtos são formulados a partir de matérias-primas de origem vegetal e renovável, com processos desenvolvidos e validados em laboratório próprio." data-en="WACKY WAVES developed the LIQUID WOOD line — bio-based materials designed to replace plastics, agglomerates and fossil-origin foams in construction, furniture, sports and automotive industry applications. All products are formulated from plant-based and renewable raw materials, with processes developed and validated in our own laboratory.">A WACKY WAVES desenvolveu a linha LIQUID WOOD — materiais bio-based concebidos para substituir plásticos, aglomerados e espumas de origem fóssil em aplicações de construção, mobiliário, desporto e indústria automóvel. Todos os produtos são formulados a partir de matérias-primas de origem vegetal e renovável, com processos desenvolvidos e validados em laboratório próprio.</p>
+      <blockquote class="sobre-quote" data-pt="Cinco formulações. Uma missão: tornar o bio-based a opção técnica e economicamente superior para quem constrói, produz e projeta." data-en="Five formulations. One mission: making bio-based the technically and economically superior option for those who build, produce and design.">Cinco formulações. Uma missão: tornar o bio-based a opção técnica e economicamente superior para quem constrói, produz e projeta.</blockquote>
+    </div>
+    <div class="sobre-pillars">
+      <div class="sobre-pillar reveal">
+        <div class="sobre-pillar-num">100%</div>
+        <div class="sobre-pillar-title" data-pt="Origem Vegetal" data-en="Plant Origin">Origem Vegetal</div>
+        <p class="sobre-pillar-body" data-pt="Matérias-primas de origem vegetal e renovável. Zero dependência de derivados petroquímicos." data-en="Raw materials of plant and renewable origin. Zero dependence on petrochemical derivatives.">Matérias-primas de origem vegetal e renovável. Zero dependência de derivados petroquímicos.</p>
+      </div>
+      <div class="sobre-pillar reveal rd1">
+        <div class="sobre-pillar-num">5</div>
+        <div class="sobre-pillar-title" data-pt="Formulações Validadas" data-en="Validated Formulations">Formulações Validadas</div>
+        <p class="sobre-pillar-body" data-pt="Desenvolvidas e validadas em laboratório próprio, cobrindo construção, desporto, mobiliário e indústria." data-en="Developed and validated in our own laboratory, covering construction, sports, furniture and industry.">Desenvolvidas e validadas em laboratório próprio, cobrindo construção, desporto, mobiliário e indústria.</p>
+      </div>
+      <div class="sobre-pillar reveal rd2">
+        <div class="sobre-pillar-num">3×</div>
+        <div class="sobre-pillar-title" data-pt="Normas Internacionais" data-en="International Standards">Normas Internacionais</div>
+        <p class="sobre-pillar-body" data-pt="Em processo de certificação ASTM D6866, EN 16640 e EN 16785 — transparência e rastreabilidade verificáveis." data-en="In certification process ASTM D6866, EN 16640 and EN 16785 — verifiable transparency and traceability.">Em processo de certificação ASTM D6866, EN 16640 e EN 16785 — transparência e rastreabilidade verificáveis.</p>
       </div>
     </div>
-    <div class="sobre-img img-ph reveal rd1">
-      <div class="img-ph-inner">
-        <div class="img-ph-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <span class="img-ph-label" data-pt="Fotografia — Laboratório ou Equipa" data-en="Photography — Lab or Team">Fotografia<br>Laboratório ou Equipa</span>
-      </div>
+    <div class="cta-row reveal" style="margin-top:3rem">
+      <a href="#produtos" class="btn-fill" data-pt="Ver Linha LIQUID WOOD" data-en="See LIQUID WOOD Line">Ver Linha LIQUID WOOD</a>
+      <a href="#contacto" class="btn-border" data-pt="Falar Connosco" data-en="Talk to Us">Falar Connosco</a>
     </div>
   </div>
 </section>

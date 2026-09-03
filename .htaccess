@@ -1,0 +1,58 @@
+# ══════════════════════════════════════════════════════════════════════
+# Wacky Waves — configuração Apache (Hostinger)
+#
+# Replica o roteamento que o vercel.json fazia na Vercel. O vercel.json
+# fica no repositório para um eventual regresso, mas é ignorado aqui.
+# ══════════════════════════════════════════════════════════════════════
+
+DirectoryIndex index.html
+
+# Sem listagem de diretórios quando não há ficheiro de índice.
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # ── HTTPS forçado ───────────────────────────────────────────────────
+  # As duas condições têm de falhar em conjunto para haver redireção.
+  # Na Hostinger o TLS termina num proxy: %{HTTPS} pode vir "off" mesmo
+  # em pedidos seguros, e testá-lo sozinho criaria um ciclo de redirects.
+  # O X-Forwarded-Proto é a fonte fiável nesse cenário.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # ── Compatibilidade com o URL antigo da página principal ────────────
+  # Redirect visível (301) para consolidar SEO num único endereço.
+  RewriteRule ^wacky_waves_website\.html$ / [L,R=301]
+
+  # ── Rotas limpas (equivalentes aos rewrites do vercel.json) ─────────
+  # Reescrita interna: a barra de endereço mantém /construcao.
+  RewriteRule ^construcao/?$    lp-construcao.html [L]
+  RewriteRule ^desporto/?$      lp-desporto.html   [L]
+  RewriteRule ^moda/?$          lp-moda.html       [L]
+  RewriteRule ^lp-construcao/?$ lp-construcao.html [L]
+  RewriteRule ^lp-desporto/?$   lp-desporto.html   [L]
+  RewriteRule ^lp-moda/?$       lp-moda.html       [L]
+
+  # ── Catch-all para a página principal ───────────────────────────────
+  # Só actua quando não existe ficheiro nem pasta com o nome pedido, pelo
+  # que o acesso directo a .html, .jpeg, .png e .mp4 continua intacto.
+  # Equivale ao { "source": "/(.*)" } do vercel.json, que na Vercel também
+  # só corria depois de falhar a procura no sistema de ficheiros.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ── Ficheiros de configuração não devem ser servidos ──────────────────
+<FilesMatch "^(vercel\.json|\.htaccess|README\.md)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>

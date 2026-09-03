@@ -492,8 +492,9 @@ form{margin-top:2.5rem}
           </div>
         </div>
         <div class="fr full">
-          <div class="fg"><label>Mensagem</label><textarea name="msg" placeholder="Descreva o seu projeto ou pedido..."></textarea></div>
+          <div class="fg"><label>Mensagem</label><textarea name="mensagem" placeholder="Descreva o seu projeto ou pedido..."></textarea></div>
         </div>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
         <button type="submit" class="btn-sub">Enviar Mensagem →</button>
         <p class="f-trust">Respondemos em 48h úteis. Os seus dados não são partilhados com terceiros. Também pode escrever para <a href="mailto:geral@wackywaves.pt">geral@wackywaves.pt</a>.</p>
       </form>
@@ -582,17 +583,50 @@ const co = new IntersectionObserver(entries => {
 document.querySelectorAll('.counter').forEach(el => co.observe(el));
 
 // ── FORM ──
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/geral@wackywaves.pt';
+const PAGINA = 'Desportos Aquáticos';
+
 document.getElementById('lp-form').addEventListener('submit', function(e) {
   e.preventDefault();
+  const form = this, btn = form.querySelector('.btn-sub'), orig = btn.textContent;
   let valid = true;
-  this.querySelectorAll('[required]').forEach(f => {
+  form.querySelectorAll('[required]').forEach(f => {
     f.classList.remove('err');
     if (!f.value.trim()) { f.classList.add('err'); valid = false; }
   });
   if (!valid) return;
-  this.style.display = 'none';
-  document.getElementById('f-ok').classList.add('show');
-  window.scrollTo({top: document.getElementById('form-sec').offsetTop - 80, behavior:'smooth'});
+
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  // honeypot: preenchido apenas por robôs — descarta sem enviar
+  if (data._honey) { form.reset(); return; }
+  delete data._honey;
+
+  data.origem = PAGINA;
+  data._subject = 'Contacto ' + PAGINA + ' — ' + (data.nome || 'sem nome');
+  data._template = 'table';
+  data._captcha = 'false';
+
+  btn.disabled = true;
+  btn.textContent = 'A enviar…';
+
+  fetch(FORM_ENDPOINT, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify(data)
+  })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(() => {
+    form.style.display = 'none';
+    document.getElementById('f-ok').classList.add('show');
+    window.scrollTo({top: document.getElementById('form-sec').offsetTop - 80, behavior:'smooth'});
+  })
+  .catch(() => {
+    btn.disabled = false;
+    btn.style.background = '#dc2626';
+    btn.textContent = 'Erro — escreva para geral@wackywaves.pt';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 5000);
+  });
 });
 </script>
 </body>

@@ -732,21 +732,21 @@ textarea.form-input{resize:vertical;min-height:100px}
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" data-pt="Nome" data-en="Name">Nome</label>
-              <input class="form-input" type="text" placeholder="João Silva" required>
+              <input class="form-input" type="text" name="nome" placeholder="João Silva" required>
             </div>
             <div class="form-group">
               <label class="form-label" data-pt="Email" data-en="Email">Email</label>
-              <input class="form-input" type="email" placeholder="joao@empresa.pt" required>
+              <input class="form-input" type="email" name="email" placeholder="joao@empresa.pt" required>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" data-pt="Empresa" data-en="Company">Empresa</label>
-              <input class="form-input" type="text" placeholder="Empresa, Lda.">
+              <input class="form-input" type="text" name="empresa" placeholder="Empresa, Lda.">
             </div>
             <div class="form-group">
               <label class="form-label" data-pt="Segmento" data-en="Segment">Segmento</label>
-              <select class="form-input">
+              <select class="form-input" name="segmento">
                 <option value="">—</option>
                 <option value="construcao" data-pt="Construção" data-en="Construction">Construção</option>
                 <option value="desporto" data-pt="Desportos Aquáticos" data-en="Aquatic Sports">Desportos Aquáticos</option>
@@ -758,8 +758,9 @@ textarea.form-input{resize:vertical;min-height:100px}
           </div>
           <div class="form-group">
             <label class="form-label" data-pt="Mensagem" data-en="Message">Mensagem</label>
-            <textarea class="form-input" placeholder="Descreva o seu projeto ou pedido..."></textarea>
+            <textarea class="form-input" name="mensagem" placeholder="Descreva o seu projeto ou pedido..."></textarea>
           </div>
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
           <button type="submit" class="btn-submit" data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</button>
         </form>
       </div>
@@ -1106,12 +1107,42 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal, .counter').forEach(el => io.observe(el));
 
 // ── FORM ──
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/geral@wackywaves.pt';
+
 function handleForm(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit'), orig = btn.textContent;
-  btn.textContent = lang === 'pt' ? '\u2713 Mensagem enviada!' : '\u2713 Message sent!';
-  btn.style.background = '#16a34a';
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3000);
+  const form = e.target, btn = form.querySelector('.btn-submit'), orig = btn.textContent;
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  // honeypot: preenchido apenas por rob\u00f4s \u2014 descarta sem enviar
+  if (data._honey) { form.reset(); return; }
+  delete data._honey;
+
+  data._subject = 'Contacto do site \u2014 ' + (data.nome || 'sem nome');
+  data._template = 'table';
+  data._captcha = 'false';
+
+  btn.disabled = true;
+  btn.textContent = lang === 'pt' ? 'A enviar\u2026' : 'Sending\u2026';
+
+  fetch(FORM_ENDPOINT, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify(data)
+  })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(() => {
+    form.reset();
+    btn.textContent = lang === 'pt' ? '\u2713 Mensagem enviada!' : '\u2713 Message sent!';
+    btn.style.background = '#16a34a';
+  })
+  .catch(() => {
+    btn.textContent = lang === 'pt' ? 'Erro \u2014 escreva para geral@wackywaves.pt' : 'Error \u2014 email geral@wackywaves.pt';
+    btn.style.background = '#dc2626';
+  })
+  .finally(() => {
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+  });
 }
 
 // ── SPA ROUTER ──
